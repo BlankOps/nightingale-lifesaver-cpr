@@ -117,6 +117,6 @@ Start by cloning the repository on the production machine: `git clone https://gi
 - If not already done, add a reverse proxy to `localhost:5005` which is the analytics website.
 - Both the analytics website and the chatbot are now available on:
   - analytics: `your-domain.com/`
-  - chatbot: `your-domain.com/api/ask_chatbot`
+  - chatbot: `your-domain.com/api/ask_chatbot`https://cpr-chatbot.nightingale.uni-mainz.de
 
 You can see the current deployed version on: `https://cpr-chatbot.nightingale.uni-mainz.de/`

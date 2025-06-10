@@ -8,7 +8,9 @@ services:
       - run
       - --enable-api
       - --cors
-      - "*"
+      - "http://localhost:3000,http://localhost:8080,https://cpr-chatbot.nightingale.uni-mainz.de"
+    ports:
+      - "5005:5005"
   
   db:
     image: postgres
