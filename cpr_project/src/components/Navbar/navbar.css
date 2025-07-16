@@ -34,6 +34,11 @@
   flex-direction: row;
 }
 
+.btn-style{
+  background: var(--red);
+  text-decoration:none;
+}
+
 .navbar-link-box {
   display: flex;
   flex-direction: row;

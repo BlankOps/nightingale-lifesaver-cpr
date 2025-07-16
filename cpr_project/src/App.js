@@ -7,8 +7,7 @@ import Instructions from './pages/Instructions/Instructions';
 import Instruction from './pages/Instructions/Instruction';
 import Chatbot from "./pages/Chatbot/Chatbot";
 import About from "./pages/About/About"
-import {Routes, Route, Outlet, BrowserRouter } from 'react-router-dom';
-import CPRInstructionData from './data/CPRInstructionData';
+import { Routes, Route, Outlet, BrowserRouter } from 'react-router-dom';
 
 function App() {
 

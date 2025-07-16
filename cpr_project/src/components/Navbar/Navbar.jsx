@@ -23,7 +23,7 @@ const Navbar = () => {
         <Link to="https://nightingale.uni-mainz.de/demos/healthlife" style={{ textDecoration: 'none' }}>
           <button>
             <ChevronLeft style={{ backgroundColor: 'transparent' }} />
-            <span style={{ textDecoration: "none" }}>Return to HealthView</span>
+            <span className="btn-style">Return to HealthLife</span>
           </button>
         </Link>
       </div>
