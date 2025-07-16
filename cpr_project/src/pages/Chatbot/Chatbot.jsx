@@ -13,7 +13,7 @@ const Chatbot = () => {
 	const [chatMessages, setChatMessages] = useState([]);
 	const chatroomRef = useRef(null);
 	const initialMessageSent = useRef(false);
-	const DOMAIN = "https://cpr-chatbot.nightingale.uni-mainz.de"; //https://cpr-chatbot.nightingale.uni-mainz.de ou http://localhost:5005
+	const DOMAIN = "http://localhost:5005"; //https://cpr-chatbot.nightingale.uni-mainz.de ou http://localhost:5005
 	const URL = "/api/ask_chatbot";
 
 	const sendMessage = async (message) => {

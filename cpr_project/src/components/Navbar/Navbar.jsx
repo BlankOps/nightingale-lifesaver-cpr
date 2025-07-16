@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "./navbar.css";
 import { Link } from 'react-router-dom';
+import { ChevronLeft } from "lucide-react"
 
 
 
@@ -16,9 +17,17 @@ const Navbar = () => {
   return (
     <div className='navbar'>
       <div className="navbar-logo-box">
-      <Link to="/"><img src="/images/logo.png" alt="" /></Link>
+        <Link to="/" style={{ height: "100%" }}>
+          <img src="/images/logo.png" alt="" />
+        </Link>
+        <Link to="https://nightingale.uni-mainz.de/demos/healthlife" style={{ textDecoration: 'none' }}>
+          <button>
+            <ChevronLeft style={{ backgroundColor: 'transparent' }} />
+            <span style={{ textDecoration: "none" }}>Return to HealthView</span>
+          </button>
+        </Link>
       </div>
-      
+
       {/* For default screen */}
 
       <div className="navbar-link-box"> {/* Normal navbar links menu */}
@@ -32,7 +41,7 @@ const Navbar = () => {
       {/* For responsive screen */}
 
       <div className="navbar-hamburger" onClick={toggleMenu}> {/* Hamburger menu icon on click open the side menu */}
-        <div className={`bar ${isOpen ? 'open' : ''}`}></div> 
+        <div className={`bar ${isOpen ? 'open' : ''}`}></div>
         <div className={`bar ${isOpen ? 'open' : ''}`}></div>
         <div className={`bar ${isOpen ? 'open' : ''}`}></div>
       </div>
@@ -44,7 +53,7 @@ const Navbar = () => {
         <Link to="/chatbot" className='side-link' onClick={toggleMenu}>Chatbot</Link>
         <Link to="/about" className='side-link' onClick={toggleMenu}>About</Link>
       </div>
-    </div>
+    </div >
   )
 }
 
