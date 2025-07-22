@@ -1,5 +1,6 @@
 import './App.css';
 import Navbar from "./components/Navbar/Navbar";
+import DisclaimerPopup from './components/DisclaimerPopup/DisclaimerPopup';
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
 import Quiz from "./pages/Quiz/Quiz";
@@ -8,8 +9,25 @@ import Instruction from './pages/Instructions/Instruction';
 import Chatbot from "./pages/Chatbot/Chatbot";
 import About from "./pages/About/About"
 import { Routes, Route, Outlet, BrowserRouter } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 function App() {
+
+  //Popup
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    const accepted = localStorage.getItem('disclaimerAcceptedAt');
+    const now = Date.now();
+    if (!accepted || now - parseInt(accepted, 10) > 86400000) {
+      setShowPopup(true);
+    }
+  }, []);
+
+  const handleAccept = () => {
+    localStorage.setItem('disclaimerAcceptedAt', Date.now().toString());
+    setShowPopup(false);
+  };
 
   // To handle the every pages layout
   const Layout = () => {
@@ -22,8 +40,11 @@ function App() {
     );
   };
 
+
   // Routing throuh the pages
   return (
+    <>
+    {showPopup && <DisclaimerPopup onAccept={handleAccept} />}
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -37,6 +58,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+    </>
   );
 }
 
