@@ -2,9 +2,9 @@ name: CI - CPR Monorepo
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
-    branches: [main]
+    branches: [master]
 
 jobs:
   frontend:
@@ -62,4 +62,3 @@ jobs:
 
       - name: Analyse du code (placeholder)
         run: echo "Tests ou lint à ajouter ici"
-
