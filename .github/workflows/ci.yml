@@ -1,0 +1,65 @@
+name: CI - CPR Monorepo
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  frontend:
+    name: Test et build React (cpr_project)
+    runs-on: [self-hosted, nightingale]
+    defaults:
+      run:
+        working-directory: cpr_project
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test -- --watchAll=false
+
+      - name: Build React app
+        run: npm run build
+
+  chatbot:
+    name: Analyse basique du chatbot (cpr-chatbot)
+    runs-on: [self-hosted, nightingale]
+    defaults:
+      run:
+        working-directory: cpr-chatbot
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Liste des fichiers
+        run: ls -la
+
+      - name: Analyse du code (placeholder)
+        run: echo "Tests ou lint à ajouter ici"
+
+  intent-generator:
+    name: Analyse basique de l'intent generator (cpr-chatbot-intent-generator)
+    runs-on: [self-hosted, nightingale]
+    defaults:
+      run:
+        working-directory: cpr-chatbot-intent-generator
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Liste des fichiers
+        run: ls -la
+
+      - name: Analyse du code (placeholder)
+        run: echo "Tests ou lint à ajouter ici"
+
