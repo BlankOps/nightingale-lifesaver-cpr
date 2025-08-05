@@ -9,7 +9,7 @@ on:
 jobs:
   frontend:
     name: Test et build React (cpr_project)
-    runs-on: [self-hosted, nightingale]
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: cpr_project
@@ -33,7 +33,7 @@ jobs:
 
   chatbot:
     name: Analyse basique du chatbot (cpr-chatbot)
-    runs-on: [self-hosted, nightingale]
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: cpr-chatbot
@@ -49,7 +49,7 @@ jobs:
 
   intent-generator:
     name: Analyse basique de l'intent generator (cpr-chatbot-intent-generator)
-    runs-on: [self-hosted, nightingale]
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: cpr-chatbot-intent-generator
