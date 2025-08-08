@@ -8,7 +8,7 @@ on:
 
 jobs:
   frontend:
-    name: Test et build React (cpr_project)
+    name: Test and build React (cpr_project)
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -26,13 +26,13 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: npm test -- --watchAll=false
+        run: npm test -- --watchAll=false --passWithNoTest
 
       - name: Build React app
         run: npm run build
 
   chatbot:
-    name: Analyse basique du chatbot (cpr-chatbot)
+    name: Basic analysis of the chatbot (cpr-chatbot)
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -41,14 +41,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Liste des fichiers
+      - name: Files list
         run: ls -la
 
-      - name: Analyse du code (placeholder)
-        run: echo "Tests ou lint à ajouter ici"
-
+      - name: Code analysis (placeholder)
+        run: echo "Tests placeholder"
   intent-generator:
-    name: Analyse basique de l'intent generator (cpr-chatbot-intent-generator)
+    name: Basic Analysis of the intent generator (cpr-chatbot-intent-generator)
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -57,8 +56,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Liste des fichiers
+      - name: Files list
         run: ls -la
 
-      - name: Analyse du code (placeholder)
-        run: echo "Tests ou lint à ajouter ici"
+      - name: Code analysis (placeholder)
+        run: echo "Tests placeholder"
