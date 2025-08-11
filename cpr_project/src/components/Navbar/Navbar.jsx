@@ -20,7 +20,7 @@ const Navbar = () => {
         <Link to="/" style={{ height: "100%" }}>
           <img src="/images/logo.png" alt="" />
         </Link>
-        <Link to="https://nightingale.uni-mainz.de/demos/healthlife" style={{ textDecoration: 'none' }}>
+        <Link to="https://nightingaleheart.com/demos/healthlife" style={{ textDecoration: 'none' }}>
           <button>
             <ChevronLeft style={{ backgroundColor: 'transparent' }} />
             <span className="btn-style">Return to HealthLife</span>
