@@ -22,14 +22,24 @@ jobs:
         with:
           node-version: 18
 
+      - name: Install ESLint
+        run: npm install --save-dev eslint
+
       - name: Install dependencies
         run: npm ci
+
+      - name: Run lint
+        run: npx eslint src --max-warnings=0 || exit 1
 
       - name: Run tests
         run: npm test -- --watchAll=false --passWithNoTests
 
       - name: Build React app
         run: npm run build
+
+      # [PLACEHOLDER] Uncomment and configure if you add E2E tests (e.g., Cypress)
+      #   name: Run E2E tests
+      #   run: npm run cy:run
 
   chatbot:
     name: Basic analysis of the chatbot (cpr-chatbot)
