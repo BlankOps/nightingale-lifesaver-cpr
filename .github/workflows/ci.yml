@@ -26,7 +26,7 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: npm test -- --watchAll=false --passWithNoTest
+        run: npm test -- --watchAll=false --passWithNoTests
 
       - name: Build React app
         run: npm run build
