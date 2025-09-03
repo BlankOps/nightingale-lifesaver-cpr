@@ -82,7 +82,7 @@ const Quiz = () => {
                 </button>
               ))}
             </div>
-            <button className='button' onClick={handleNext} disabled={selectedAnswer === null}>
+            <button className='button1' onClick={handleNext} disabled={selectedAnswer === null}>
               {currentQuestionIndex === quizData.length - 1 ? 'Finish' : 'Next'}
             </button>
           </div>

@@ -1,13 +1,39 @@
 @import '../../style.css';
 
-.footer{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    border-top: 1px solid var(--red);
-    height: 4vh;
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 32px;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  color: var(--text-light);
+  font-size: 14px;
+  min-height: 80px;
 }
 
+.footer-div {
+  transition: var(--transition);
+}
 
+.footer-div a {
+  color: var(--primary-red);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.footer-div a:hover {
+  color: #B91C1C;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    text-align: center;
+    font-size: 13px;
+  }
+}
