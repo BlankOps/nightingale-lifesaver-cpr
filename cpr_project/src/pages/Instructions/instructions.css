@@ -18,19 +18,21 @@
 }
 
 .card{
-    background-color: var(--red);
-    height: 100%;
+    background-color: var(--white);
+    height: 70%;
     width: 40%;
     border-radius: 20px;
-    color: var(--white);
+    color: var(--text-dark);
     font-weight: bold;
-    font-size: large;
+    font-size: 2rem;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-decoration: none;
     transition: all 0.3s;
+    border: 3px solid var(--primary-red);
+    box-shadow: 0 2px 8px rgba(255, 0, 0, 0.63);
 }
 
 .card:hover{

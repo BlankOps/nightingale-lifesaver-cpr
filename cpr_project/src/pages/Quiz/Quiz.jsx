@@ -52,10 +52,8 @@ const Quiz = () => {
           <button className='start-button' onClick={handleStartQuiz}>Click to Start</button>
         ) : showScore ? (  // If the showscore is true display the result
           <div className='score-div'>
-            <h1>LifeSaver Project</h1>
             <h2>Your Score: {score} / {quizData.length}</h2>
-            <button className='buttonR' onClick={handleStartQuiz}>Restart Quiz</button>
-            <button className='buttonQ' onClick={() => { window.location.href = 'https://lifesaver.nightingale.uni-mainz.de'; }}>Return Home</button>
+            <button className='button' onClick={handleStartQuiz}>Restart Quiz</button>
           </div>
         ) : ( // Else show the current question
           <div className='question-div'>
@@ -76,7 +74,7 @@ const Quiz = () => {
                           ? 'green' // If not make the correct option lightgreen
                           : 'red')  // And the chosen one is red
                         : (selectedAnswer !== null && option === quizData[currentQuestionIndex].correctAnswer
-                          ? 'green' // If the aswer is correct make it green
+                          ? 'lightgreen' // If the aswer is correct make it green
                           : '')
                   }}
                 >
