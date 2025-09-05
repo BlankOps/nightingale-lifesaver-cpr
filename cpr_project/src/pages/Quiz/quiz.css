@@ -86,7 +86,7 @@
     padding: 16px 20px;
     border: 2px solid var(--border);
     background: var(--white);
-    color: var(t--text-dark);
+    color: var(--text-dark);
     border-radius: 8px;
     font-size: 16px;
     font-weight: 500;
@@ -96,11 +96,6 @@
     line-height: 1.4;
 }
 
-.option-button:hover:not(:disabled) {
-  border-color: var(--primary-red);
-  background: #FEF2F2;
-}
-
 .option-button:disabled {
     cursor: not-allowed;
 }
@@ -108,8 +103,8 @@
 .score-div {
     text-align: center;
     padding: 40px;
-    background: var(--primary-green);
-    color: var(--white);
+    background: var(--white);
+    color: var(--black);
     border-radius: var(--border-radius);
     width: 100%;
 }
@@ -122,6 +117,34 @@
 
 .button {
     background: var(--primary-red);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor:pointer;
+    transition: var(--transition);
+    text-align: left;
+    line-height: 1.4;
+}
+
+.buttonR {
+    background: var(--primary-green);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor:pointer;
+    transition: var(--transition);
+    text-align: left;
+    line-height: 1.4;
+    flex-direction: column;
+}
+.buttonQ {
+    background: var(--kk);
     color: var(--white);
     border: none;
     border-radius: 8px;
