@@ -9,7 +9,7 @@
 }
 
 .chatroom-wrapper {
-  height: 80%;
+  height: 100%;
   width: 80%;
   border: 1px solid gray;
   border-radius: 20px;
@@ -47,18 +47,16 @@
 }
 
 .send-message-button {
-  color: white;
-  background-color: red;
-  border: 1px solid red;
-  border-radius: 0 20px 20px 0;
+  background: linear-gradient(135deg, #B91C1C, #B91C1C);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
 }
 
 .send-message-button:hover {
-  background-color: rgb(230, 0, 0);
+  background-color: linear-gradient(135deg, #B91C1C, #B91C1C);
 }
 
 .send-message-button:active {
-  background-color: rgb(210, 0, 0);
+  background-color: linear-gradient(135deg, #B91C1C, #B91C1C);
 }
 
 .icon-send-button {
@@ -67,7 +65,7 @@
 
 .user-message {
   align-self: flex-end;
-  background-color: red;
+  background: linear-gradient(135deg, #B91C1C, #B91C1C);
   color: white;
   padding: 10px 15px;
   border-radius: 20px 20px 0 20px;
@@ -118,71 +116,89 @@
 .chat-button:focus {
   outline: none;
 }
-
 .popup {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.55);
   display: flex;
+  align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 500;
+  backdrop-filter: blur(3px);
+  animation: fadeIn 0.3s ease;
 }
 
 .popup-content {
-  margin-top: 5%;
-  padding: 20px 30px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  padding: 25px 35px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  max-width: 480px;
+  width: 85%;
   text-align: center;
-  max-width: 500px;
-  width: 80%;
-  height: fit-content;
+  animation: slideUp 0.35s ease;
 }
 
 .popup-content p {
   text-align: justify;
-  margin-bottom: 20px;
-  font-size: 1.1em;
-  color: #333;
-  background-color: white;
+  margin-bottom: 22px;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #444;
 }
 
 .popup-content button {
-  padding: 10px 20px;
-  margin: 0 10px;
+  padding: 10px 22px;
+  margin: 0 8px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s;
-  font-size: 1em;
+  transition: all 0.25s ease;
 }
 
 .popup-content button:first-of-type {
-  background-color: red;
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
   color: white;
+  box-shadow: 0 3px 6px rgba(185, 28, 28, 0.3);
 }
 
 .popup-content button:first-of-type:hover {
-  background-color: rgb(230, 0, 0);
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  transform: translateY(-2px);
 }
 
 .popup-content button:first-of-type:active {
-  background-color: rgb(210, 0, 0);
+  background: #991b1b;
+  transform: scale(0.97);
 }
 
 .popup-content button:last-of-type {
-  background-color: #f2f2f2;
-  color: black;
+  background: #f3f4f6;
+  color: #111;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .popup-content button:last-of-type:hover {
-  background-color: #e0e0e0;
+  background: #e5e7eb;
+  transform: translateY(-2px);
 }
 
 .popup-content button:last-of-type:active {
-  background-color: #d0d0d0;
+  background: #d1d5db;
+  transform: scale(0.97);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
