@@ -89,7 +89,7 @@ const Chatbot = () => {
 						<p>
 							Do you agree that we keep your conversation with the chatbot in our database for purely analytical
 							purposes and to improve the chatbot's responses. 
-							Conversations with this chatbot are completelyanonymous and cannot be linked to you in any way.
+							Conversations with this chatbot are completely anonymous and cannot be linked to you in any way.
 						</p>
 						<button onClick={() => handlePopupResponse(true)}>Yes</button>
 						<button onClick={() => handlePopupResponse(false)}>No</button>
