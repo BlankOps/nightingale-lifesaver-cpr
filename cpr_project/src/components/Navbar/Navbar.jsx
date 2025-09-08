@@ -38,7 +38,7 @@ const Navbar = () => {
     <>
       <div className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="navbar-logo-box">
-          <Link to="/" style={{ height: "250%" }}>
+          <Link to="https://nightingaleheart.com" style={{ height: "250%" }}>
             <img src="/images/logo.png" alt="LifeSaver Logo" />
           </Link>
           <Link to="https://nightingaleheart.com/demos/healthlife" style={{ textDecoration: 'none' }}>

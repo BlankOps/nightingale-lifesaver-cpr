@@ -126,8 +126,9 @@ const About = () => {
           </div>
         </div>
       </div>
-
+      <div className="about-end-margin"></div>
     </div>
+    
   )
 }
 
