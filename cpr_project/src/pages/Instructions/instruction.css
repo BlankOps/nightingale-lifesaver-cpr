@@ -84,5 +84,78 @@
 
 .highlight {
   font-weight: bold;
-  color: #8B0000; /* rouge sang foncé */
+  color: #8B0000;
+}
+
+@media (max-width: 768px) {
+  .inst-card {
+    width: 95%;
+    height: auto;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(150, 150, 150, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    box-sizing: border-box;
+  }
+
+  .title-div {
+    margin: 10px 0;
+    padding: 12px 16px;
+    border-radius: 16px;
+    width: 100%;
+    text-align: center;
+    background-color: var(--background);
+    box-shadow: 0 2px 12px rgba(107, 107, 107, 0.15);
+  }
+
+  .title-div h2 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  .title-div p {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    margin: 4px 0;
+  }
+
+  .button-div {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border-radius: 16px;
+    top: 0;
+  }
+
+  .gif-img {
+    max-height: 250px;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+  }
+
+  .highlight {
+    font-weight: bold;
+    color: #8B0000;
+  }
+
+  body, .inst-card-container {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    overflow-y: auto;
+  }
 }
