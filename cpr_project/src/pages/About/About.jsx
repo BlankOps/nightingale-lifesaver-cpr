@@ -127,6 +127,15 @@ const About = () => {
         </div>
       </div>
 
+      <div className="section-container">
+        <div className="mission-content">
+          <p className="mission-text">
+            <strong>Developed by: Océane XIANG &
+            Tony LE TRONG</strong>
+          </p>
+        </div>
+      </div>
+
     </div>
   )
 }

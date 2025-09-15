@@ -89,7 +89,7 @@ const Instruction = () => {
           <h2>Step {InstructionData[currentStep].step}: {InstructionData[currentStep].title}</h2> {/* Title format is 'Step x: x.title' */}
           {/* Render each line of the description separately */}
           {descriptionLines.map((line, index) => (
-            <p key={index}>{line}</p>
+            <p key={index} dangerouslySetInnerHTML={{ __html: line }} />
           ))}
         
         </div>

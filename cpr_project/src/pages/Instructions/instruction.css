@@ -37,7 +37,7 @@
 }
 
 .title-div p{
-    font-size:larger;
+    font-size:25px;
 }
 
 .button-div{
@@ -80,4 +80,9 @@
     box-shadow: none;
     max-height: 400px;
     height: 50%;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #8B0000; /* rouge sang foncé */
 }
