@@ -41,12 +41,6 @@ const Navbar = () => {
           <Link to="https://nightingaleheart.com" style={{ height: "250%" }}>
             <img src="/images/logo.png" alt="LifeSaver Logo" />
           </Link>
-          <Link to="https://nightingaleheart.com/demos/healthlife" style={{ textDecoration: 'none' }}>
-            <button>
-              <ChevronLeft style={{ backgroundColor: 'transparent' }} />
-              <span className="btn-style">Return to HealthLife</span>
-            </button>
-          </Link>
         </div>
 
         <div className="navbar-link-box">

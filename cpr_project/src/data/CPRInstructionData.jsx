@@ -1,44 +1,37 @@
 const CPRInstructionData = [
     {
       step: 1,
-      title: "Recognize Cardiac Arrest",
-      description: "Look for signs such as the victim losing consciousness, falling, and not reacting to stimuli.",
+      description: "<span class='highlight'>Collapse</span> <strong>→</strong> <span class='highlight'>Unresponsive</span> <strong>→</strong> <span class='highlight'>No breathing</span> <strong>=</strong>  <span class='highlight'>Call emergency & start CPR</span><strong>.</strong>",
       url: "../../images/animations/gif1.gif"
     },
     {
       step: 2,
-      title: "Check Breathing",
-      description: "Check if the victim's breathing is non-existent or very irregular.",
+      description: "<strong><span class='highlight'>No breathing</span> or <span class='highlight'>abnormal gasping</span> → Start CPR</strong>",
       url: "../../../images/animations/gif2.gif"
     },
     {
       step: 3,
-      title: "Call Emergency Services",
-      description: "Dial 112. Describe the situation, give the nearest address, tell what has been done, and don't end the call until the operator instructs you to do so.",
+      description: "<strong><span class='highlight'>Call 112</span> → Give situation & location → Follow operator instructions</strong>",
       url: "../../../images/animations/gif7.gif"
     },
     {
       step: 4,
-      title: "Find a Hard Surface",
-      description: "Place the victim on a hard surface.",
+      description: "<strong><span class='highlight'>Place victim on hard surface</span></strong>",
       url: "../../images/animations/gif1.gif"
     },
     {
       step: 5,
-      title: "Place Your Hands",
-      description: "Kneel beside them, and place your hands one on top of the other in the middle of the chest. ",
+      description: "<strong><span class='highlight'>Kneel beside victim</span> → <span class='highlight'>Hands one on top of the other</span> → Middle of chest</strong>",
       url: "../../images/animations/gif5.gif"
     },
     {
       step: 6,
-      title: "Start Compressions",
-      description: "Press with your whole body weight, performing 30 strong compressions at a steady pace, ",
+      description: "<strong><span class='highlight'>30 strong compressions</span> at steady pace → Whole body weight</strong>",
       url: "../../images/animations/gif3.gif"
     },
     {
       step: 7,
-      title: "Breaths",
-      description: "Two breaths can be performed every 30 pressures. Then resume cardiac massage: series of 30 pressures.",
+      description: "<strong><span class='highlight'>2 rescue breaths</span> after 30 compressions → Resume CPR</strong>",
       url: "../../images/animations/gif6.gif"
     },
     // {

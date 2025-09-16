@@ -333,75 +333,151 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 16px;
+    text-align: center;
+  }
+
   .hero-title {
-    font-size: 36px;
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 16px;
   }
-  
+
   .hero-subtitle {
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 90%;
+    margin: 0 auto 32px;
   }
-  
+
   .hero-stats {
     flex-direction: column;
     gap: 24px;
+    margin-top: 32px;
   }
-  
-  .section-title {
+
+  .stat-number {
     font-size: 28px;
   }
-  
-  .features-grid {
-    grid-template-columns: 1fr;
+
+  .section-title,
+  .section-titleb {
+    font-size: 24px;
+    margin-bottom: 24px;
   }
-  
+
+  .mission-text {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
   .team-content {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
-  
+
   .team-card {
     flex-direction: column;
     text-align: center;
-    
+    padding: 24px;
   }
-  
+
+  .team-logo {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+  }
+
+  .team-name {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .team-institution {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .team-description {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .impact-section {
+    padding: 60px 16px;
+  }
+
   .impact-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
-  
-  .tech-grid {
-    grid-template-columns: repeat(2, 1fr);
+
+  .impact-number {
+    font-size: 32px;
   }
-  
+
+  .impact-description {
+    font-size: 14px;
+  }
+
+  .impact-message {
+    padding: 24px;
+    margin: 32px 16px 0;
+  }
+
   .cta-buttons {
     flex-direction: column;
+    gap: 12px;
     align-items: center;
   }
 }
 
 @media (max-width: 480px) {
   .hero-section {
-    padding: 60px 20px;
+    padding: 50px 12px;
   }
-  
-  .content-section,
-  .features-section,
-  .team-section,
-  .impact-section,
-  .tech-section,
-  .cta-section {
-    padding: 60px 20px;
+
+  .hero-title {
+    font-size: 24px;
   }
-  
-  .impact-grid,
-  .tech-grid {
-    grid-template-columns: 1fr;
+
+  .hero-subtitle {
+    font-size: 14px;
+    margin-bottom: 24px;
   }
-  
+
   .stat-number {
+    font-size: 24px;
+  }
+
+  .impact-number {
     font-size: 28px;
   }
-  
-  .impact-number {
-    font-size: 36px;
+
+  .team-card {
+    padding: 16px;
+  }
+
+  .team-logo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .section-title,
+  .section-titleb {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .mission-text {
+    font-size: 14px;
+  }
+
+  .impact-message {
+    padding: 16px;
+    margin: 24px 12px 0;
   }
 }

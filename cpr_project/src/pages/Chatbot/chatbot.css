@@ -9,7 +9,7 @@
 }
 
 .chatroom-wrapper {
-  height: 80%;
+  height: 100%;
   width: 80%;
   border: 1px solid gray;
   border-radius: 20px;
@@ -47,18 +47,16 @@
 }
 
 .send-message-button {
-  color: white;
-  background-color: red;
-  border: 1px solid red;
-  border-radius: 0 20px 20px 0;
+  background: linear-gradient(135deg, #B91C1C, #B91C1C);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
 }
 
 .send-message-button:hover {
-  background-color: rgb(230, 0, 0);
+  background-color: linear-gradient(135deg, #B91C1C, #B91C1C);
 }
 
 .send-message-button:active {
-  background-color: rgb(210, 0, 0);
+  background-color: linear-gradient(135deg, #B91C1C, #B91C1C);
 }
 
 .icon-send-button {
@@ -67,7 +65,7 @@
 
 .user-message {
   align-self: flex-end;
-  background-color: red;
+  background: linear-gradient(135deg, #B91C1C, #B91C1C);
   color: white;
   padding: 10px 15px;
   border-radius: 20px 20px 0 20px;
@@ -119,70 +117,89 @@
   outline: none;
 }
 
+/* === POPUP === */
 .popup {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
   display: flex;
+  align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 500;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.35s ease forwards;
 }
 
 .popup-content {
-  margin-top: 5%;
-  padding: 20px 30px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  background: #fff;
+  padding: 32px 40px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
   max-width: 500px;
-  width: 80%;
-  height: fit-content;
+  width: 90%;
+  text-align: center;
+  animation: slideUp 0.4s ease forwards;
 }
 
 .popup-content p {
-  text-align: justify;
-  margin-bottom: 20px;
-  font-size: 1.1em;
+  font-size: 1.1rem;
+  line-height: 1.6;
   color: #333;
-  background-color: white;
+  margin-bottom: 28px;
 }
 
 .popup-content button {
-  padding: 10px 20px;
+  padding: 12px 26px;
   margin: 0 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s;
-  font-size: 1em;
+  transition: all 0.25s ease;
 }
 
+/* Bouton "Yes" */
 .popup-content button:first-of-type {
-  background-color: red;
-  color: white;
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(185,28,28,0.35);
 }
 
 .popup-content button:first-of-type:hover {
-  background-color: rgb(230, 0, 0);
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  transform: translateY(-2px);
 }
 
 .popup-content button:first-of-type:active {
-  background-color: rgb(210, 0, 0);
+  background: #991b1b;
+  transform: scale(0.97);
 }
 
+/* Bouton "No" */
 .popup-content button:last-of-type {
-  background-color: #f2f2f2;
-  color: black;
+  background: #f3f4f6;
+  color: #111827;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 
 .popup-content button:last-of-type:hover {
-  background-color: #e0e0e0;
+  background: #e5e7eb;
+  transform: translateY(-2px);
 }
 
 .popup-content button:last-of-type:active {
-  background-color: #d0d0d0;
+  background: #d1d5db;
+  transform: scale(0.97);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }

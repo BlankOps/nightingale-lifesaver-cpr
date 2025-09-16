@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import './quiz.css'
 import quizData from '../../data/quizData';
+import { getRandomQuestions } from './getRandomQuestions';
 
 const Quiz = () => {
+  // 👉 Ici on génère les 20 questions aléatoires
+  const [questions, setQuestions] = useState(getRandomQuestions(quizData, 20));
+
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [score, setScore] = useState(0);
@@ -19,31 +23,32 @@ const Quiz = () => {
     setSelectedAnswer(null);
     setUserAnswers([]);
     setShowFeedback(false);
+    // get 20 questions
+    setQuestions(getRandomQuestions(quizData, 20));
   };
 
   const handleAnswerSelect = (answer) => {
-    if (selectedAnswer !== null) return; // Prevent multiple selections
+    if (selectedAnswer !== null) return;
     
     setSelectedAnswer(answer);
     setShowFeedback(true);
     
-    const isCorrect = answer === quizData[currentQuestionIndex].correctAnswer;
+    const isCorrect = answer === questions[currentQuestionIndex].correctAnswer;
     if (isCorrect) {
       setScore(score + 1);
     }
     
-    // Store the user's answer
     const newAnswer = {
       questionIndex: currentQuestionIndex,
       selectedAnswer: answer,
-      correctAnswer: quizData[currentQuestionIndex].correctAnswer,
+      correctAnswer: questions[currentQuestionIndex].correctAnswer,
       isCorrect: isCorrect
     };
     setUserAnswers([...userAnswers, newAnswer]);
   };
 
   const handleNext = () => {
-    if (currentQuestionIndex < quizData.length - 1) {
+    if (currentQuestionIndex < questions.length - 1) {
       setSelectedAnswer(null);
       setShowFeedback(false);
       setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -53,7 +58,7 @@ const Quiz = () => {
   };
 
   const getScoreMessage = () => {
-    const percentage = (score / quizData.length) * 100;
+    const percentage = (score / questions.length) * 100;
     if (percentage >= 90) return { message: "Excellent! You're well-prepared for emergencies!", emoji: "🏆", color: "#059669" };
     if (percentage >= 70) return { message: "Good job! You have solid knowledge of CPR.", emoji: "👏", color: "#0891B2" };
     if (percentage >= 50) return { message: "Not bad! Consider reviewing the instructions.", emoji: "📚", color: "#EA580C" };
@@ -72,7 +77,7 @@ const Quiz = () => {
             <p>Test your understanding of CPR and first aid procedures with our interactive quiz.</p>
             <div className="quiz-info">
               <div className="info-item">
-                <span className="info-number">{quizData.length}</span>
+                <span className="info-number">{questions.length}</span>
                 <span className="info-label">Questions</span>
               </div>
               <div className="info-item">
@@ -95,10 +100,10 @@ const Quiz = () => {
                 <span className="score-number" style={{ color: scoreData.color }}>
                   {score}
                 </span>
-                <span className="score-total">/ {quizData.length}</span>
+                <span className="score-total">/ {questions.length}</span>
               </div>
               <div className="score-percentage" style={{ color: scoreData.color }}>
-                {Math.round((score / quizData.length) * 100)}%
+                {Math.round((score / questions.length) * 100)}%
               </div>
               <p className="score-message" style={{ color: scoreData.color }}>
                 {scoreData.message}
@@ -112,8 +117,8 @@ const Quiz = () => {
               <button
                 className='restart-button'
                 onClick={() => {
-                  handleStartQuiz(); // restart the quiz
-                  window.location.href = 'https://lifesaver.nightingale.uni-mainz.de'; // redirection to Home Page
+                  handleStartQuiz();
+                  window.location.href = 'https://lifesaver.nightingale.uni-mainz.de';
                 }}
               >
                 Home
@@ -125,27 +130,27 @@ const Quiz = () => {
             <div className="progress-bar">
               <div 
                 className="progress-fill" 
-                style={{ width: `${((currentQuestionIndex + 1) / quizData.length) * 100}%` }}
+                style={{ width: `${((currentQuestionIndex + 1) / questions.length) * 100}%` }}
               ></div>
             </div>
             
             <div className="question-header">
               <span className="question-counter">
-                Question {currentQuestionIndex + 1} of {quizData.length}
+                Question {currentQuestionIndex + 1} of {questions.length}
               </span>
             </div>
 
             <div className="question-content">
-              <h2 className="question-text">{quizData[currentQuestionIndex].question}</h2>
+              <h2 className="question-text">{questions[currentQuestionIndex].question}</h2>
               
               <div className="options-container">
-                {quizData[currentQuestionIndex].options.map((option, index) => {
+                {questions[currentQuestionIndex].options.map((option, index) => {
                   let buttonClass = 'option-button';
                   
                   if (showFeedback) {
-                    if (option === quizData[currentQuestionIndex].correctAnswer) {
+                    if (option === questions[currentQuestionIndex].correctAnswer) {
                       buttonClass += ' correct';
-                    } else if (option === selectedAnswer && option !== quizData[currentQuestionIndex].correctAnswer) {
+                    } else if (option === selectedAnswer && option !== questions[currentQuestionIndex].correctAnswer) {
                       buttonClass += ' incorrect';
                     } else if (option !== selectedAnswer) {
                       buttonClass += ' disabled';
@@ -163,10 +168,10 @@ const Quiz = () => {
                     >
                       <span className="option-letter">{String.fromCharCode(65 + index)}</span>
                       <span className="option-text">{option}</span>
-                      {showFeedback && option === quizData[currentQuestionIndex].correctAnswer && (
+                      {showFeedback && option === questions[currentQuestionIndex].correctAnswer && (
                         <span className="option-icon correct-icon">✓</span>
                       )}
-                      {showFeedback && option === selectedAnswer && option !== quizData[currentQuestionIndex].correctAnswer && (
+                      {showFeedback && option === selectedAnswer && option !== questions[currentQuestionIndex].correctAnswer && (
                         <span className="option-icon incorrect-icon">✗</span>
                       )}
                     </button>
@@ -181,7 +186,7 @@ const Quiz = () => {
                 onClick={handleNext} 
                 disabled={!showFeedback}
               >
-                {currentQuestionIndex === quizData.length - 1 ? 'View Results' : 'Next Question'}
+                {currentQuestionIndex === questions.length - 1 ? 'View Results' : 'Next Question'}
               </button>
             </div>
           </div>
