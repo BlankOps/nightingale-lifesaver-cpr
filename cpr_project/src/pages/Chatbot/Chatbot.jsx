@@ -16,6 +16,38 @@ const Chatbot = () => {
 	const DOMAIN = "http://localhost:5006"; //https://cpr-chatbot.nightingale.uni-mainz.de ou http://localhost:5005
 	const URL = "/webhooks/rest/webhook";//const URL = "/api/ask_chatbot";
 
+	// Function to correct spelling with LanguageTool
+	const correctSpelling = async (text) => {
+		try {
+			const response = await axios.post(
+				"https://api.languagetool.org/v2/check",
+				new URLSearchParams({
+					text: text,
+					language: "en-US",
+				}),
+				{
+					headers: {
+						"Content-Type": "application/x-www-form-urlencoded",
+					},
+				}
+			);
+
+			// Apply suggested corrections
+			let correctedText = text;
+			response.data.matches.forEach((match) => {
+				const replacement = match.replacements[0]?.value;
+				if (replacement) {
+					correctedText = correctedText.replace(match.context.text.substring(match.context.offset, match.context.offset + match.context.length), replacement);
+				}
+			});
+
+			return correctedText;
+		} catch (error) {
+			console.error("Error correcting spelling:", error);
+			return text; // Return original text in case of error
+		}
+	};
+
 	const sendMessage = async (message) => {
 		setUserMessageCount(userMessageCount + 1);
 		const userMessage = { sender: "You", message, analytics: enableAnalytics, conv_position: userMessageCount };
@@ -50,7 +82,10 @@ const Chatbot = () => {
 
 	const prepareAndSendMessage = async () => {
 		if (!message.trim()) return;
-		sendMessage(message);
+
+		// Correct spelling before sending the message
+		const correctedMessage = await correctSpelling(message);
+		sendMessage(correctedMessage);
 	};
 
 	const handleKeyPress = (event) => {
@@ -143,4 +178,4 @@ const Chatbot = () => {
 	)
 }
 
-export default Chatbot
+export default Chatbot;
