@@ -135,6 +135,7 @@
 .card-body {
   padding: 0 24px;
   flex: 1;
+  text-align: center;
 }
 
 .card-description {
