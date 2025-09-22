@@ -4,7 +4,7 @@ rules:
 - rule: Ask the user to rephrase whenever they send a message with low NLU confidence
   steps:
   - intent: nlu_fallback
-  - action: utter_please_rephrase
+  - action: action_suggest_correction
 
 - rule: Greet the user after a greet message
   steps:
@@ -20,3 +20,28 @@ rules:
   steps:
   - intent: thank_you
   - action: utter_thank_back
+
+- rule: Immediate help for choking
+  steps:
+  - intent: choking_help
+  - action: utter_choking_help
+
+- rule: Immediate help for severe bleeding
+  steps:
+  - intent: bleeding_control
+  - action: utter_bleeding_control
+
+- rule: Immediate help for allergic reaction
+  steps:
+  - intent: allergic_reaction
+  - action: utter_allergic_reaction
+
+- rule: Immediate help for stroke
+  steps:
+  - intent: stroke_recognition
+  - action: utter_stroke_recognition
+
+- rule: Help manage panic in emergency
+  steps:
+  - intent: panic_management
+  - action: utter_panic_management
