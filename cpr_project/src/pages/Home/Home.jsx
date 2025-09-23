@@ -4,6 +4,14 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
+    <div>
+      <div className="emergency-banner">
+				<span className="emergency-text">
+					🚨 EMERGENCY! 🚨 In case of a serious problem, call immediately by clicking here:
+				</span>
+				<a href="tel:112" className="emergency-number">112</a>
+			</div>
+      
     <div className='home-container'>
       <div className="hero-section">
         <div className="hero-content">
@@ -79,6 +87,7 @@ const Home = () => {
           </p>
         </div>
       </div>
+    </div>
     </div>
   )
 }

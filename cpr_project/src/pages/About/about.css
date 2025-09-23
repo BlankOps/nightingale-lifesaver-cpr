@@ -481,3 +481,17 @@
     margin: 24px 12px 0;
   }
 }
+
+@media (max-width: 600px) {
+  .emergency-banner {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1rem;
+    padding: 12px 15px;
+  }
+
+  .emergency-number {
+    padding: 10px 15px;
+    font-size: 1.1rem;
+  }
+}

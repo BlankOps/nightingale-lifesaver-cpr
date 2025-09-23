@@ -6,6 +6,14 @@ const About = () => {
     <div className='about-container'>
 
       {/* Intro / Hero */}
+
+      <div className="emergency-banner">
+				<span className="emergency-text">
+					🚨 EMERGENCY! 🚨 In case of a serious problem, call immediately by clicking here:
+				</span>
+				<a href="tel:112" className="emergency-number">112</a>
+			</div>
+
       <div className="hero-content">
         <h1 className="hero-title">About LifeSaver Project</h1>
         <p className="hero-subtitle">
@@ -142,3 +150,4 @@ const About = () => {
 }
 
 export default About
+

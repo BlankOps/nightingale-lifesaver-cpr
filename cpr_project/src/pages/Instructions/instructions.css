@@ -103,3 +103,49 @@
     overflow-y: auto;
   }
 }
+
+.emergency-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  padding: 15px 20px;
+  background: linear-gradient(90deg, #f87171, #b91c1c);
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 12px;
+  margin-bottom: 1em;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+  font-size: 1.1rem;
+  animation: pulse 1.5s infinite;
+}
+
+.emergency-number {
+  color: #fff;
+  text-decoration: underline;
+  padding: 5px 10px;
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.emergency-number:hover {
+  background-color: rgba(255,255,255,0.4);
+  color: #ffdddd;
+}
+
+@media (max-width: 600px) {
+  .emergency-banner {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1rem;
+    padding: 12px 15px;
+  }
+
+  .emergency-number {
+    padding: 10px 15px;
+    font-size: 1.1rem;
+  }
+}

@@ -68,6 +68,14 @@ const Quiz = () => {
   const scoreData = getScoreMessage();
 
   return (
+
+    <div>
+      <div className="emergency-banner">
+				<span className="emergency-text">
+					🚨 EMERGENCY! 🚨 In case of a serious problem, call immediately by clicking here:
+				</span>
+				<a href="tel:112" className="emergency-number">112</a>
+			</div>
     <div className='quiz-container'>
       <div className="quiz-wrapper">
         {!quizStarted ? (
@@ -192,6 +200,7 @@ const Quiz = () => {
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 };
