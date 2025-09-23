@@ -1,7 +1,6 @@
 version: "3.1"
 
 nlu:
-# Variantes avec fautes d'orthographe communes
 - intent: greet
   examples: |
     - helo
@@ -12,6 +11,26 @@ nlu:
     - hey ther
     - hola
     - bonjur
+    - hi there!
+    - greetings
+    - hey, are you there?
+    - hello, can you help me?
+    - hi, are you available?
+    - good day
+    - howdy
+    - hey, assistant
+    - hello, bot
+    - hi, chatbot
+    - hey, what's up?
+    - hello, how are you?
+    - hi, how's it going?
+    - hey, can you assist me?
+    - hello, anyone here?
+    - hi, I need help
+    - hey, can you answer me?
+    - hello, I have a question
+    - hi, can you respond?
+    - hey, can you talk?
 
 - intent: what_is_cpr
   examples: |
@@ -33,6 +52,26 @@ nlu:
     - life saving technique
     - emergency procedure
     - first aid cpr
+    - cpr explanation
+    - what is the meaning of cpr
+    - what is cpr for
+    - why do cpr
+    - simple definition of cpr
+    - cpr significance
+    - what is the use of cpr
+    - cpr in english
+    - cpr for beginners
+    - easy explanation of cpr
+    - do you know cpr
+    - what does cpr involve
+    - what is cpr exactly
+    - what is cpr used for
+    - what is cpr training
+    - what is cpr in medicine
+    - what is cpr in healthcare
+    - what is cpr in emergencies
+    - what is cpr in first aid
+    - what is cpr in simple words
 
 - intent: how_to_cpr
   examples: |
@@ -319,6 +358,25 @@ nlu:
     - Recovery position steps
     - Unconscious person breathing
     - Side position safety
+    - How do I put someone in the recovery position?
+    - What are the steps for the recovery position?
+    - How to safely position an unconscious person?
+    - When should I use the recovery position?
+    - What is the correct way to use the recovery position?
+    - How to roll someone into the recovery position?
+    - What is the purpose of the recovery position?
+    - Why use the recovery position?
+    - How to check breathing before recovery position?
+    - What to do after putting someone in recovery position?
+    - How to keep airway open with recovery position?
+    - What is the safest position for an unconscious person?
+    - How to help someone breathe in recovery position?
+    - What are the benefits of the recovery position?
+    - How to ensure safety in recovery position?
+    - What should I watch for in recovery position?
+    - How to monitor a person in recovery position?
+    - What are the risks of not using recovery position?
+    - How to move a person into recovery position alone?
 
 - intent: bleeding_control
   examples: |
@@ -334,6 +392,21 @@ nlu:
     - Apply pressure bleeding
     - Tourniquet use
     - Bleeding control techniques
+    - How to manage a bleeding wound
+    - What to do for nosebleed
+    - How to stop a cut from bleeding
+    - How to help someone bleeding
+    - What is the first step for bleeding
+    - How to use a bandage for bleeding
+    - How to elevate a bleeding limb
+    - What to avoid with bleeding
+    - How to recognize severe bleeding
+    - How to call for help for bleeding
+    - How to treat a bleeding injury
+    - What are the signs of internal bleeding
+    - How to prevent shock from bleeding
+    - How to keep pressure on a wound
+    - What to do if bleeding doesn't stop
 
 - intent: shock_treatment
   examples: |
@@ -347,6 +420,21 @@ nlu:
     - How to help shock victim
     - Treating traumatic shock
     - Shock emergency care
+    - What are the causes of shock
+    - How to recognize shock
+    - What to do if someone is in shock
+    - How to keep a shock victim warm
+    - How to position a person in shock
+    - What are the types of shock
+    - How to prevent shock
+    - How to monitor a shock victim
+    - What are the warning signs of shock
+    - How to call for help for shock
+    - How to provide comfort to a shock victim
+    - What to avoid with shock
+    - How to check for shock
+    - How to treat shock at home
+    - What is the first step for shock
 
 - intent: burns_treatment
   examples: |
@@ -361,6 +449,20 @@ nlu:
     - Third degree burn
     - Minor burn care
     - Burn wound treatment
+    - How to recognize a burn
+    - What to do for sunburn
+    - How to treat a blister
+    - How to cover a burn
+    - What to avoid with burns
+    - How to call for help for burns
+    - How to treat a burn at home
+    - What are the signs of severe burns
+    - How to prevent infection in burns
+    - How to cool a burn quickly
+    - How to remove clothing from a burn
+    - How to help a burn victim
+    - What is the first step for burns
+    - How to monitor a burn injury
 
 - intent: fracture_help
   examples: |
@@ -374,6 +476,24 @@ nlu:
     - What to do broken bone
     - Fracture treatment
     - Splinting fracture
+    - How to recognize a fracture?
+    - What are the signs of a broken bone?
+    - How to splint a fracture?
+    - What should I do if someone breaks a bone?
+    - How to keep a fracture stable?
+    - What is the first step for a fracture?
+    - How to help a person with a broken bone?
+    - What not to do with a fracture?
+    - How to prevent further injury with a fracture?
+    - What is the best way to immobilize a fracture?
+    - How to call for help for a fracture?
+    - What are the dangers of moving a broken bone?
+    - How to treat a suspected fracture?
+    - What to avoid with a fracture?
+    - How to check for circulation after a fracture?
+    - What are the symptoms of a fracture?
+    - How to support a limb with a fracture?
+    - What to do if bone is sticking out?
 
 - intent: allergic_reaction
   examples: |
@@ -387,6 +507,22 @@ nlu:
     - Anaphylactic shock help
     - Allergy emergency
     - Food allergy reaction
+    - What to do for allergies
+    - Allergy symptoms emergency
+    - How to recognize anaphylaxis
+    - What is an allergic emergency
+    - How to help someone with allergies
+    - What are the signs of anaphylaxis
+    - How to use an EpiPen correctly
+    - What to avoid during allergic reaction
+    - How to call for help for allergy
+    - How to treat a bee sting allergy
+    - What to do for nut allergy
+    - How to recognize food allergy
+    - How to prevent allergic reactions
+    - What are the symptoms of severe allergy
+    - How to monitor after allergic reaction
+    - What to do after using EpiPen
 
 - intent: seizure_help
   examples: |
@@ -400,6 +536,22 @@ nlu:
     - Seizure safety
     - Person having fit
     - Seizure response
+    - What are the signs of a seizure?
+    - How to protect someone during a seizure?
+    - What not to do during a seizure?
+    - How to keep airway clear during seizure
+    - How to call for help for seizure
+    - What to do after a seizure
+    - How to comfort someone after seizure
+    - How to recognize epilepsy
+    - What are the types of seizures
+    - How to prevent injury during seizure
+    - How to monitor after seizure
+    - What to avoid during seizure
+    - How to help a child with seizure
+    - How to help an adult with seizure
+    - What to do if seizure lasts long
+    - How to document a seizure event
 
 - intent: stroke_recognition
   examples: |
@@ -413,6 +565,22 @@ nlu:
     - Brain attack symptoms
     - Stroke warning signs
     - How to help stroke victim
+    - What to do if someone has a stroke?
+    - How to act during a stroke?
+    - What are the first signs of stroke
+    - How to call for help for stroke
+    - How to position a stroke victim
+    - What to avoid during stroke
+    - How to monitor after stroke
+    - How to recognize mini-stroke
+    - What to do after a stroke
+    - How to help elderly with stroke
+    - How to help child with stroke
+    - What are the types of stroke
+    - How to prevent stroke
+    - How to check for stroke symptoms
+    - How to provide comfort during stroke
+    - How to document stroke symptoms
 
 - intent: hypothermia_help
   examples: |
@@ -425,6 +593,22 @@ nlu:
     - Cold emergency
     - Body temperature too low
     - Warming hypothermia victim
+    - What are the signs of hypothermia?
+    - How to prevent hypothermia?
+    - How to recognize hypothermia
+    - What to do for frostbite
+    - How to call for help for hypothermia
+    - How to rewarm a person safely
+    - What to avoid with hypothermia
+    - How to monitor after hypothermia
+    - How to help a child with hypothermia
+    - How to help elderly with hypothermia
+    - What are the stages of hypothermia
+    - How to prevent cold injuries
+    - How to provide comfort for hypothermia
+    - How to check for hypothermia symptoms
+    - How to document hypothermia event
+    - How to treat mild hypothermia
 
 - intent: heat_exhaustion
   examples: |
@@ -437,6 +621,22 @@ nlu:
     - Hot weather emergency
     - Heat illness help
     - Cooling overheated person
+    - What are the symptoms of heat exhaustion?
+    - How to prevent heat stroke?
+    - How to recognize heat exhaustion
+    - What to do for heat cramps
+    - How to call for help for heat illness
+    - How to cool someone quickly
+    - What to avoid with heat exhaustion
+    - How to monitor after heat illness
+    - How to help a child with heat exhaustion
+    - How to help elderly with heat stroke
+    - What are the stages of heat illness
+    - How to prevent heat injuries
+    - How to provide comfort for heat exhaustion
+    - How to check for heat stroke symptoms
+    - How to document heat illness event
+    - How to treat mild heat exhaustion
 
 - intent: poisoning_help
   examples: |
@@ -449,6 +649,22 @@ nlu:
     - What to do poisoning
     - Poison first aid
     - Overdose help
+    - How to recognize poisoning?
+    - What are the symptoms of poisoning?
+    - How to help someone who is poisoned
+    - What to do for drug overdose
+    - How to call for help for poisoning
+    - How to treat accidental poisoning
+    - What to avoid with poisoning
+    - How to monitor after poisoning
+    - How to help a child with poisoning
+    - How to help elderly with poisoning
+    - What are the types of poisoning
+    - How to prevent poisoning
+    - How to provide comfort for poisoning
+    - How to check for poisoning symptoms
+    - How to document poisoning event
+    - How to treat mild poisoning
 
 - intent: drowning_rescue
   examples: |
@@ -460,6 +676,22 @@ nlu:
     - Drowning first aid
     - Rescue from water
     - Water safety emergency
+    - How to recognize drowning?
+    - What to do after a drowning rescue?
+    - How to call for help for drowning
+    - How to perform rescue breathing after drowning
+    - What to avoid with drowning
+    - How to monitor after drowning
+    - How to help a child with drowning
+    - How to help elderly with water rescue
+    - What are the signs of near drowning
+    - How to prevent drowning
+    - How to provide comfort after drowning
+    - How to check for drowning symptoms
+    - How to document drowning event
+    - How to treat mild water inhalation
+    - How to recognize secondary drowning
+    - How to help someone who swallowed water
 
 - intent: spinal_injury
   examples: |
@@ -471,6 +703,22 @@ nlu:
     - Back pain emergency
     - Neck pain severe
     - Spine injury treatment
+    - How to recognize spinal injury?
+    - What to do for spinal trauma?
+    - How to call for help for spinal injury
+    - How to stabilize the neck
+    - What to avoid with spinal injury
+    - How to monitor after spinal injury
+    - How to help a child with spinal injury
+    - How to help elderly with spinal injury
+    - What are the signs of spinal cord damage
+    - How to prevent further injury
+    - How to provide comfort for spinal injury
+    - How to check for spinal injury symptoms
+    - How to document spinal injury event
+    - How to treat mild spinal injury
+    - How to immobilize a patient
+    - How to recognize paralysis
 
 - intent: pregnancy_emergency
   examples: |
@@ -481,6 +729,23 @@ nlu:
     - Pregnant woman unconscious
     - Emergency delivery
     - Pregnancy first aid
+    - What to do for pregnancy emergency?
+    - How to help in childbirth emergency?
+    - Signs of pregnancy complications
+    - How to call for help for pregnancy
+    - How to help a woman in labor
+    - What to avoid during pregnancy emergency
+    - How to monitor after childbirth
+    - How to help a child during birth
+    - How to help elderly during pregnancy emergency
+    - What are the signs of labor
+    - How to prevent complications
+    - How to provide comfort during labor
+    - How to check for pregnancy symptoms
+    - How to document pregnancy emergency
+    - How to treat mild pregnancy complications
+    - How to recognize premature labor
+    - How to help with emergency delivery
 
 - intent: child_cpr
   examples: |
@@ -496,6 +761,19 @@ nlu:
     - Baby CPR steps
     - Newborn CPR
     - Toddler CPR
+    - How to recognize cardiac arrest in children
+    - How to call for help for child CPR
+    - How to perform rescue breaths for children
+    - What to avoid during child CPR
+    - How to monitor after child CPR
+    - How to help a baby with CPR
+    - How to help a toddler with CPR
+    - What are the signs of cardiac arrest in children
+    - How to prevent complications in child CPR
+    - How to provide comfort after child CPR
+    - How to check for child CPR symptoms
+    - How to document child CPR event
+    - How to treat mild complications in child CPR
 
 - intent: elderly_cpr
   examples: |
@@ -506,6 +784,25 @@ nlu:
     - CPR on older adults
     - Geriatric CPR
     - Fragile person CPR
+    - How to do CPR on an elderly person?
+    - What are the risks of CPR for seniors?
+    - Is CPR different for older adults?
+    - How to help a senior in cardiac arrest?
+    - What precautions for elderly CPR?
+    - How to check for breathing in elderly?
+    - How to position hands for elderly CPR?
+    - What to do if ribs break in elderly CPR?
+    - How to call for help for an elderly person?
+    - What is the survival rate for elderly CPR?
+    - How to recognize cardiac arrest in seniors?
+    - What are the signs of cardiac arrest in elderly?
+    - How to provide rescue breaths to elderly?
+    - How to support fragile chest during CPR?
+    - What to do after CPR on an elderly person?
+    - How to monitor elderly after CPR?
+    - What are the outcomes of CPR in elderly?
+    - How to comfort family after elderly CPR?
+    - What to avoid during elderly CPR?
 
 - intent: cpr_complications
   examples: |
@@ -517,6 +814,23 @@ nlu:
     - What if ribs break CPR
     - CPR damage
     - Complications chest compressions
+    - Can CPR cause harm
+    - What injuries can happen during CPR
+    - Is it normal to break ribs during CPR
+    - What to do if you hurt someone during CPR
+    - How to minimize CPR injuries
+    - What are the most common CPR complications
+    - Can CPR cause internal bleeding
+    - What to do if there is bleeding during CPR
+    - How to recognize CPR complications
+    - What are the risks of chest compressions
+    - How to handle CPR side effects
+    - What to do after CPR complications
+    - How to report CPR injuries
+    - What are the signs of CPR injury
+    - How to prevent CPR complications
+    - What to check after CPR
+    - How to follow up after CPR
 
 - intent: when_to_stop_cpr
   examples: |
@@ -528,6 +842,22 @@ nlu:
     - CPR time limit
     - Stop resuscitation when
     - End CPR procedure
+    - How to know when to stop CPR
+    - When is it safe to stop CPR
+    - What are the signs to stop CPR
+    - When should you not stop CPR
+    - How long should CPR be performed
+    - When to stop chest compressions
+    - When to stop rescue breaths
+    - What to do after stopping CPR
+    - How to decide to stop CPR
+    - When do professionals stop CPR
+    - What happens after stopping CPR
+    - How to explain stopping CPR to family
+    - What are the rules for stopping CPR
+    - When to stop CPR in children
+    - When to stop CPR in elderly
+    - When to stop CPR in hospital
 
 - intent: cpr_training
   examples: |
@@ -539,6 +869,22 @@ nlu:
     - Get CPR certified
     - CPR training programs
     - First aid training
+    - How to find CPR classes
+    - Where to get CPR certified
+    - How to become a CPR instructor
+    - What is included in CPR training
+    - How long is CPR training
+    - What to expect in CPR class
+    - How to renew CPR certification
+    - What is the cost of CPR training
+    - Where to get CPR recertification
+    - How to practice CPR at home
+    - What are the benefits of CPR training
+    - How to prepare for CPR exam
+    - What is the best CPR course
+    - How to get online CPR training
+    - How to find local CPR classes
+    - What is the difference between CPR and first aid training
 
 - intent: legal_protection
   examples: |
@@ -549,6 +895,9 @@ nlu:
     - Protected by law CPR
     - Good Samaritan protection
     - Legal coverage helping
+    - Am I protected if I help?
+    - What are the laws for first aid?
+    - Can I get in trouble for helping?
 
 - intent: panic_management
   examples: |
@@ -560,6 +909,22 @@ nlu:
     - Anxiety emergency
     - Stress emergency situation
     - Overwhelmed emergency
+    - How to calm down in emergency?
+    - What to do if I panic?
+    - How to recognize panic attack
+    - How to call for help for panic
+    - How to help someone who is panicking
+    - What to avoid during panic
+    - How to monitor after panic attack
+    - How to help a child with panic
+    - How to help elderly with panic
+    - What are the signs of anxiety
+    - How to prevent panic attacks
+    - How to provide comfort during panic
+    - How to check for panic symptoms
+    - How to document panic event
+    - How to treat mild panic
+    - How to breathe during panic
 
 - intent: multiple_victims
   examples: |
@@ -571,6 +936,22 @@ nlu:
     - Who to help first
     - Priority in emergencies
     - Multiple casualties
+    - How to triage victims?
+    - What to do with many injured?
+    - How to call for help for multiple victims
+    - How to organize help in mass casualty
+    - What to avoid during mass casualty
+    - How to monitor after mass casualty
+    - How to help children in mass casualty
+    - How to help elderly in mass casualty
+    - What are the signs of mass casualty
+    - How to prevent chaos in emergencies
+    - How to provide comfort to multiple victims
+    - How to check for injuries in mass casualty
+    - How to document mass casualty event
+    - How to treat mild injuries in mass casualty
+    - How to prioritize care in emergencies
+    - How to assign roles in mass casualty
 
 - intent: emergency_supplies
   examples: |
@@ -581,6 +962,23 @@ nlu:
     - Emergency preparedness
     - Medical supplies home
     - Emergency kit essentials
+    - What to pack for emergencies?
+    - How to prepare emergency kit?
+    - What are essential emergency items?
+    - How to store emergency supplies
+    - What to avoid in emergency kit
+    - How to check expiration dates
+    - How to organize first aid kit
+    - How to help children with supplies
+    - How to help elderly with supplies
+    - What are the signs of missing supplies
+    - How to prevent running out of supplies
+    - How to provide comfort with supplies
+    - How to check for supply needs
+    - How to document supply use
+    - How to treat minor injuries with kit
+    - How to prioritize supplies
+    - How to assign supplies in emergency
 
 - intent: calling_emergency_tips
   examples: |
@@ -591,6 +989,24 @@ nlu:
     - Emergency dispatcher
     - What information give emergency
     - Emergency call procedure
+    - How to talk to emergency services?
+    - What to do during emergency call?
+    - How to stay calm on emergency call?
+    - How to recognize emergency dispatcher
+    - How to call for help for emergency
+    - How to help someone call emergency
+    - What to avoid during emergency call
+    - How to monitor after emergency call
+    - How to help a child call emergency
+    - How to help elderly call emergency
+    - What are the signs of emergency call
+    - How to prevent mistakes in emergency call
+    - How to provide comfort during emergency call
+    - How to check for emergency call needs
+    - How to document emergency call
+    - How to treat stress after emergency call
+    - How to prioritize information in emergency call
+    - How to assign roles during emergency call
 
 - intent: bystander_help
   examples: |
@@ -601,6 +1017,23 @@ nlu:
     - Assign tasks emergency
     - Organize bystanders
     - Get crowd to help
+    - How to involve bystanders?
+    - What to ask bystanders to do?
+    - How to coordinate help in emergency?
+    - How to call for help from bystanders
+    - How to organize bystander roles
+    - What to avoid with bystanders
+    - How to monitor bystander actions
+    - How to help children as bystanders
+    - How to help elderly as bystanders
+    - What are the signs of effective bystander help
+    - How to prevent confusion among bystanders
+    - How to provide comfort to bystanders
+    - How to check for bystander willingness
+    - How to document bystander actions
+    - How to treat minor injuries with bystander help
+    - How to prioritize bystander tasks
+    - How to assign bystander roles
 
 - intent: scene_safety
   examples: |
@@ -612,6 +1045,22 @@ nlu:
     - Assess scene safety
     - Danger assessment
     - Safe rescue approach
+    - How to ensure scene is safe?
+    - What are scene hazards?
+    - How to call for help for scene safety
+    - How to organize scene safety
+    - What to avoid at the scene
+    - How to monitor scene safety
+    - How to help children at the scene
+    - How to help elderly at the scene
+    - What are the signs of unsafe scene
+    - How to prevent hazards at the scene
+    - How to provide comfort at the scene
+    - How to check for scene safety needs
+    - How to document scene safety
+    - How to treat minor hazards at the scene
+    - How to prioritize scene safety
+    - How to assign scene safety roles
 
 - intent: medical_history
   examples: |
@@ -621,6 +1070,23 @@ nlu:
     - Medications patient taking
     - Medical conditions emergency
     - Health history emergency
+    - Why is medical history important?
+    - How to ask for medical history?
+    - What to check in medical history?
+    - How to call for help for medical history
+    - How to organize medical information
+    - What to avoid with medical history
+    - How to monitor medical history
+    - How to help children with medical history
+    - How to help elderly with medical history
+    - What are the signs of missing medical history
+    - How to prevent errors in medical history
+    - How to provide comfort with medical history
+    - How to check for allergies in history
+    - How to document medical history
+    - How to treat minor issues with history
+    - How to prioritize medical information
+    - How to assign roles for medical history
 
 - intent: comfort_victim
   examples: |
@@ -631,6 +1097,23 @@ nlu:
     - Emotional support emergency
     - Comfort scared person
     - Reassurance emergency
+    - How to provide comfort in emergency?
+    - What to say to reassure victim?
+    - How to calm a scared person?
+    - How to call for help for comfort
+    - How to organize comfort for victims
+    - What to avoid when comforting
+    - How to monitor emotional state
+    - How to help children with comfort
+    - How to help elderly with comfort
+    - What are the signs of distress
+    - How to prevent panic in victims
+    - How to provide comfort after trauma
+    - How to check for comfort needs
+    - How to document comfort actions
+    - How to treat minor distress
+    - How to prioritize comfort
+    - How to assign comfort roles
 
 - intent: post_emergency_care
   examples: |
@@ -640,6 +1123,23 @@ nlu:
     - After CPR what next
     - Recovery after emergency
     - Continued care emergency
+    - What to do after emergency?
+    - How to monitor after emergency?
+    - What is post-emergency protocol?
+    - How to call for help after emergency
+    - How to organize follow-up care
+    - What to avoid after emergency
+    - How to monitor recovery
+    - How to help children after emergency
+    - How to help elderly after emergency
+    - What are the signs of recovery
+    - How to prevent complications after emergency
+    - How to provide comfort after emergency
+    - How to check for follow-up needs
+    - How to document post-emergency care
+    - How to treat minor issues after emergency
+    - How to prioritize post-emergency care
+    - How to assign follow-up roles
 
 - intent: symptoms
   examples: |
