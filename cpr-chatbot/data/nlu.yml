@@ -3,901 +3,399 @@ version: "3.1"
 nlu:
 - intent: greet
   examples: |
-    - helo
-    - hallo
+    - hello
+    - hi
+    - hey
+    - good morning
+    - good evening
     - hi there
-    - good mornig
-    - good evning
-    - hey ther
-    - hola
-    - bonjur
-    - hi there!
+    - hello there
     - greetings
-    - hey, are you there?
-    - hello, can you help me?
-    - hi, are you available?
+    - hey there
     - good day
     - howdy
-    - hey, assistant
-    - hello, bot
-    - hi, chatbot
-    - hey, what's up?
-    - hello, how are you?
-    - hi, how's it going?
-    - hey, can you assist me?
-    - hello, anyone here?
-    - hi, I need help
-    - hey, can you answer me?
-    - hello, I have a question
-    - hi, can you respond?
-    - hey, can you talk?
+    - what's up
+    - yo
+    - hiya
+    - salutations
 
 - intent: what_is_cpr
   examples: |
     - what is cpr
-    - wat is cpr
-    - whats cpr
-    - what's cpr
-    - cpr meaning
-    - cpr definiton
+    - what does cpr mean
+    - can you explain cpr
     - define cpr
-    - cpr stands for
-    - cpr stand for
-    - cardiopulmonary resusitation
-    - cardio pulmonary resuscitation
-    - heart lung resuscitation
-    - chest compression
-    - mouth to mouth
-    - rescue breathing
-    - life saving technique
-    - emergency procedure
-    - first aid cpr
-    - cpr explanation
-    - what is the meaning of cpr
-    - what is cpr for
-    - why do cpr
-    - simple definition of cpr
-    - cpr significance
-    - what is the use of cpr
-    - cpr in english
-    - cpr for beginners
-    - easy explanation of cpr
-    - do you know cpr
-    - what does cpr involve
-    - what is cpr exactly
-    - what is cpr used for
-    - what is cpr training
-    - what is cpr in medicine
-    - what is cpr in healthcare
-    - what is cpr in emergencies
-    - what is cpr in first aid
-    - what is cpr in simple words
+    - what is cardiopulmonary resuscitation
+    - tell me about cpr
+    - explain cpr to me
+    - what's cpr
+    - cpr definition
+    - describe cpr
+    - how does cpr work
+    - what is the purpose of cpr
+    - why do we do cpr
+    - what does cpr stand for
+    - cpr meaning
 
 - intent: how_to_cpr
   examples: |
     - how to do cpr
-    - how do cpr
+    - how to perform cpr
     - cpr steps
     - cpr procedure
-    - cpr technique
-    - cpr method
-    - perform cpr
-    - give cpr
-    - do cpr
+    - teach me cpr
+    - show me how to do cpr
     - cpr instructions
-    - cpr guide
-    - chest compressions how
-    - chest compression steps
-    - heart massage
-    - cardiac massage
-    - resuscitation steps
-    - emergency cpr
-    - basic cpr
-    - cpr basics
-    - learn cpr
-    - cpr training
-    - how to save life
-    - life saving steps
-    - emergency help
-    - first aid steps
-    - rescue procedure
-    - revival technique
-    - bring back to life
-    - restart heart
-    - heart stopped help
-    - no pulse help
-    - not breathing help
-    - unconscious help
-    - collapsed person help
-    - cardiac arrest help
-    - heart attack help
-    - emergency response
-    - crisis management
-    - urgent care
-    - immediate help
-    - quick response
-    - fast action
-    - emergency action
-    - life support
-    - basic life support
-    - advanced life support
-    - medical emergency
-    - health emergency
-    - critical situation
-    - life threatening
-    - save someone
-    - help victim
-    - assist patient
-    - aid injured
-    - support casualty
+    - how do I perform cpr
+    - what are the steps for cpr
+    - guide me through cpr
+    - cpr technique
+    - how to give cpr
+    - cpr method
+    - proper cpr technique
+    - step by step cpr
+
+- intent: what_is_cardiac_arrest
+  examples: |
+    - what is cardiac arrest
+    - define cardiac arrest
+    - explain cardiac arrest
+    - what happens during cardiac arrest
+    - cardiac arrest meaning
+    - describe cardiac arrest
+    - what causes cardiac arrest
+    - cardiac arrest definition
+    - tell me about cardiac arrest
+    - how does cardiac arrest occur
+    - what is a cardiac arrest
+    - cardiac arrest explanation
+    - sudden cardiac arrest
+    - heart stopping
+    - heart failure emergency
 
 - intent: symptoms
   examples: |
-    - symptoms
-    - signs
-    - indicators
-    - warning signs
-    - red flags
-    - danger signs
-    - emergency signs
+    - what are the symptoms of cardiac arrest
+    - signs of cardiac arrest
+    - how to recognize cardiac arrest
     - cardiac arrest symptoms
-    - heart attack signs
-    - stroke symptoms
-    - choking signs
-    - allergic reaction symptoms
-    - seizure signs
-    - shock symptoms
-    - bleeding signs
-    - burn symptoms
-    - fracture signs
-    - poisoning symptoms
-    - overdose signs
-    - hypothermia symptoms
-    - heat stroke signs
-    - drowning symptoms
-    - spinal injury signs
-    - head injury symptoms
-    - internal bleeding signs
-    - organ failure symptoms
-    - respiratory distress signs
-    - cardiac distress symptoms
-    - neurological symptoms
-    - psychological symptoms
-    - physical symptoms
-    - visible signs
-    - audible signs
-    - behavioral changes
-    - consciousness changes
-    - breathing changes
-    - circulation changes
-    - skin changes
-    - temperature changes
-    - pain symptoms
-    - discomfort signs
-    - distress signals
-    - emergency indicators
-    - medical symptoms
-    - health signs
-    - illness symptoms
-    - injury signs
-    - trauma symptoms
-    - critical signs
-    - vital signs
-    - life signs
-    - death signs
-    - recovery signs
-    - improvement signs
-    - deterioration signs
-    - stable signs
-    - unstable signs
+    - what to look for in cardiac arrest
+    - how do I know if someone has cardiac arrest
+    - cardiac arrest warning signs
+    - signs someone needs cpr
+    - how to identify cardiac arrest
+    - what does cardiac arrest look like
+    - cardiac arrest indicators
+    - emergency signs
+    - unconscious person signs
+    - breathing problems signs
+    - no pulse signs
 
-- intent: greet
+- intent: what_are_emergency_numbers
   examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
-    - Hello!
-    - Hey!
-    - Good morning!
-    - How are you doing ?
-    - Hello
-    - Hey
-
-- intent: thank_you
-  examples: |
-    - thank you so much
-    - thanks a lot
-    - many thanks
-    - I appreciate it
-    - thanks for everything
-    - I really appreciate your help
-    - you’re the best, thanks
-    - thanks for your assistance
-    - I’m grateful, thank you
-    - thanks, that was helpful
-    - thank you, I needed that
-    - thanks for the support
-    - you’ve been very helpful, thanks
-    - I owe you one, thanks
-    - cheers, mate
-    - thank you, I couldn’t have done it without you
-    - thanks for your time
-    - I appreciate your help, thank you
-    - you’ve been a great help, thanks
-    - thanks a bunch
-    - thanks, you’re awesome
-    - you’ve helped me a lot, thank you
-    - thanks, that means a lot
-    - thank you for your guidance
-    - you’re amazing, thanks
-    - much appreciated
-    - thank you, that was exactly what I needed
-    - thanks, I’m grateful
-    - thank you kindly
-    - you’re a lifesaver, thanks
-
-- intent: what_can_do
-  examples: |
-    - What are your capabilities?
-    - What services do you offer?
-    - How can you help me?
-    - What tasks can you perform?
-    - What can you help me with?
-    - What kind of assistance can you provide?
-    - Tell me what you can do
-    - What are you here for?
-    - How can you assist me?
-    - What can you help me solve?
-    - What is your purpose?
-    - How can you be useful to me?
-    - What’s your function?
-    - What problems can you solve?
-    - What support can you give me?
-    - Can you tell me what you’re capable of?
-    - What skills do you have?
-    - How can you be of service?
-    - What can I ask you to do?
-    - What features do you have?
-    - What can you offer?
-    - What’s your specialty?
-    - How can you make my life easier?
-    - What kind of help can I expect from you?
-    - What solutions can you provide?
-    - What’s your main function?
-    - How can you assist me today?
-    - What do you do?
-    - What’s your main job?
-    - What are you programmed to do?
-  
-- intent: what_is_cardiac_arrest
-  examples: |
-    - What is a cardiac arrest?
-    - What is cardiac arrest?
-    - Can you explain what cardiac arrest is?
-    - What happens during a cardiac arrest?
-    - Define cardiac arrest
-    - What does cardiac arrest mean?
-    - What occurs in a cardiac arrest?
-    - How does cardiac arrest happen?
-    - What is the definition of cardiac arrest?
-    - What are the symptoms of cardiac arrest?
-    - How would you describe cardiac arrest?
-    - What causes cardiac arrest?
-    - What is the medical term for cardiac arrest?
-    - What is the difference between a heart attack and cardiac arrest?
-    - What is the meaning of cardiac arrest?
-    - What leads to cardiac arrest?
-    - What are the signs of cardiac arrest?
-    - How does cardiac arrest affect the body?
-    - What happens to the heart during cardiac arrest?
-    - What is the impact of cardiac arrest?
-    - How serious is a cardiac arrest?
-    - What is a cardiac arrest and how does it occur?
-    - Why does cardiac arrest happen?
-    - Can you define cardiac arrest?
-    - What is the main cause of cardiac arrest?
-    - What is sudden cardiac arrest?
-    - What happens if someone has a cardiac arrest?
-    - What does it mean to have a cardiac arrest?
-    - What exactly is cardiac arrest?
-    - How does cardiac arrest differ from a heart attack?
-    - What are the consequences of cardiac arrest?
-
-- intent: what_is_heart_attack
-  examples: |
-    - What is a heart attack?
-    - What's the difference between heart attack and cardiac arrest?
-    - How do I know if someone is having a heart attack?
-    - Heart attack symptoms
-    - What causes a heart attack?
-    - Is heart attack the same as cardiac arrest?
-    - What happens during a heart attack?
-    - Heart attack vs cardiac arrest
-    - Signs of heart attack
-    - What to do for heart attack?
+    - what is the emergency number
+    - emergency phone number
+    - who do I call in emergency
+    - emergency services number
+    - ambulance number
+    - what number to call for help
+    - emergency contact
+    - help phone number
+    - medical emergency number
+    - call for help number
+    - emergency hotline
+    - first aid number
+    - rescue services number
+    - urgent help number
+    - emergency line
 
 - intent: choking_help
   examples: |
-    - Someone is choking
-    - How to help choking person
-    - What to do when choking
-    - Heimlich maneuver
-    - Choking first aid
-    - Person can't breathe
-    - Food stuck in throat
-    - How to perform Heimlich
-    - Choking emergency
-    - Clear airway obstruction
-    - Back blows for choking
-    - Abdominal thrusts
-    - Choking infant
-    - Baby choking help
-    - Adult choking procedure
-
-- intent: recovery_position
-  examples: |
-    - Recovery position
-    - How to put someone in recovery position
-    - Unconscious but breathing
-    - Side recovery position
-    - Lateral safety position
-    - What is recovery position
-    - When to use recovery position
-    - How to place unconscious person
-    - Safe position for unconscious
-    - Recovery position steps
-    - Unconscious person breathing
-    - Side position safety
-    - How do I put someone in the recovery position?
-    - What are the steps for the recovery position?
-    - How to safely position an unconscious person?
-    - When should I use the recovery position?
-    - What is the correct way to use the recovery position?
-    - How to roll someone into the recovery position?
-    - What is the purpose of the recovery position?
-    - Why use the recovery position?
-    - How to check breathing before recovery position?
-    - What to do after putting someone in recovery position?
-    - How to keep airway open with recovery position?
-    - What is the safest position for an unconscious person?
-    - How to help someone breathe in recovery position?
-    - What are the benefits of the recovery position?
-    - How to ensure safety in recovery position?
-    - What should I watch for in recovery position?
-    - How to monitor a person in recovery position?
-    - What are the risks of not using recovery position?
-    - How to move a person into recovery position alone?
+    - someone is choking
+    - help with choking
+    - choking emergency
+    - person can't breathe
+    - food stuck in throat
+    - choking first aid
+    - how to help choking person
+    - what to do when choking
+    - choking rescue
+    - heimlich maneuver
+    - abdominal thrusts
+    - back blows
+    - choking infant
+    - choking child
+    - choking adult
 
 - intent: bleeding_control
   examples: |
-    - How to stop bleeding
-    - Severe bleeding first aid
-    - Control heavy bleeding
-    - Pressure on wound
-    - Bleeding emergency
-    - How to treat cuts
-    - Stop blood loss
-    - Wound care emergency
-    - Heavy bleeding help
-    - Apply pressure bleeding
-    - Tourniquet use
-    - Bleeding control techniques
-    - How to manage a bleeding wound
-    - What to do for nosebleed
-    - How to stop a cut from bleeding
-    - How to help someone bleeding
-    - What is the first step for bleeding
-    - How to use a bandage for bleeding
-    - How to elevate a bleeding limb
-    - What to avoid with bleeding
-    - How to recognize severe bleeding
-    - How to call for help for bleeding
-    - How to treat a bleeding injury
-    - What are the signs of internal bleeding
-    - How to prevent shock from bleeding
-    - How to keep pressure on a wound
-    - What to do if bleeding doesn't stop
-
-- intent: shock_treatment
-  examples: |
-    - Medical shock treatment
-    - Person in shock
-    - How to treat shock
-    - Signs of shock
-    - Shock first aid
-    - What is medical shock
-    - Shock symptoms
-    - How to help shock victim
-    - Treating traumatic shock
-    - Shock emergency care
-    - What are the causes of shock
-    - How to recognize shock
-    - What to do if someone is in shock
-    - How to keep a shock victim warm
-    - How to position a person in shock
-    - What are the types of shock
-    - How to prevent shock
-    - How to monitor a shock victim
-    - What are the warning signs of shock
-    - How to call for help for shock
-    - How to provide comfort to a shock victim
-    - What to avoid with shock
-    - How to check for shock
-    - How to treat shock at home
-    - What is the first step for shock
+    - how to stop bleeding
+    - severe bleeding
+    - blood loss
+    - cut bleeding heavily
+    - wound bleeding
+    - hemorrhage control
+    - bleeding first aid
+    - how to control bleeding
+    - bleeding emergency
+    - deep cut bleeding
+    - arterial bleeding
+    - venous bleeding
+    - pressure points
+    - tourniquet use
+    - bandaging wounds
 
 - intent: burns_treatment
   examples: |
-    - How to treat burns
-    - Burn first aid
-    - Severe burn treatment
-    - What to do for burns
-    - Burn emergency care
-    - Cool water for burns
-    - Chemical burn help
-    - Electrical burn treatment
-    - Third degree burn
-    - Minor burn care
-    - Burn wound treatment
-    - How to recognize a burn
-    - What to do for sunburn
-    - How to treat a blister
-    - How to cover a burn
-    - What to avoid with burns
-    - How to call for help for burns
-    - How to treat a burn at home
-    - What are the signs of severe burns
-    - How to prevent infection in burns
-    - How to cool a burn quickly
-    - How to remove clothing from a burn
-    - How to help a burn victim
-    - What is the first step for burns
-    - How to monitor a burn injury
+    - burn treatment
+    - how to treat burns
+    - burn first aid
+    - thermal burn
+    - chemical burn
+    - electrical burn
+    - severe burns
+    - burn emergency
+    - scalding injury
+    - fire burn
+    - hot liquid burn
+    - steam burn
+    - acid burn
+    - alkali burn
+    - burn wound care
 
 - intent: fracture_help
   examples: |
-    - Broken bone first aid
-    - How to help fracture
-    - Suspected fracture
-    - Broken arm help
-    - Broken leg first aid
-    - Immobilize fracture
-    - Bone fracture emergency
-    - What to do broken bone
-    - Fracture treatment
-    - Splinting fracture
-    - How to recognize a fracture?
-    - What are the signs of a broken bone?
-    - How to splint a fracture?
-    - What should I do if someone breaks a bone?
-    - How to keep a fracture stable?
-    - What is the first step for a fracture?
-    - How to help a person with a broken bone?
-    - What not to do with a fracture?
-    - How to prevent further injury with a fracture?
-    - What is the best way to immobilize a fracture?
-    - How to call for help for a fracture?
-    - What are the dangers of moving a broken bone?
-    - How to treat a suspected fracture?
-    - What to avoid with a fracture?
-    - How to check for circulation after a fracture?
-    - What are the symptoms of a fracture?
-    - How to support a limb with a fracture?
-    - What to do if bone is sticking out?
-
-- intent: allergic_reaction
-  examples: |
-    - Allergic reaction help
-    - Severe allergy emergency
-    - Anaphylaxis treatment
-    - EpiPen use
-    - Allergic shock
-    - How to use epinephrine
-    - Severe allergic reaction
-    - Anaphylactic shock help
-    - Allergy emergency
-    - Food allergy reaction
-    - What to do for allergies
-    - Allergy symptoms emergency
-    - How to recognize anaphylaxis
-    - What is an allergic emergency
-    - How to help someone with allergies
-    - What are the signs of anaphylaxis
-    - How to use an EpiPen correctly
-    - What to avoid during allergic reaction
-    - How to call for help for allergy
-    - How to treat a bee sting allergy
-    - What to do for nut allergy
-    - How to recognize food allergy
-    - How to prevent allergic reactions
-    - What are the symptoms of severe allergy
-    - How to monitor after allergic reaction
-    - What to do after using EpiPen
-
-- intent: seizure_help
-  examples: |
-    - Someone having seizure
-    - Epileptic seizure help
-    - What to do during seizure
-    - Seizure first aid
-    - Convulsion help
-    - Epilepsy emergency
-    - How to help seizure
-    - Seizure safety
-    - Person having fit
-    - Seizure response
-    - What are the signs of a seizure?
-    - How to protect someone during a seizure?
-    - What not to do during a seizure?
-    - How to keep airway clear during seizure
-    - How to call for help for seizure
-    - What to do after a seizure
-    - How to comfort someone after seizure
-    - How to recognize epilepsy
-    - What are the types of seizures
-    - How to prevent injury during seizure
-    - How to monitor after seizure
-    - What to avoid during seizure
-    - How to help a child with seizure
-    - How to help an adult with seizure
-    - What to do if seizure lasts long
-    - How to document a seizure event
+    - broken bone
+    - fracture first aid
+    - how to help with fracture
+    - bone break
+    - broken arm
+    - broken leg
+    - fractured bone
+    - bone injury
+    - limb fracture
+    - how to splint
+    - immobilize fracture
+    - broken bone emergency
+    - compound fracture
+    - simple fracture
+    - suspected fracture
 
 - intent: stroke_recognition
   examples: |
-    - Signs of stroke
-    - Stroke symptoms
-    - How to recognize stroke
-    - FAST stroke test
-    - Stroke emergency
-    - What is a stroke
-    - Stroke first aid
-    - Brain attack symptoms
-    - Stroke warning signs
-    - How to help stroke victim
-    - What to do if someone has a stroke?
-    - How to act during a stroke?
-    - What are the first signs of stroke
-    - How to call for help for stroke
-    - How to position a stroke victim
-    - What to avoid during stroke
-    - How to monitor after stroke
-    - How to recognize mini-stroke
-    - What to do after a stroke
-    - How to help elderly with stroke
-    - How to help child with stroke
-    - What are the types of stroke
-    - How to prevent stroke
-    - How to check for stroke symptoms
-    - How to provide comfort during stroke
-    - How to document stroke symptoms
+    - stroke symptoms
+    - signs of stroke
+    - how to recognize stroke
+    - stroke emergency
+    - brain attack
+    - stroke warning signs
+    - fast stroke test
+    - stroke first aid
+    - mini stroke
+    - ischemic stroke
+    - hemorrhagic stroke
+    - stroke indicators
+    - cerebrovascular accident
+    - stroke detection
+    - face drooping
 
-- intent: hypothermia_help
+- intent: seizure_help
   examples: |
-    - Hypothermia treatment
-    - Person too cold
-    - Cold exposure help
-    - How to warm someone
-    - Hypothermia first aid
-    - Freezing person help
-    - Cold emergency
-    - Body temperature too low
-    - Warming hypothermia victim
-    - What are the signs of hypothermia?
-    - How to prevent hypothermia?
-    - How to recognize hypothermia
-    - What to do for frostbite
-    - How to call for help for hypothermia
-    - How to rewarm a person safely
-    - What to avoid with hypothermia
-    - How to monitor after hypothermia
-    - How to help a child with hypothermia
-    - How to help elderly with hypothermia
-    - What are the stages of hypothermia
-    - How to prevent cold injuries
-    - How to provide comfort for hypothermia
-    - How to check for hypothermia symptoms
-    - How to document hypothermia event
-    - How to treat mild hypothermia
+    - someone having seizure
+    - epileptic seizure
+    - convulsions
+    - seizure first aid
+    - how to help seizure
+    - seizure emergency
+    - person shaking
+    - epilepsy attack
+    - grand mal seizure
+    - petit mal seizure
+    - seizure response
+    - what to do during seizure
+    - seizure care
+    - unconscious seizure
+    - seizure safety
 
-- intent: heat_exhaustion
+- intent: allergic_reaction
   examples: |
-    - Heat exhaustion help
-    - Heat stroke treatment
-    - Too hot emergency
-    - Overheating person
-    - Heat emergency
-    - Hyperthermia treatment
-    - Hot weather emergency
-    - Heat illness help
-    - Cooling overheated person
-    - What are the symptoms of heat exhaustion?
-    - How to prevent heat stroke?
-    - How to recognize heat exhaustion
-    - What to do for heat cramps
-    - How to call for help for heat illness
-    - How to cool someone quickly
-    - What to avoid with heat exhaustion
-    - How to monitor after heat illness
-    - How to help a child with heat exhaustion
-    - How to help elderly with heat stroke
-    - What are the stages of heat illness
-    - How to prevent heat injuries
-    - How to provide comfort for heat exhaustion
-    - How to check for heat stroke symptoms
-    - How to document heat illness event
-    - How to treat mild heat exhaustion
+    - allergic reaction
+    - anaphylaxis
+    - severe allergy
+    - allergic emergency
+    - food allergy reaction
+    - bee sting allergy
+    - drug allergy
+    - allergic shock
+    - hives emergency
+    - swelling allergy
+    - breathing difficulty allergy
+    - epipen use
+    - allergy first aid
+    - anaphylactic shock
+    - severe allergic reaction
 
-- intent: poisoning_help
+- intent: recovery_position
   examples: |
-    - Poisoning emergency
-    - Someone poisoned
-    - Poison control help
-    - Toxic substance ingestion
-    - Chemical poisoning
-    - Food poisoning emergency
-    - What to do poisoning
-    - Poison first aid
-    - Overdose help
-    - How to recognize poisoning?
-    - What are the symptoms of poisoning?
-    - How to help someone who is poisoned
-    - What to do for drug overdose
-    - How to call for help for poisoning
-    - How to treat accidental poisoning
-    - What to avoid with poisoning
-    - How to monitor after poisoning
-    - How to help a child with poisoning
-    - How to help elderly with poisoning
-    - What are the types of poisoning
-    - How to prevent poisoning
-    - How to provide comfort for poisoning
-    - How to check for poisoning symptoms
-    - How to document poisoning event
-    - How to treat mild poisoning
-
-- intent: drowning_rescue
-  examples: |
-    - Drowning person help
-    - Water rescue
-    - Near drowning treatment
-    - How to save drowning person
-    - Water emergency
-    - Drowning first aid
-    - Rescue from water
-    - Water safety emergency
-    - How to recognize drowning?
-    - What to do after a drowning rescue?
-    - How to call for help for drowning
-    - How to perform rescue breathing after drowning
-    - What to avoid with drowning
-    - How to monitor after drowning
-    - How to help a child with drowning
-    - How to help elderly with water rescue
-    - What are the signs of near drowning
-    - How to prevent drowning
-    - How to provide comfort after drowning
-    - How to check for drowning symptoms
-    - How to document drowning event
-    - How to treat mild water inhalation
-    - How to recognize secondary drowning
-    - How to help someone who swallowed water
-
-- intent: spinal_injury
-  examples: |
-    - Spinal injury help
-    - Back injury first aid
-    - Neck injury care
-    - Don't move injured person
-    - Spinal immobilization
-    - Back pain emergency
-    - Neck pain severe
-    - Spine injury treatment
-    - How to recognize spinal injury?
-    - What to do for spinal trauma?
-    - How to call for help for spinal injury
-    - How to stabilize the neck
-    - What to avoid with spinal injury
-    - How to monitor after spinal injury
-    - How to help a child with spinal injury
-    - How to help elderly with spinal injury
-    - What are the signs of spinal cord damage
-    - How to prevent further injury
-    - How to provide comfort for spinal injury
-    - How to check for spinal injury symptoms
-    - How to document spinal injury event
-    - How to treat mild spinal injury
-    - How to immobilize a patient
-    - How to recognize paralysis
-
-- intent: pregnancy_emergency
-  examples: |
-    - Pregnant woman emergency
-    - Pregnancy complications
-    - Childbirth emergency
-    - Labor emergency
-    - Pregnant woman unconscious
-    - Emergency delivery
-    - Pregnancy first aid
-    - What to do for pregnancy emergency?
-    - How to help in childbirth emergency?
-    - Signs of pregnancy complications
-    - How to call for help for pregnancy
-    - How to help a woman in labor
-    - What to avoid during pregnancy emergency
-    - How to monitor after childbirth
-    - How to help a child during birth
-    - How to help elderly during pregnancy emergency
-    - What are the signs of labor
-    - How to prevent complications
-    - How to provide comfort during labor
-    - How to check for pregnancy symptoms
-    - How to document pregnancy emergency
-    - How to treat mild pregnancy complications
-    - How to recognize premature labor
-    - How to help with emergency delivery
+    - recovery position
+    - unconscious person position
+    - how to position unconscious
+    - lateral position
+    - stable side position
+    - unconscious breathing person
+    - safe recovery position
+    - how to turn unconscious person
+    - positioning unconscious victim
+    - unconscious first aid position
+    - side recovery position
+    - maintaining airway
+    - unconscious but breathing
+    - recovery posture
+    - lateral recovery
 
 - intent: child_cpr
   examples: |
-    - CPR for children
-    - Child CPR steps
-    - How to do CPR on child
-    - Pediatric CPR
-    - Kid CPR procedure
-    - Child resuscitation
-    - CPR for kids
-    - Child cardiac arrest
-    - Infant CPR
-    - Baby CPR steps
-    - Newborn CPR
-    - Toddler CPR
-    - How to recognize cardiac arrest in children
-    - How to call for help for child CPR
-    - How to perform rescue breaths for children
-    - What to avoid during child CPR
-    - How to monitor after child CPR
-    - How to help a baby with CPR
-    - How to help a toddler with CPR
-    - What are the signs of cardiac arrest in children
-    - How to prevent complications in child CPR
-    - How to provide comfort after child CPR
-    - How to check for child CPR symptoms
-    - How to document child CPR event
-    - How to treat mild complications in child CPR
+    - child cpr
+    - cpr for children
+    - pediatric cpr
+    - infant cpr
+    - baby cpr
+    - toddler cpr
+    - child resuscitation
+    - cpr on kids
+    - how to do cpr on child
+    - child cardiac arrest
+    - infant cardiac arrest
+    - baby not breathing
+    - child emergency
+    - pediatric resuscitation
+    - newborn cpr
 
-- intent: elderly_cpr
+- intent: what_is_defibrillator
   examples: |
-    - CPR for elderly
-    - Old person CPR
-    - Senior citizen CPR
-    - Elderly cardiac arrest
-    - CPR on older adults
-    - Geriatric CPR
-    - Fragile person CPR
-    - How to do CPR on an elderly person?
-    - What are the risks of CPR for seniors?
-    - Is CPR different for older adults?
-    - How to help a senior in cardiac arrest?
-    - What precautions for elderly CPR?
-    - How to check for breathing in elderly?
-    - How to position hands for elderly CPR?
-    - What to do if ribs break in elderly CPR?
-    - How to call for help for an elderly person?
-    - What is the survival rate for elderly CPR?
-    - How to recognize cardiac arrest in seniors?
-    - What are the signs of cardiac arrest in elderly?
-    - How to provide rescue breaths to elderly?
-    - How to support fragile chest during CPR?
-    - What to do after CPR on an elderly person?
-    - How to monitor elderly after CPR?
-    - What are the outcomes of CPR in elderly?
-    - How to comfort family after elderly CPR?
-    - What to avoid during elderly CPR?
+    - what is a defibrillator
+    - what is an aed
+    - automated external defibrillator
+    - defibrillator explanation
+    - aed meaning
+    - what does aed do
+    - defibrillator purpose
+    - electric shock device
+    - heart shock machine
+    - aed definition
+    - portable defibrillator
+    - public defibrillator
+    - emergency defibrillator
+    - cardiac defibrillator
+    - life saving device
 
-- intent: cpr_complications
+- intent: how_to_defibrillator
   examples: |
-    - CPR complications
-    - Broken ribs during CPR
-    - CPR side effects
-    - Injuries from CPR
-    - CPR risks
-    - What if ribs break CPR
-    - CPR damage
-    - Complications chest compressions
-    - Can CPR cause harm
-    - What injuries can happen during CPR
-    - Is it normal to break ribs during CPR
-    - What to do if you hurt someone during CPR
-    - How to minimize CPR injuries
-    - What are the most common CPR complications
-    - Can CPR cause internal bleeding
-    - What to do if there is bleeding during CPR
-    - How to recognize CPR complications
-    - What are the risks of chest compressions
-    - How to handle CPR side effects
-    - What to do after CPR complications
-    - How to report CPR injuries
-    - What are the signs of CPR injury
-    - How to prevent CPR complications
-    - What to check after CPR
-    - How to follow up after CPR
+    - how to use aed
+    - how to use defibrillator
+    - aed instructions
+    - defibrillator steps
+    - using aed device
+    - aed procedure
+    - defibrillator operation
+    - how to operate aed
+    - aed usage
+    - electric shock procedure
+    - aed training
+    - defibrillator technique
+    - aed application
+    - automated defibrillator use
+    - shock delivery
 
-- intent: when_to_stop_cpr
+- intent: shock_treatment
   examples: |
-    - When to stop CPR
-    - How long do CPR
-    - Stop CPR when
-    - CPR duration
-    - When to give up CPR
-    - CPR time limit
-    - Stop resuscitation when
-    - End CPR procedure
-    - How to know when to stop CPR
-    - When is it safe to stop CPR
-    - What are the signs to stop CPR
-    - When should you not stop CPR
-    - How long should CPR be performed
-    - When to stop chest compressions
-    - When to stop rescue breaths
-    - What to do after stopping CPR
-    - How to decide to stop CPR
-    - When do professionals stop CPR
-    - What happens after stopping CPR
-    - How to explain stopping CPR to family
-    - What are the rules for stopping CPR
-    - When to stop CPR in children
-    - When to stop CPR in elderly
-    - When to stop CPR in hospital
+    - medical shock
+    - shock treatment
+    - circulatory shock
+    - hypovolemic shock
+    - cardiogenic shock
+    - septic shock
+    - shock first aid
+    - shock emergency
+    - shock symptoms
+    - treating shock
+    - shock management
+    - shock care
+    - blood pressure drop
+    - shock prevention
+    - shock response
 
-- intent: cpr_training
+- intent: hypothermia_help
   examples: |
-    - Where to learn CPR
-    - CPR training courses
-    - CPR certification
-    - Learn CPR classes
-    - CPR course near me
-    - Get CPR certified
-    - CPR training programs
-    - First aid training
-    - How to find CPR classes
-    - Where to get CPR certified
-    - How to become a CPR instructor
-    - What is included in CPR training
-    - How long is CPR training
-    - What to expect in CPR class
-    - How to renew CPR certification
-    - What is the cost of CPR training
-    - Where to get CPR recertification
-    - How to practice CPR at home
-    - What are the benefits of CPR training
-    - How to prepare for CPR exam
-    - What is the best CPR course
-    - How to get online CPR training
-    - How to find local CPR classes
-    - What is the difference between CPR and first aid training
+    - hypothermia
+    - cold exposure
+    - body temperature low
+    - freezing person
+    - cold emergency
+    - hypothermia treatment
+    - cold injury
+    - frostbite
+    - extreme cold exposure
+    - hypothermia first aid
+    - warming techniques
+    - cold water immersion
+    - winter emergency
+    - cold weather injury
+    - temperature emergency
 
-- intent: legal_protection
+- intent: heat_exhaustion
   examples: |
-    - Good Samaritan law
-    - Legal protection CPR
-    - Can I be sued CPR
-    - Legal liability first aid
-    - Protected by law CPR
-    - Good Samaritan protection
-    - Legal coverage helping
-    - Am I protected if I help?
-    - What are the laws for first aid?
-    - Can I get in trouble for helping?
+    - heat exhaustion
+    - heat stroke
+    - overheating
+    - heat emergency
+    - hot weather illness
+    - heat cramps
+    - dehydration heat
+    - sun stroke
+    - hyperthermia
+    - heat illness
+    - excessive heat exposure
+    - heat related emergency
+    - hot environment injury
+    - heat fatigue
+    - temperature regulation
+
+- intent: poisoning_help
+  examples: |
+    - poisoning
+    - someone poisoned
+    - toxic ingestion
+    - poison emergency
+    - accidental poisoning
+    - chemical poisoning
+    - drug overdose
+    - poisoning first aid
+    - toxic exposure
+    - poison control
+    - ingested poison
+    - poisoning symptoms
+    - toxic substance
+    - poison treatment
+    - contamination emergency
+
+- intent: drowning_rescue
+  examples: |
+    - drowning
+    - water rescue
+    - near drowning
+    - water emergency
+    - submersion injury
+    - drowning first aid
+    - water accident
+    - rescue from water
+    - drowning victim
+    - water safety emergency
+    - aquatic emergency
+    - swimming accident
+    - water resuscitation
+    - drowning response
+    - water rescue techniques
 
 - intent: panic_management
   examples: |
@@ -982,213 +480,33 @@ nlu:
 
 - intent: calling_emergency_tips
   examples: |
-    - How to call emergency
-    - What to say emergency call
-    - Emergency call tips
-    - Calling 911 advice
-    - Emergency dispatcher
-    - What information give emergency
+    - How to call emergency services?
+    - Tips for calling emergency
+    - What to say when calling emergency?
+    - How to contact emergency services?
+    - Best way to call emergency
+    - Guide to calling emergency services
+    - What information to give emergency services?
+    - How to make an emergency call?
     - Emergency call procedure
-    - How to talk to emergency services?
-    - What to do during emergency call?
-    - How to stay calm on emergency call?
-    - How to recognize emergency dispatcher
-    - How to call for help for emergency
-    - How to help someone call emergency
-    - What to avoid during emergency call
-    - How to monitor after emergency call
-    - How to help a child call emergency
-    - How to help elderly call emergency
-    - What are the signs of emergency call
-    - How to prevent mistakes in emergency call
-    - How to provide comfort during emergency call
-    - How to check for emergency call needs
-    - How to document emergency call
-    - How to treat stress after emergency call
-    - How to prioritize information in emergency call
-    - How to assign roles during emergency call
-
-- intent: bystander_help
-  examples: |
-    - Get help from others
-    - Ask bystanders help
-    - Crowd control emergency
-    - Direct people emergency
-    - Assign tasks emergency
-    - Organize bystanders
-    - Get crowd to help
-    - How to involve bystanders?
-    - What to ask bystanders to do?
-    - How to coordinate help in emergency?
-    - How to call for help from bystanders
-    - How to organize bystander roles
-    - What to avoid with bystanders
-    - How to monitor bystander actions
-    - How to help children as bystanders
-    - How to help elderly as bystanders
-    - What are the signs of effective bystander help
-    - How to prevent confusion among bystanders
-    - How to provide comfort to bystanders
-    - How to check for bystander willingness
-    - How to document bystander actions
-    - How to treat minor injuries with bystander help
-    - How to prioritize bystander tasks
-    - How to assign bystander roles
-
-- intent: scene_safety
-  examples: |
-    - Scene safety
-    - Check for dangers
-    - Safe to approach
-    - Environmental hazards
-    - Safety first emergency
-    - Assess scene safety
-    - Danger assessment
-    - Safe rescue approach
-    - How to ensure scene is safe?
-    - What are scene hazards?
-    - How to call for help for scene safety
-    - How to organize scene safety
-    - What to avoid at the scene
-    - How to monitor scene safety
-    - How to help children at the scene
-    - How to help elderly at the scene
-    - What are the signs of unsafe scene
-    - How to prevent hazards at the scene
-    - How to provide comfort at the scene
-    - How to check for scene safety needs
-    - How to document scene safety
-    - How to treat minor hazards at the scene
-    - How to prioritize scene safety
-    - How to assign scene safety roles
-
-- intent: medical_history
-  examples: |
-    - Medical history important
-    - Patient medical information
-    - Allergies emergency
-    - Medications patient taking
-    - Medical conditions emergency
-    - Health history emergency
-    - Why is medical history important?
-    - How to ask for medical history?
-    - What to check in medical history?
-    - How to call for help for medical history
-    - How to organize medical information
-    - What to avoid with medical history
-    - How to monitor medical history
-    - How to help children with medical history
-    - How to help elderly with medical history
-    - What are the signs of missing medical history
-    - How to prevent errors in medical history
-    - How to provide comfort with medical history
-    - How to check for allergies in history
-    - How to document medical history
-    - How to treat minor issues with history
-    - How to prioritize medical information
-    - How to assign roles for medical history
-
-- intent: comfort_victim
-  examples: |
-    - Comfort injured person
-    - Reassure victim
-    - Talk to injured person
-    - Keep victim calm
-    - Emotional support emergency
-    - Comfort scared person
-    - Reassurance emergency
-    - How to provide comfort in emergency?
-    - What to say to reassure victim?
-    - How to calm a scared person?
-    - How to call for help for comfort
-    - How to organize comfort for victims
-    - What to avoid when comforting
-    - How to monitor emotional state
-    - How to help children with comfort
-    - How to help elderly with comfort
-    - What are the signs of distress
-    - How to prevent panic in victims
-    - How to provide comfort after trauma
-    - How to check for comfort needs
-    - How to document comfort actions
-    - How to treat minor distress
-    - How to prioritize comfort
-    - How to assign comfort roles
-
-- intent: post_emergency_care
-  examples: |
-    - After emergency care
-    - Post resuscitation care
-    - Follow up emergency
-    - After CPR what next
-    - Recovery after emergency
-    - Continued care emergency
-    - What to do after emergency?
-    - How to monitor after emergency?
-    - What is post-emergency protocol?
-    - How to call for help after emergency
-    - How to organize follow-up care
-    - What to avoid after emergency
-    - How to monitor recovery
-    - How to help children after emergency
-    - How to help elderly after emergency
-    - What are the signs of recovery
-    - How to prevent complications after emergency
-    - How to provide comfort after emergency
-    - How to check for follow-up needs
-    - How to document post-emergency care
-    - How to treat minor issues after emergency
-    - How to prioritize post-emergency care
-    - How to assign follow-up roles
-
-- intent: symptoms
-  examples: |
-    - What are the symptoms
-    - Symptoms
-    - What symptoms
-    - How to detect heart problems
-    - How to know if heart problems
-    - What problems for heart disease
-    - Symptoms for heart disease
-    - Symptoms for cardial arrest
-    - Cardiac arrest symptoms
-    - Signs of cardiac arrest
-    - Symptoms of cardiac arrest
-    - Cardiac arrest signs
-    - Recognize cardiac arrest
-    - Identify cardiac arrest
-    - Cardiac arrest indicators
-    - What is cardiac arrest
-    - Cardiac arrest warning signs
-    - Symptoms of heart arrest
-    - What are the symptoms of cardiac arrest
-    - Can you tell me the signs of cardiac arrest
-    - How do I know if someone is having a cardiac arrest
-    - What symptoms should I look for in a cardiac arrest
-    - What happens when someone has a cardiac arrest
-    - How can I recognize cardiac arrest symptoms
-    - What are the warning signs of cardiac arrest
-    - How do I identify a cardiac arrest
-    - Could you list the symptoms of a cardiac arrest
-    - What does cardiac arrest look like
-    - What signs indicate cardiac arrest
-    - What should I watch out for in a cardiac arrest
-    - How can I tell if it's a cardiac arrest
-    - What are the early symptoms of a cardiac arrest
-    - Can you describe the symptoms of a cardiac arrest
+    - Steps to call emergency services
+    - What to do when calling emergency?
+    - How to communicate with emergency services?
+    - Emergency call guidelines
+    - Proper way to call emergency
+    - Emergency call instructions
 
 - intent: how_to_react
   examples: |
     - What to do
     - What is the procedure
     - Save someone from heart problem
-    - Save someone from cardial arrest
-    - How to help someone from cardial arrest
+    - Save someone from cardiac arrest
+    - How to help someone from cardiac arrest
     - How to help someone from heart problems
     - What is the procedure to follow
     - What should I do
     - Cardiac arrest help
-    - What to do
     - Cardiac arrest steps
     - Help for cardiac arrest
     - Actions for cardiac arrest
@@ -1213,45 +531,6 @@ nlu:
     - How to handle cardiac arrest
     - What measures to take for cardiac arrest
 
-- intent: what_are_emergency_numbers
-  examples: |
-    - emergency services phone number
-    - phone number emergency services
-    - phone number help
-    - call emergency services
-    - what is phone number emergency services
-    - what is emergency services phone number
-    - What is the phone number of the emergency services
-    - How do I call the emergency services
-    - Help phone number
-    - Contact emergency services
-    - Emergency call number
-    - Emergency services hotline
-    - Number for help
-    - Emergency hotline
-    - Call for emergency help
-    - Emergency services contact
-    - What’s the emergency number?
-    - How to reach emergency services?
-    - Help number
-    - Need emergency services number
-    - Emergency phone
-    - Who to call in an emergency?
-    - Emergency contact number
-    - Emergency services phone
-    - Phone emergency services
-    - How to call for emergency?
-    - Emergency number, please
-    - What number to call for emergency?
-    - Who to contact for emergency help?
-    - How to get emergency services?
-    - Phone number for urgent help
-    - Emergency contact
-    - Number for urgent services
-    - What’s the number for emergencies?
-    - How to dial emergency services?
-    - Contact number for emergency
-
 - intent: abroad_emergency_numbers
   examples: |
     - Emergency numbers abroad
@@ -1274,7 +553,7 @@ nlu:
     - Emergency hotline in foreign country
     - Emergency services contact numbers internationally
     - Numbers to call for help abroad
-    - What is the emergency number in [country]?
+    - What is the emergency number in other countries?
     - How to get emergency help overseas?
     - Who to contact for emergencies abroad?
     - Need help numbers for foreign country
@@ -1285,206 +564,233 @@ nlu:
     - How to dial emergency services in another country?
     - Emergency numbers when traveling
 
-- intent: what_is_cpr
+- intent: what_to_do_accident
   examples: |
-    - What is CPR
-    - Can you explain what CPR is
-    - What does CPR stand for
-    - What is the purpose of CPR
-    - Define CPR
-    - How does CPR work
-    - What exactly is CPR
-    - What does CPR mean
-    - What is the full form of CPR
-    - What is involved in CPR
-    - What is CPR used for
-    - Can you describe CPR
-    - What does CPR do
-    - How would you define CPR
-    - What is the goal of CPR
-    - What is the role of CPR in an emergency
-    - Why is CPR performed?
-    - What are the basics of CPR?
-    - What is CPR in first aid?
-    - What happens during CPR?
-    - What is CPR in medical terms?
-    - What is the meaning of CPR?
-    - How would you explain CPR to someone?
-    - What is the significance of CPR?
-    - What are the steps in CPR?
-    - Why do people use CPR?
-    - What is the definition of CPR?
-    - What does performing CPR involve?
-    - What are the components of CPR?
-    - What is CPR and how does it help?
+    - What should I do in case of an accident?
+    - What are the first steps after an accident?
+    - How to react if I witness an accident?
+    - What are the best practices in an emergency accident situation?
+    - How can I help someone after an accident?
+    - Accident scene management
+    - What to do at accident scene
+    - How to assess accident situation
+    - Emergency accident response
+    - How to prioritize accident victims
+    - What not to do at accident scene
+    - How to secure accident scene
+    - When to move accident victim
+    - How to call for help at accident
+    - Accident first aid priorities
+    - How to check for injuries after accident
+    - What to do while waiting for emergency services
+    - How to prevent further injury at accident
+    - Accident scene safety measures
+    - How to document accident for emergency services
 
-- intent: how_to_cpr
+- intent: bystander_help
   examples: |
-    - How to perform CPR?
-    - Steps for CPR
-    - How to do chest compressions?
-    - What is the process for CPR?
-    - How do you do CPR?
-    - Guide to performing CPR
-    - How to give CPR?
-    - Instructions for CPR
-    - How to administer CPR?
-    - What is the correct way to do CPR?
-    - CPR procedure
-    - How to do CPR correctly?
-    - How can I perform CPR?
-    - How to start CPR?
-    - What are the CPR techniques?
-    - Steps to do CPR
-    - How to conduct CPR?
-    - How to save someone with CPR?
-    - CPR steps and techniques
-    - How should I do CPR?
-    - How to execute CPR?
-    - What to do for CPR?
-    - How to give chest compressions?
-    - Procedure for CPR
-    - How to handle CPR?
-    - Best way to do CPR
-    - How to perform chest compressions?
-    - Method for doing CPR
-    - What are the CPR procedures?
-    - How to help someone with CPR?
-    - How long do I have to do CPR?
-    - How long should CPR be performed?
-    - When should I stop doing CPR?
-    - How many minutes should I perform CPR?
-    - How long is CPR done for?
-    - How long to continue CPR?
-  
-- intent: how_to_mouth_to_mouth
-  examples: |
-    - How do I perform mouth-to-mouth?
-    - Steps for mouth-to-mouth resuscitation
-    - How to do mouth-to-mouth?
-    - How to give mouth-to-mouth?
-    - What is the technique for mouth-to-mouth?
-    - How to perform mouth-to-mouth resuscitation?
-    - Can you explain how to do mouth-to-mouth?
-    - Instructions for mouth-to-mouth
-    - How should I do mouth-to-mouth?
-    - How is mouth-to-mouth done?
-    - What are the steps for mouth-to-mouth resuscitation?
-    - Guide to mouth-to-mouth resuscitation
-    - How to give effective mouth-to-mouth?
-    - Proper way to do mouth-to-mouth
-    - How can I perform mouth-to-mouth correctly?
-    - What is the procedure for mouth-to-mouth?
-    - Can you guide me through mouth-to-mouth?
-    - How do you give mouth-to-mouth resuscitation?
-    - Best way to perform mouth-to-mouth
-    - What is the correct method for mouth-to-mouth?
-    - How to provide mouth-to-mouth in an emergency?
-    - What are the steps to give mouth-to-mouth?
-    - How to safely perform mouth-to-mouth?
-    - What is the mouth-to-mouth technique?
-    - Detailed steps for mouth-to-mouth resuscitation
-    - How to execute mouth-to-mouth resuscitation?
-    - What is the safest way to perform mouth-to-mouth?
-    - How do I ensure proper mouth-to-mouth technique?
-    - What should I know before performing mouth-to-mouth?
-    - How to do mouth-to-mouth in a CPR situation?
+    - How can bystanders help?
+    - What should people around do?
+    - How to get help from others
+    - How to direct bystanders in emergency
+    - What to ask people around for help
+    - How to organize bystanders
+    - Bystander assistance in emergency
+    - How to delegate tasks to bystanders
+    - What can witnesses do to help
+    - How to use bystanders effectively
+    - Crowd management in emergency
+    - How to ask for help from strangers
+    - Getting assistance from people nearby
+    - How to coordinate bystander help
+    - What tasks to give bystanders
+    - How to communicate with bystanders
+    - Bystander roles in emergency
+    - How to prevent bystander panic
+    - Using bystanders to call for help
+    - How to keep bystanders safe
 
-- intent: what_is_defibrillator
+- intent: scene_safety
   examples: |
-    - What is a defibrillator?
-    - Can you explain what a defibrillator is?
-    - What does a defibrillator do?
-    - How does a defibrillator work?
-    - What is the purpose of a defibrillator?
-    - Define defibrillator
-    - What exactly is a defibrillator?
-    - What is the function of a defibrillator?
-    - What is an AED defibrillator?
-    - What does a defibrillator look like?
-    - How would you describe a defibrillator?
-    - What is the role of a defibrillator in an emergency?
-    - What is the use of a defibrillator?
-    - What is the definition of a defibrillator?
-    - What does a defibrillator do in a cardiac arrest?
-    - Can you describe a defibrillator?
-    - What is the meaning of a defibrillator?
-    - How would you define a defibrillator?
-    - What is the purpose of using a defibrillator?
-    - What type of device is a defibrillator?
-    - What is the principle behind a defibrillator?
-    - How does an AED defibrillator differ from others?
-    - What are defibrillators used for?
-    - What is a defibrillator and how does it work?
-    - What does a defibrillator device do?
-    - What is a defibrillator used for in medical emergencies?
-    - What are the key features of a defibrillator?
-    - What is the concept of a defibrillator?
-    - Why do we use defibrillators?
-    - What does an automated defibrillator do?
+    - Is the scene safe?
+    - How to assess scene safety?
+    - What to check before helping?
+    - Scene safety evaluation
+    - How to ensure safety at emergency scene
+    - What dangers to look for
+    - Safety assessment steps
+    - How to approach emergency scene safely
+    - What hazards to watch for
+    - Scene security measures
+    - How to protect yourself while helping
+    - Safety first in emergencies
+    - Environmental hazards check
+    - How to make scene safe
+    - When not to approach victim
+    - Safety precautions in emergency
+    - How to identify dangerous situations
+    - Personal safety in emergencies
+    - Risk assessment at scene
+    - Emergency scene hazards
 
-- intent: how_to_defibrillator
+- intent: medical_history
   examples: |
-    - How do I use a defibrillator?
-    - Steps to use a defibrillator
-    - How to operate a defibrillator?
-    - What is the procedure for using a defibrillator?
-    - Can you explain how to use a defibrillator?
-    - How do you use a defibrillator in an emergency?
-    - Instructions for using a defibrillator
-    - How does a defibrillator work?
-    - What are the steps to use a defibrillator?
-    - How to correctly use a defibrillator?
-    - What should I do when using a defibrillator?
-    - How do I handle a defibrillator?
-    - How to use an AED defibrillator?
-    - What is the correct way to use a defibrillator?
-    - Can you guide me on how to use a defibrillator?
-    - How to use a defibrillator machine?
-    - What are the steps for using an AED?
-    - How do I safely use a defibrillator?
-    - How to apply a defibrillator on a patient?
-    - What is the method for using a defibrillator?
-    - How to operate an automated defibrillator?
-    - Can you teach me how to use a defibrillator?
-    - How do you perform defibrillation with a device?
-    - What are the guidelines for using a defibrillator?
-    - What are the key steps to operate a defibrillator?
-    - How to use a defibrillator on someone who collapsed?
-    - How does an AED defibrillator work?
-    - What are the basics of using a defibrillator?
-    - How to use a defibrillator in a cardiac arrest situation?
-    - What are the instructions for using a defibrillator effectively?
+    - Medical history questions
+    - What medical information do I need?
+    - How to ask about medical conditions?
+    - Getting patient medical history
+    - What to ask about medications
+    - Medical background information
+    - How to gather health information
+    - Patient history questions
+    - What medical details are important
+    - How to ask about allergies
+    - Medical condition questions
+    - Health history assessment
+    - What to know about patient's health
+    - How to check for medical alerts
+    - Previous medical conditions
+    - Medication information needed
+    - How to find medical identification
+    - Patient medical background
+    - Health information gathering
+    - Medical details for emergency services
 
-- intent: what_are_pros_cpr
+- intent: comfort_victim
   examples: |
-    - Benefits of doing CPR
-    - Why should I do CPR?
-    - Advantages of CPR
-    - Is CPR beneficial?
-    - Does CPR make a difference?
-    - What are the benefits of performing CPR?
-    - Positive effects of CPR
-    - How does CPR help?
-    - Why is CPR important?
-    - Is CPR effective?
-    - Does CPR improve survival rates?
-    - What are the good points of CPR?
-    - How can CPR save lives?
-    - Benefits of knowing CPR
-    - Why learn CPR?
-    - What are the positives of doing CPR?
-    - Does CPR really work?
-    - How effective is CPR?
-    - Why is CPR useful?
-    - What are the key benefits of CPR?
-    - How does CPR benefit the patient?
-    - Why perform CPR?
-    - Positive impacts of CPR
-    - Why is it good to know CPR?
-    - How does CPR increase survival?
-    - What are the pros of learning CPR?
-    - Is learning CPR worth it?
-    - Benefits of CPR in emergencies
-    - Why is CPR advantageous?
-    - Does CPR help in emergencies?
+    - How to comfort the victim?
+    - How to reassure someone in emergency?
+    - What to say to calm victim?
+    - How to provide emotional support
+    - Comforting emergency victim
+    - How to keep victim calm
+    - What not to say to victim
+    - How to reassure injured person
+    - Emotional first aid
+    - How to reduce victim anxiety
+    - Calming techniques for victims
+    - How to communicate with victim
+    - Providing reassurance in emergency
+    - How to support scared victim
+    - What words to use with victim
+    - How to keep victim conscious
+    - Talking to emergency victim
+    - How to prevent victim panic
+    - Psychological first aid
+    - How to show care to victim
+
+- intent: post_emergency_care
+  examples: |
+    - What to do after emergency?
+    - Post-emergency care steps
+    - Follow-up after emergency
+    - What happens after emergency services arrive?
+    - Recovery after emergency
+    - Post-incident procedures
+    - What to do when emergency is over
+    - After emergency checklist
+    - Follow-up care needed
+    - Post-emergency monitoring
+    - What to expect after emergency
+    - Recovery phase guidance
+    - After first aid care
+    - Post-treatment steps
+    - What to do after helping victim
+    - Emergency aftermath procedures
+    - Follow-up medical care
+    - Post-emergency documentation
+    - What to tell victim's family
+    - Self-care after helping in emergency
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I feel amazing
+    - excellent
+    - fantastic
+    - superb
+    - brilliant
+
+- intent: mood_unhappy
+  examples: |
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - I am feeling sad
+    - not good
+    - not very good
+    - extremely sad
+    - very terrible
+    - so saad
+    - terrible
+    - awful
+    - horrible
+    - depressed
+    - upset
+    - frustrated
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - talk to you later
+    - catch you later
+    - until next time
+    - take care
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - are you real?
+    - what are you?
+    - who are you?
+    - are you artificial?
+    - are you an AI?
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - yes please
+    - absolutely
+    - sure
+    - definitely
+    - exactly
+    - right
+    - true
+    - agreed
+
+- intent: deny
+  examples: |
+    - no    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - nope
+    - not at all
+    - absolutely not not
+    - definitely not
+    - I disagree

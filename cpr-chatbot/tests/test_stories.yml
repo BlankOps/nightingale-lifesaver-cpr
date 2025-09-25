@@ -1,91 +1,233 @@
-#### This file contains tests to evaluate that your bot behaves as expected.
-#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+version: "3.1"
 
 stories:
-- story: happy path 1
+- story: test greet
   steps:
   - user: |
-      hello there!
+      hello
     intent: greet
   - action: utter_greet
-  - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
 
-- story: happy path 2
+- story: test capabilities
   steps:
   - user: |
-      hello there!
-    intent: greet
+      what can you help me with
+    intent: what_can_do
   - action: utter_greet
-  - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
-  - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
 
-- story: sad path 1
+- story: test thank you
+  steps:
+  - user: |
+      thank you
+    intent: thank_you
+  - action: utter_thank_back
+
+- story: test cardiac arrest explanation
+  steps:
+  - user: |
+      what is cardiac arrest
+    intent: what_is_cardiac_arrest
+  - action: utter_explanation_cardiac_arrest
+
+- story: test cardiac arrest symptoms
+  steps:
+  - user: |
+      symptoms of cardiac arrest
+    intent: symptoms
+  - action: utter_symptoms_description_one
+  - action: utter_symptoms_description_two
+
+- story: test how to react
+  steps:
+  - user: |
+      what should I do if someone has cardiac arrest
+    intent: how_to_react
+  - action: utter_analyse_situation
+  - action: utter_emergency_call_recs
+
+- story: test emergency numbers
+  steps:
+  - user: |
+      what is the emergency number
+    intent: what_are_emergency_numbers
+  - action: utter_emergency_numbers
+  - action: utter_emergency_numbers_examples
+
+- story: test foreign emergency numbers
+  steps:
+  - user: |
+      emergency numbers abroad
+    intent: abroad_emergency_numbers
+  - action: utter_know_foreign_emergency_numbers
+
+- story: test what is cpr
+  steps:
+  - user: |
+      what is CPR
+    intent: what_is_cpr
+  - action: utter_cpr_explanation
+
+- story: test how to do cpr
+  steps:
+  - user: |
+      how to do CPR
+    intent: how_to_cpr
+  - action: utter_cpr_steps
+
+- story: test mouth to mouth
+  steps:
+  - user: |
+      how to do mouth to mouth
+    intent: how_to_mouth_to_mouth
+  - action: utter_how_to_mouth_to_mouth
+
+- story: test cpr benefits
+  steps:
+  - user: |
+      benefits of CPR
+    intent: what_are_pros_cpr
+  - action: utter_pros_cpr
+
+- story: test what is defibrillator
+  steps:
+  - user: |
+      what is a defibrillator
+    intent: what_is_defibrillator
+  - action: utter_what_is_defibrillator
+
+- story: test how to use defibrillator
+  steps:
+  - user: |
+      how do I use a defibrillator
+    intent: how_to_defibrillator
+  - action: utter_how_to_defibrillator
+
+- story: test heart attack
+  steps:
+  - user: |
+      what is a heart attack
+    intent: what_is_heart_attack
+  - action: utter_what_is_heart_attack
+
+- story: test choking help
+  steps:
+  - user: |
+      someone is choking
+    intent: choking_help
+  - action: utter_choking_help
+
+- story: test recovery position
+  steps:
+  - user: |
+      recovery position
+    intent: recovery_position
+  - action: utter_recovery_position
+
+- story: test bleeding control
+  steps:
+  - user: |
+      how to stop bleeding
+    intent: bleeding_control
+  - action: utter_bleeding_control
+
+- story: test shock treatment
+  steps:
+  - user: |
+      person in shock
+    intent: shock_treatment
+  - action: utter_shock_treatment
+
+- story: test burns treatment
+  steps:
+  - user: |
+      how to treat burns
+    intent: burns_treatment
+  - action: utter_burns_treatment
+
+- story: test fracture help
+  steps:
+  - user: |
+      broken bone help
+    intent: fracture_help
+  - action: utter_fracture_help
+
+- story: test allergic reaction
+  steps:
+  - user: |
+      allergic reaction help
+    intent: allergic_reaction
+  - action: utter_allergic_reaction
+
+- story: test seizure help
+  steps:
+  - user: |
+      someone having seizure
+    intent: seizure_help
+  - action: utter_seizure_help
+
+- story: test stroke recognition
+  steps:
+  - user: |
+      signs of stroke
+    intent: stroke_recognition
+  - action: utter_stroke_recognition
+
+- story: test child cpr
+  steps:
+  - user: |
+      CPR for children
+    intent: child_cpr
+  - action: utter_child_cpr
+
+- story: test panic management
+  steps:
+  - user: |
+      I'm panicking
+    intent: panic_management
+  - action: utter_panic_management
+
+- story: test emergency supplies
+  steps:
+  - user: |
+      first aid kit contents
+    intent: emergency_supplies
+  - action: utter_emergency_supplies
+
+- story: test scene safety
+  steps:
+  - user: |
+      is the scene safe
+    intent: scene_safety
+  - action: utter_scene_safety
+
+- story: test calling emergency tips
+  steps:
+  - user: |
+      how to call emergency services
+    intent: calling_emergency_tips
+  - action: utter_calling_tips
+
+- story: complete cardiac arrest response
   steps:
   - user: |
       hello
     intent: greet
   - action: utter_greet
   - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
+      what are cardiac arrest symptoms
+    intent: symptoms
+  - action: utter_symptoms_description_one
+  - action: utter_symptoms_description_two
   - user: |
-      yes
-    intent: affirm
-  - action: utter_happy
-
-- story: sad path 2
-  steps:
+      what should I do
+    intent: how_to_react
+  - action: utter_analyse_situation
+  - action: utter_emergency_call_recs
   - user: |
-      hello
-    intent: greet
-  - action: utter_greet
+      how to do CPR
+    intent: how_to_cpr
+  - action: utter_cpr_steps
   - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      not really
-    intent: deny
-  - action: utter_goodbye
-
-- story: sad path 3
-  steps:
-  - user: |
-      hi
-    intent: greet
-  - action: utter_greet
-  - user: |
-      very terrible
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      no
-    intent: deny
-  - action: utter_goodbye
-
-- story: say goodbye
-  steps:
-  - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
-
-- story: bot challenge
-  steps:
-  - user: |
-      are you a bot?
-    intent: bot_challenge
-  - action: utter_iamabot
+      thank you
+    intent: thank_you
+  - action: utter_thank_back

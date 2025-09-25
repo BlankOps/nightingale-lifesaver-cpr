@@ -1,131 +1,128 @@
 version: "3.1"
 
 stories:
-- story: what is cardiac arrest
+- story: happy path
   steps:
-  - intent: symptoms
-  - action: utter_explanation_cardiac_arrest
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
 
-- story: help detect cardial arrest
+- story: sad path 1
   steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_cheer_up
+
+- story: cardiac arrest inquiry
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: what_is_cardiac_arrest
+  - action: utter_cardiac_arrest_explanation
   - intent: symptoms
   - action: utter_symptoms_description_one
-  - action: utter_symptoms_description_two
 
-- story: how to react when seeing a cardial arrest
+- story: cpr learning path
   steps:
-  - intent: how_to_react
-  - action: utter_analyse_situation
-  - action: utter_emergency_call_recs
-
-- story: how to know emergency numbers
-  steps:
-  - intent: what_are_emergency_numbers
-  - action: utter_emergency_numbers
-  - action: utter_emergency_numbers_examples
-
-- story: how to know foreign emergency numbers
-  steps:
-  - intent: abroad_emergency_numbers
-  - action: utter_know_foreign_emergency_numbers
-
-- story: explain what is cpr
-  steps:
-  - intent: what_is_cpr
-  - action: utter_cpr_explanation
-
-- story: explain how to perform a correct cpr
-  steps:
+  - intent: greet
+  - action: utter_greet
   - intent: how_to_cpr
   - action: utter_cpr_steps
 
-- story: explain how to perform mouth-to-mouth
-  steps:
-  - intent: how_to_mouth_to_mouth
-  - action: utter_how_to_mouth_to_mouth
-
-- story: explain what is a defibrillator
+- story: defibrillator questions
   steps:
   - intent: what_is_defibrillator
   - action: utter_what_is_defibrillator
-
-- story: explain how to use a defibrillator
-  steps:
   - intent: how_to_defibrillator
   - action: utter_how_to_defibrillator
 
-- story: explain what are the pros of doing cpr
+- story: temperature emergencies
   steps:
-  - intent: what_are_pros_cpr
-  - action: utter_pros_cpr
+  - intent: hypothermia_help
+  - action: utter_hypothermia_help
+  - intent: heat_exhaustion
+  - action: utter_heat_exhaustion
 
-# Nouvelles histoires
-- story: explain heart attack
+- story: goodbye interaction
   steps:
-  - intent: what_is_heart_attack
-  - action: utter_what_is_heart_attack
+  - intent: goodbye
+  - action: utter_goodbye
 
-- story: help with choking
+- story: emergency sequence
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: what_are_emergency_numbers
+  - action: utter_emergency_numbers
+  - intent: what_is_cardiac_arrest
+  - action: utter_cardiac_arrest_explanation
+
+- story: cpr then defibrillator
+  steps:
+  - intent: how_to_cpr
+  - action: utter_cpr_steps
+  - intent: what_is_defibrillator
+  - action: utter_what_is_defibrillator
+  - intent: how_to_defibrillator
+  - action: utter_how_to_defibrillator
+
+- story: first aid sequence
   steps:
   - intent: choking_help
   - action: utter_choking_help
+  - intent: what_are_emergency_numbers
+  - action: utter_emergency_numbers
 
-- story: explain recovery position
-  steps:
-  - intent: recovery_position
-  - action: utter_recovery_position
-
-- story: help control bleeding
+- story: bleeding then shock
   steps:
   - intent: bleeding_control
   - action: utter_bleeding_control
-
-- story: treat medical shock
-  steps:
   - intent: shock_treatment
   - action: utter_shock_treatment
 
-- story: treat burns
-  steps:
-  - intent: burns_treatment
-  - action: utter_burns_treatment
-
-- story: help with fractures
-  steps:
-  - intent: fracture_help
-  - action: utter_fracture_help
-
-- story: handle allergic reaction
-  steps:
-  - intent: allergic_reaction
-  - action: utter_allergic_reaction
-
-- story: help with seizure
-  steps:
-  - intent: seizure_help
-  - action: utter_seizure_help
-
-- story: recognize stroke
-  steps:
-  - intent: stroke_recognition
-  - action: utter_stroke_recognition
-
-- story: explain child cpr
+- story: child emergency
   steps:
   - intent: child_cpr
   - action: utter_child_cpr
+  - intent: what_are_emergency_numbers
+  - action: utter_emergency_numbers
 
-- story: manage panic
+- story: stroke then recovery
   steps:
-  - intent: panic_management
-  - action: utter_panic_management
+  - intent: stroke_recognition
+  - action: utter_stroke_recognition
+  - intent: recovery_position
+  - action: utter_recovery_position
 
-- story: emergency supplies info
+- story: burn then emergency
   steps:
-  - intent: emergency_supplies
-  - action: utter_emergency_supplies
+  - intent: burns_treatment
+  - action: utter_burns_treatment
+  - intent: what_are_emergency_numbers
+  - action: utter_emergency_numbers
 
-- story: scene safety assessment
+- story: multiple questions flow
   steps:
-  - intent: scene_safety
-  - action: utter_scene_safety
+  - intent: greet
+  - action: utter_greet
+  - intent: symptoms
+  - action: utter_symptoms_description_one
+  - intent: how_to_cpr
+  - action: utter_cpr_steps
+  - intent: thank_you
+  - action: utter_thank_back
