@@ -25,7 +25,7 @@
   color: var(--text-dark);
   margin-bottom: 20px;
   letter-spacing: -0.025em;
-  background: linear-gradient(135deg, #dc2626, #059669);
+  background: linear-gradient(135deg, #dc2626, #f38383);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -240,9 +240,9 @@
 .stat-number {
   font-size: 48px;
   font-weight: 800;
-  color: white;
   margin-bottom: 8px;
   line-height: 1;
+  color: white;
 }
 
 .stat-label {
@@ -386,6 +386,7 @@
   .stat-number {
     font-size: 40px;
     margin-bottom: 6px;
+    color: white;
   }
   
   .stat-label {
@@ -480,6 +481,7 @@
   .stat-item {
     padding: 20px 12px;
     border-radius: 10px;
+    color: white;
   }
   
   .stat-number {

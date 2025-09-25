@@ -42,7 +42,7 @@ const About = () => {
       {/* Impact */}
       <div className="section-container">
         <div className="section-header">
-          <h2 className="section-title">Our Impact</h2>
+          <h2 className="section-title">Our Promise</h2>
         </div>
         <div className="impact-content">
           <div className="impact-grid">

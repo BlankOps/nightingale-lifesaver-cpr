@@ -99,6 +99,7 @@
   opacity: 0.8;
   text-transform: uppercase;
   letter-spacing: 1px;
+  color: black;
 }
 
 /* Content Sections */
@@ -291,7 +292,7 @@
 .impact-item {
   text-align: center;
   padding: 24px;
-  background: rgba(206, 8, 8, 0.1);
+  background: rgba(136, 136, 136, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 16px;
   border: 1px solid rgba(111, 44, 44, 0.5);
