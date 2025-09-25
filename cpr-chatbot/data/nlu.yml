@@ -36,6 +36,7 @@ nlu:
     - why do we do cpr
     - what does cpr stand for
     - cpr meaning
+    - what is CPR
 
 - intent: how_to_cpr
   examples: |
