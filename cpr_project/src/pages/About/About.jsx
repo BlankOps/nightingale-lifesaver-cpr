@@ -87,54 +87,6 @@ const About = () => {
         </div>
       </div>
 
-      {/* Team */}
-      <div className="section-container">
-        <div className="section-header">
-          <h2 className="section-title">Our Team</h2>
-        </div>
-        <div className="team-content">
-          <div className="team-card">
-            <div className="team-logo">
-              <img src="/images/logo.png" alt="JGU Logo" className="logo-image" />
-            </div>
-            <div className="team-info">
-              <h3 className="team-name">Data Mining Group</h3>
-              <p className="team-institution">Johannes Gutenberg University Mainz, Germany</p>
-              <p className="team-description">
-                Leading research group in artificial intelligence and machine learning applications 
-                for healthcare and medical education.
-              </p>
-              <a href="https://www.datamining.informatik.uni-mainz.de/" 
-                 className="team-link" 
-                 target="_blank" 
-                 rel="noopener noreferrer">
-                Visit Research Group →
-              </a>
-            </div>
-          </div>
-
-          <div className="team-card">
-            <div className="team-logo funding-logo">
-              <div className="funding-icon">💰</div>
-            </div>
-            <div className="team-info">
-              <h3 className="team-name">Curatime Project</h3>
-              <p className="team-institution">AI for Healthcare Initiative</p>
-              <p className="team-description">
-                Supporting innovative AI solutions that improve health outcomes and make 
-                medical knowledge more accessible to everyone.
-              </p>
-              <a href="https://curatime.org/" 
-                 className="team-link" 
-                 target="_blank" 
-                 rel="noopener noreferrer">
-                Learn More →
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className="section-container">
         <div className="mission-content">
           <p className="mission-text">

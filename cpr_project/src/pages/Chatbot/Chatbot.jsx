@@ -16,7 +16,7 @@ const Chatbot = () => {
 	const DOMAIN = "http://localhost:5006";
 	const URL = "/webhooks/rest/webhook";
 
-	// Test de connexion
+	// Test connexion
 	useEffect(() => {
 		testConnection();
 	}, []);
