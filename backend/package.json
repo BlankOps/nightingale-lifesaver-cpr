@@ -1,0 +1,17 @@
+{
+    "name": "cpr-lifesaver-backend",
+    "version": "1.0.0",
+    "description": "Backend API for CPR Lifesaver chatbot",
+    "main": "index.js",
+    "scripts": {
+        "start": "cd cpr-chatbot/analytics && npm start",
+        "dev": "cd cpr-chatbot/analytics && npm run dev",
+        "build": "cd cpr-chatbot/analytics && npm run build",
+        "rasa:setup": "cd cpr-chatbot && python3.10 -m venv rasa310_env && source rasa310_env/bin/activate && pip install --upgrade pip && pip install rasa==3.6.20",
+        "rasa:train": "cd cpr-chatbot && source rasa310_env/bin/activate && rasa train",
+        "rasa:run": "cd cpr-chatbot && source rasa310_env/bin/activate && rasa run --enable-api --cors '*' --port 5005",
+        "rasa:test": "cd cpr-chatbot && source rasa310_env/bin/activate && rasa test"
+    },
+    "dependencies": {},
+    "devDependencies": {}
+}

@@ -1,0 +1,194 @@
+[
+  {
+    "text": "good evening",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "heat_exhaustion",
+      "confidence": 0.35193076729774475
+    }
+  },
+  {
+    "text": "how to do cpr",
+    "intent": "how_to_cpr",
+    "intent_prediction": {
+      "name": "what_is_cpr",
+      "confidence": 0.5513610243797302
+    }
+  },
+  {
+    "text": "teach me cpr",
+    "intent": "how_to_cpr",
+    "intent_prediction": {
+      "name": "what_is_cpr",
+      "confidence": 0.47542527318000793
+    }
+  },
+  {
+    "text": "show me how to do cpr",
+    "intent": "how_to_cpr",
+    "intent_prediction": {
+      "name": "what_is_cpr",
+      "confidence": 0.47981661558151245
+    }
+  },
+  {
+    "text": "what are the steps for cpr",
+    "intent": "how_to_cpr",
+    "intent_prediction": {
+      "name": "what_is_cpr",
+      "confidence": 0.4655613899230957
+    }
+  },
+  {
+    "text": "cpr method",
+    "intent": "how_to_cpr",
+    "intent_prediction": {
+      "name": "what_is_cpr",
+      "confidence": 0.4842592477798462
+    }
+  },
+  {
+    "text": "how to use aed",
+    "intent": "how_to_defibrillator",
+    "intent_prediction": {
+      "name": "what_is_defibrillator",
+      "confidence": 0.45616787672042847
+    }
+  },
+  {
+    "text": "how to use defibrillator",
+    "intent": "how_to_defibrillator",
+    "intent_prediction": {
+      "name": "what_is_defibrillator",
+      "confidence": 0.4662923216819763
+    }
+  },
+  {
+    "text": "aed instructions",
+    "intent": "how_to_defibrillator",
+    "intent_prediction": {
+      "name": "what_is_defibrillator",
+      "confidence": 0.43317821621894836
+    }
+  },
+  {
+    "text": "defibrillator steps",
+    "intent": "how_to_defibrillator",
+    "intent_prediction": {
+      "name": "what_is_defibrillator",
+      "confidence": 0.47014662623405457
+    }
+  },
+  {
+    "text": "using aed device",
+    "intent": "how_to_defibrillator",
+    "intent_prediction": {
+      "name": "what_is_defibrillator",
+      "confidence": 0.47279366850852966
+    }
+  },
+  {
+    "text": "aed procedure",
+    "intent": "how_to_defibrillator",
+    "intent_prediction": {
+      "name": "what_is_defibrillator",
+      "confidence": 0.46934381127357483
+    }
+  },
+  {
+    "text": "defibrillator operation",
+    "intent": "how_to_defibrillator",
+    "intent_prediction": {
+      "name": "what_is_defibrillator",
+      "confidence": 0.4704867899417877
+    }
+  },
+  {
+    "text": "how to operate aed",
+    "intent": "how_to_defibrillator",
+    "intent_prediction": {
+      "name": "what_is_defibrillator",
+      "confidence": 0.45496606826782227
+    }
+  },
+  {
+    "text": "aed usage",
+    "intent": "how_to_defibrillator",
+    "intent_prediction": {
+      "name": "what_is_defibrillator",
+      "confidence": 0.4604296386241913
+    }
+  },
+  {
+    "text": "electric shock procedure",
+    "intent": "how_to_defibrillator",
+    "intent_prediction": {
+      "name": "what_is_defibrillator",
+      "confidence": 0.47783491015434265
+    }
+  },
+  {
+    "text": "aed training",
+    "intent": "how_to_defibrillator",
+    "intent_prediction": {
+      "name": "what_is_defibrillator",
+      "confidence": 0.4637652337551117
+    }
+  },
+  {
+    "text": "defibrillator technique",
+    "intent": "how_to_defibrillator",
+    "intent_prediction": {
+      "name": "what_is_defibrillator",
+      "confidence": 0.47534817457199097
+    }
+  },
+  {
+    "text": "aed application",
+    "intent": "how_to_defibrillator",
+    "intent_prediction": {
+      "name": "what_is_defibrillator",
+      "confidence": 0.4636697769165039
+    }
+  },
+  {
+    "text": "automated defibrillator use",
+    "intent": "how_to_defibrillator",
+    "intent_prediction": {
+      "name": "what_is_defibrillator",
+      "confidence": 0.47607937455177307
+    }
+  },
+  {
+    "text": "shock delivery",
+    "intent": "how_to_defibrillator",
+    "intent_prediction": {
+      "name": "what_is_defibrillator",
+      "confidence": 0.47402510046958923
+    }
+  },
+  {
+    "text": "submersion injury",
+    "intent": "drowning_rescue",
+    "intent_prediction": {
+      "name": "heat_exhaustion",
+      "confidence": 0.5578508377075195
+    }
+  },
+  {
+    "text": "How to prevent bystander panic",
+    "intent": "bystander_help",
+    "intent_prediction": {
+      "name": "what_is_cardiac_arrest",
+      "confidence": 0.21403200924396515
+    }
+  },
+  {
+    "text": "of course",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.49063435196876526
+    }
+  }
+]
