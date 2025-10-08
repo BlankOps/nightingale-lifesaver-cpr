@@ -25,7 +25,7 @@
   color: var(--text-dark);
   margin-bottom: 20px;
   letter-spacing: -0.025em;
-  background: linear-gradient(135deg, #dc2626, #f38383);
+  background: linear-gradient(135deg, #dc2626, #51b0463f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -200,61 +200,6 @@
   background: linear-gradient(135deg, #047857, #065f46);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
-}
-
-/* Info Section */
-.info-section {
-  background: linear-gradient(135deg, var(--primary-red), #b91c1c);
-  color: white;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.info-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.info-title {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 40px;
-  color: white;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 32px;
-  margin-bottom: 40px;
-}
-
-.stat-item {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 32px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.stat-number {
-  font-size: 48px;
-  font-weight: 800;
-  margin-bottom: 8px;
-  line-height: 1;
-}
-
-.stat-label {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 500;
-}
-
-.info-text {
-  font-size: 18px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0;
 }
 
 /* Animations */

@@ -69,24 +69,6 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="info-section">
-        <div className="info-content">
-          <h3 className="info-title">Why Learn CPR?</h3>
-          <div className="stats-grid">
-            <div className="stat-item">
-              <div className="stat-number">5</div>
-              <div className="stat-label">Minutes to brain damage</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">10%</div>
-              <div className="stat-label">Survival increase per minute</div>
-            </div>
-          </div>
-          <p className="info-text">
-            Every second counts in a cardiac emergency. Learning CPR can double or triple a victim's chance of survival.
-          </p>
-        </div>
-      </div>
     </div>
     </div>
   )
