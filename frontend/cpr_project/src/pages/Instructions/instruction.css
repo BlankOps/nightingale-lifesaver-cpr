@@ -1,85 +1,100 @@
 @import '../../style.css';
 
 
-.inst-card{
-    background-color: var(--white);
-    height: 90%;
-    width: 75%;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    box-shadow: 0 2px 8px rgba(150, 150, 150, 0.63);
+.inst-card {
+  background-color: var(--white);
+  height: 90%;
+  width: 75%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(150, 150, 150, 0.63);
 }
 
-.title-div{
-    background-color: var(--background);
-    box-shadow: 0 2px 8px rgba(107, 107, 107, 0.137);
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-dark);
-    width: auto;
-    margin-left: 40px;
-    margin-right: 40px;
-    padding: 5px 32px;
+.title-div {
+  background-color: var(--background);
+  box-shadow: 0 2px 8px rgba(107, 107, 107, 0.137);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dark);
+  width: auto;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding: 5px 32px;
 }
 
-.title-div p, h2{
-    background-color: var(--red);
-    text-align: center;
-    font-size: 2rem;
+.title-div p,
+h2 {
+  background-color: var(--red);
+  text-align: center;
+  font-size: 2rem;
 }
 
-.title-div p{
-    font-size:25px;
+.title-div p {
+  font-size: 25px;
 }
 
-.button-div{
-    background-color: var(--red);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    gap: 10px;
+.button-div {
+  background-color: var(--red);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
 }
 
-.button{
-    color: var(--red);
-    background: linear-gradient(135deg, #DC2626, #B91C1C);
-    box-shadow: 0 2px 8px rgba(255, 0, 0, 0.63);
-    border: 1px solid var(--red);
-    color: var(--white);
-    border-radius: 20px;
-    padding: 10px 40px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1.3rem;
-    position: relative;
-    top: -10px;
+.button {
+  color: var(--red);
+  background: linear-gradient(135deg, #DC2626, #B91C1C);
+  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.63);
+  border: 1px solid var(--red);
+  color: var(--white);
+  border-radius: 20px;
+  padding: 10px 40px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+  position: relative;
+  top: -10px;
 }
 
-.button:hover{
-    color: var(--dark);
-    background-color: var(--primary-red);
-    border: 1px solid var(--primary-red);
-    transition: all 0.3s;
+.button:hover {
+  color: var(--dark);
+  background-color: var(--primary-red);
+  border: 1px solid var(--primary-red);
+  transition: all 0.3s;
 }
 
-.gif-img{
-    width: auto;
-    border: none;
-    box-shadow: none;
-    max-height: 400px;
-    height: 50%;
+.replay-button {
+  background: linear-gradient(135deg, #2563EB, #1E40AF);
+  border: 1px solid #0234be;
+  box-shadow: 0 2px 8px rgba(38, 9, 206, 0.63);
+  color: var(--white);
+  padding: 10px 30px;
+}
+
+* .replay-button:hover {
+  background-color: #1E40AF;
+  border: 1px solid #4d7cff;
+  transition: all 0.3s;
+}
+
+.gif-img {
+  width: auto;
+  border: none;
+  box-shadow: none;
+  max-height: 400px;
+  height: 50%;
 }
 
 .highlight {
@@ -150,7 +165,8 @@
     color: #8B0000;
   }
 
-  body, .inst-card-container {
+  body,
+  .inst-card-container {
     padding-top: 20px;
     display: flex;
     flex-direction: column;

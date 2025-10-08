@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './instruction.css'
 import CPRInstructionData from '../../data/CPRInstructionData';
 import AEDInstructionData from '../../data/AEDInstructionData';
@@ -82,6 +82,30 @@ const Instruction = () => {
     .split('\n')
     .filter(line => line.trim() !== ''); // Remove empty lines
 
+  // Audio ref and autoplay when step changes
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    // Only enable audio for CPR path (avoid playing audio on AED pages)
+    if (!isCPR()) {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = '';
+      }
+      return;
+    }
+
+    // build audio src from public/voice_over/step{n}.mp3 (steps start at 1)
+    const src = `/voice_over/step${currentStep + 1}.mp3`;
+    if (audioRef.current) {
+      audioRef.current.src = src;
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      // attempt to play; ignore rejected promise (autoplay policies)
+      audioRef.current.play().catch(() => { });
+    }
+  }, [currentStep]);
+
   return (
     <div className='box'>
       <div className="inst-card">
@@ -94,6 +118,11 @@ const Instruction = () => {
 
         </div>
         <img className='gif-img' src={InstructionData[currentStep].url} alt="" /> {/* Current steps gif */}
+
+        {/* Hidden audio element for current step (only for CPR) */}
+        {isCPR() && (
+          <audio ref={audioRef} id={`voice-step-${currentStep}`} preload="auto" />
+        )}
         {/* Previous button*/}
         <div className="button-div">
           <button className='button' onClick={handlePrevious} disabled={currentStep === 0}
@@ -119,6 +148,26 @@ const Instruction = () => {
             }}>
             Next
           </button>
+
+          {/* Replay audio button (only show for CPR) */}
+          {isCPR() && (
+            <button
+              className='button replay-button'
+              onClick={() => {
+                if (audioRef.current) {
+                  try {
+                    audioRef.current.currentTime = 0;
+                    audioRef.current.play();
+                  } catch (e) {
+                    // ignore playback errors
+                  }
+                }
+              }}
+              title="Replay audio for this step"
+            >
+              Replay Audio
+            </button>
+          )}
 
           {/* Use AED button*/}
           <button className='button' onClick={toAED}
