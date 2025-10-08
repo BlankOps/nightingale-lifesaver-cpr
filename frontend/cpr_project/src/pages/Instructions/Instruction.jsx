@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './instruction.css'
 import CPRInstructionData from '../../data/CPRInstructionData';
 import AEDInstructionData from '../../data/AEDInstructionData';
-import {useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const AED_PATH="/aedinstruction";
-const CPR_PATH="/cprinstruction";
-const EXIT_PATH="/instructions";
+const AED_PATH = "/aedinstruction";
+const CPR_PATH = "/cprinstruction";
+const EXIT_PATH = "/instructions";
 
- // Getting the current path for data display
+// Getting the current path for data display
 function getCurrentPath() {
   return window.location.pathname
 }
@@ -29,7 +29,7 @@ function isCPR() {
   return true;
 }
 
- // Getting the current instraction data
+// Getting the current instraction data
 function getCurrentInstructionData() {
   if (isAED()) {
     return AEDInstructionData;
@@ -82,62 +82,112 @@ const Instruction = () => {
     .split('\n')
     .filter(line => line.trim() !== ''); // Remove empty lines
 
+  // Audio ref and autoplay when step changes
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    // Only enable audio for CPR path (avoid playing audio on AED pages)
+    if (!isCPR()) {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = '';
+      }
+      return;
+    }
+
+    // build audio src from public/voice_over/step{n}.mp3 (steps start at 1)
+    const src = `/voice_over/step${currentStep + 1}.mp3`;
+    if (audioRef.current) {
+      audioRef.current.src = src;
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      // attempt to play; ignore rejected promise (autoplay policies)
+      audioRef.current.play().catch(() => { });
+    }
+  }, [currentStep]);
+
   return (
-    <div className='box'> 
-      <div className="inst-card"> 
+    <div className='box'>
+      <div className="inst-card">
         <div className='title-div'>
-          <h2>Step {InstructionData[currentStep].step}: {InstructionData[currentStep].title}</h2> {/* Title format is 'Step x: x.title' */}
+          <h2>Step {currentStep + 1}</h2>
           {/* Render each line of the description separately */}
           {descriptionLines.map((line, index) => (
             <p key={index} dangerouslySetInnerHTML={{ __html: line }} />
           ))}
-        
+
         </div>
         <img className='gif-img' src={InstructionData[currentStep].url} alt="" /> {/* Current steps gif */}
-       {/* Previous button*/}
+
+        {/* Hidden audio element for current step (only for CPR) */}
+        {isCPR() && (
+          <audio ref={audioRef} id={`voice-step-${currentStep}`} preload="auto" />
+        )}
+        {/* Previous button*/}
         <div className="button-div">
-          <button className='button' onClick={handlePrevious} disabled={currentStep === 0} 
-          style={{
-                    display: currentStep === 0 ? 'none' : 'block'
-                  }}>
+          <button className='button' onClick={handlePrevious} disabled={currentStep === 0}
+            style={{
+              display: currentStep === 0 ? 'none' : 'block'
+            }}>
             Previous
           </button>
 
           {/* CPR button*/}
           <button className='button' onClick={toCPR}
-          disabled={currentStep !== 0 && isAED()}
-          style={{
-            display: (currentStep === 0 && isAED()) ? 'block' : 'none'
-          }}>
+            disabled={currentStep !== 0 && isAED()}
+            style={{
+              display: (currentStep === 0 && isAED()) ? 'block' : 'none'
+            }}>
             CPR
           </button>
 
+
+          {/* Replay audio button (only show for CPR) */}
+          {isCPR() && (
+            <button
+              className='button replay-button'
+              onClick={() => {
+                if (audioRef.current) {
+                  try {
+                    audioRef.current.currentTime = 0;
+                    audioRef.current.play();
+                  } catch (e) {
+                    // ignore playback errors
+                  }
+                }
+              }}
+              title="Replay audio for this step"
+            >
+              Replay Audio
+            </button>
+          )}
+          
           {/* Next button*/}
-          <button className='button' onClick={handleNext} disabled={currentStep === InstructionData.length - 1} 
-          style={{
-            display: currentStep === InstructionData.length - 1 ? 'none' : 'block'
-          }}>
+          <button className='button' onClick={handleNext} disabled={currentStep === InstructionData.length - 1}
+            style={{
+              display: currentStep === InstructionData.length - 1 ? 'none' : 'block'
+            }}>
             Next
           </button>
 
           {/* Use AED button*/}
-          <button className='button' onClick={toAED} 
-          disabled={currentStep !== InstructionData.length - 1 && isCPR()}
-          style={{
-            display: (currentStep === InstructionData.length - 1 && isCPR()) ? 'block' : 'none'
-          }}>
+          <button className='button' onClick={toAED}
+            disabled={currentStep !== InstructionData.length - 1 && isCPR()}
+            style={{
+              display: (currentStep === InstructionData.length - 1 && isCPR()) ? 'block' : 'none'
+            }}>
             Use AED
           </button>
 
-           {/* Exit button*/}
-           <button className='button' onClick={toExit} 
-          disabled={currentStep !== InstructionData.length - 1 && (isCPR() || isAED())}
-          style={{
-            display: (currentStep === InstructionData.length - 1 && (isCPR() || isAED())) ? 'block' : 'none'
-          }}>
+          {/* Exit button*/}
+          <button className='button' onClick={toExit}
+            disabled={currentStep !== InstructionData.length - 1 && (isCPR() || isAED())}
+            style={{
+              display: (currentStep === InstructionData.length - 1 && (isCPR() || isAED())) ? 'block' : 'none'
+            }}>
             Exit
           </button>
-          
+
         </div>
       </div>
     </div>
