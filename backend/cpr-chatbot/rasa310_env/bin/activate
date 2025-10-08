@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV=/home/pitipandichan/Bureau/nightingale/nightingale-lifesaver-cpr/backend/cpr-chatbot/rasa310_env
+VIRTUAL_ENV=/home/pitipandichan/Bureau/nightingale/lifesaver/nightingale-lifesaver-cpr/backend/cpr-chatbot/rasa310_env
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

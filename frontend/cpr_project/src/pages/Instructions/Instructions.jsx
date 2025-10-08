@@ -6,35 +6,20 @@ const Instructions = () => {
   return (
     <div>
       <div className="emergency-banner">
-				<span className="emergency-text">
-					🚨 EMERGENCY! 🚨 In case of a serious problem, call immediately by clicking here:
-				</span>
-				<a href="tel:112" className="emergency-number">112</a>
-			</div>
-    <div className='box'>
-      <div className="upper-div">
-        <Link to="/cprinstruction" className="card"> {/* CPR instruction page */}
-          <div>
-            <p style={{ fontSize: "1.5em", fontWeight: "bold" , marginBottom: "-10px"}}>How to perform CPR</p>
-            <p style={{ fontSize: "1em" }}>(Cardiopulmonary Resuscitation)</p>
-          </div>
-          <img
-            src="/images/cpr_logo.png"
-            style={{
-              width: "80px",
-              display: "block",
-              marginLeft: "auto",
-              marginRight: "auto"
-            }}
-          />
-        </Link>
-
-        <Link to="/aedinstruction" className="card"> {/* AED instruction page */}
-          <div>
-            <p style={{ fontSize: "1.5em", fontWeight: "bold" , marginBottom: "-10px"}}>How to use an AED</p>
-            <p style={{ fontSize: "1em" }}>(Automatic External Defibrillator)</p>
+        <span className="emergency-text">
+          🚨 EMERGENCY! 🚨 In case of a serious problem, call immediately by clicking here:
+        </span>
+        <a href="tel:112" className="emergency-number">112</a>
+      </div>
+      <div className='box'>
+        <div className="upper-div">
+          <Link to="/cprinstruction" className="card"> {/* CPR instruction page */}
+            <div>
+              <p style={{ fontSize: "1.5em", fontWeight: "bold", marginBottom: "-10px" }}>How to perform CPR</p>
+              <p style={{ fontSize: "1em" }}>(Cardiopulmonary Resuscitation)</p>
+            </div>
             <img
-              src="/images/aed_logo.png"
+              src="/images/cpr_logo.png"
               style={{
                 width: "80px",
                 display: "block",
@@ -42,10 +27,25 @@ const Instructions = () => {
                 marginRight: "auto"
               }}
             />
-          </div>
-        </Link>
+          </Link>
+
+          <Link to="/aedinstruction" className="card"> {/* AED instruction page */}
+            <div>
+              <p style={{ fontSize: "1.5em", fontWeight: "bold", marginBottom: "-10px" }}>How to use an AED</p>
+              <p style={{ fontSize: "1em" }}>(Automatic External Defibrillator)</p>
+              <img
+                src="/images/aed_logo.png"
+                style={{
+                  width: "80px",
+                  display: "block",
+                  marginLeft: "auto",
+                  marginRight: "auto"
+                }}
+              />
+            </div>
+          </Link>
+        </div>
       </div>
-    </div>
     </div>
   );
 };

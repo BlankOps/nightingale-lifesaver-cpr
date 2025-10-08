@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import './instruction.css'
 import CPRInstructionData from '../../data/CPRInstructionData';
 import AEDInstructionData from '../../data/AEDInstructionData';
-import {useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const AED_PATH="/aedinstruction";
-const CPR_PATH="/cprinstruction";
-const EXIT_PATH="/instructions";
+const AED_PATH = "/aedinstruction";
+const CPR_PATH = "/cprinstruction";
+const EXIT_PATH = "/instructions";
 
- // Getting the current path for data display
+// Getting the current path for data display
 function getCurrentPath() {
   return window.location.pathname
 }
@@ -29,7 +29,7 @@ function isCPR() {
   return true;
 }
 
- // Getting the current instraction data
+// Getting the current instraction data
 function getCurrentInstructionData() {
   if (isAED()) {
     return AEDInstructionData;
@@ -83,61 +83,61 @@ const Instruction = () => {
     .filter(line => line.trim() !== ''); // Remove empty lines
 
   return (
-    <div className='box'> 
-      <div className="inst-card"> 
+    <div className='box'>
+      <div className="inst-card">
         <div className='title-div'>
-          <h2>Step {InstructionData[currentStep].step}: {InstructionData[currentStep].title}</h2> {/* Title format is 'Step x: x.title' */}
+          <h2>Step {currentStep + 1}</h2>
           {/* Render each line of the description separately */}
           {descriptionLines.map((line, index) => (
             <p key={index} dangerouslySetInnerHTML={{ __html: line }} />
           ))}
-        
+
         </div>
         <img className='gif-img' src={InstructionData[currentStep].url} alt="" /> {/* Current steps gif */}
-       {/* Previous button*/}
+        {/* Previous button*/}
         <div className="button-div">
-          <button className='button' onClick={handlePrevious} disabled={currentStep === 0} 
-          style={{
-                    display: currentStep === 0 ? 'none' : 'block'
-                  }}>
+          <button className='button' onClick={handlePrevious} disabled={currentStep === 0}
+            style={{
+              display: currentStep === 0 ? 'none' : 'block'
+            }}>
             Previous
           </button>
 
           {/* CPR button*/}
           <button className='button' onClick={toCPR}
-          disabled={currentStep !== 0 && isAED()}
-          style={{
-            display: (currentStep === 0 && isAED()) ? 'block' : 'none'
-          }}>
+            disabled={currentStep !== 0 && isAED()}
+            style={{
+              display: (currentStep === 0 && isAED()) ? 'block' : 'none'
+            }}>
             CPR
           </button>
 
           {/* Next button*/}
-          <button className='button' onClick={handleNext} disabled={currentStep === InstructionData.length - 1} 
-          style={{
-            display: currentStep === InstructionData.length - 1 ? 'none' : 'block'
-          }}>
+          <button className='button' onClick={handleNext} disabled={currentStep === InstructionData.length - 1}
+            style={{
+              display: currentStep === InstructionData.length - 1 ? 'none' : 'block'
+            }}>
             Next
           </button>
 
           {/* Use AED button*/}
-          <button className='button' onClick={toAED} 
-          disabled={currentStep !== InstructionData.length - 1 && isCPR()}
-          style={{
-            display: (currentStep === InstructionData.length - 1 && isCPR()) ? 'block' : 'none'
-          }}>
+          <button className='button' onClick={toAED}
+            disabled={currentStep !== InstructionData.length - 1 && isCPR()}
+            style={{
+              display: (currentStep === InstructionData.length - 1 && isCPR()) ? 'block' : 'none'
+            }}>
             Use AED
           </button>
 
-           {/* Exit button*/}
-           <button className='button' onClick={toExit} 
-          disabled={currentStep !== InstructionData.length - 1 && (isCPR() || isAED())}
-          style={{
-            display: (currentStep === InstructionData.length - 1 && (isCPR() || isAED())) ? 'block' : 'none'
-          }}>
+          {/* Exit button*/}
+          <button className='button' onClick={toExit}
+            disabled={currentStep !== InstructionData.length - 1 && (isCPR() || isAED())}
+            style={{
+              display: (currentStep === InstructionData.length - 1 && (isCPR() || isAED())) ? 'block' : 'none'
+            }}>
             Exit
           </button>
-          
+
         </div>
       </div>
     </div>
