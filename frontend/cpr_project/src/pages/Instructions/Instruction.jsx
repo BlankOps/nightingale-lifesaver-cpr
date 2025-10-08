@@ -141,13 +141,6 @@ const Instruction = () => {
             CPR
           </button>
 
-          {/* Next button*/}
-          <button className='button' onClick={handleNext} disabled={currentStep === InstructionData.length - 1}
-            style={{
-              display: currentStep === InstructionData.length - 1 ? 'none' : 'block'
-            }}>
-            Next
-          </button>
 
           {/* Replay audio button (only show for CPR) */}
           {isCPR() && (
@@ -168,6 +161,14 @@ const Instruction = () => {
               Replay Audio
             </button>
           )}
+          
+          {/* Next button*/}
+          <button className='button' onClick={handleNext} disabled={currentStep === InstructionData.length - 1}
+            style={{
+              display: currentStep === InstructionData.length - 1 ? 'none' : 'block'
+            }}>
+            Next
+          </button>
 
           {/* Use AED button*/}
           <button className='button' onClick={toAED}
