@@ -108,9 +108,12 @@ const Instruction = () => {
 
   return (
     <div className='box'>
-      <div className="inst-card">
+      <div
+          className="inst-card"
+          style={{ "--progress": currentStep + 1 }}
+        >
         <div className='title-div'>
-          <h2>Step {currentStep + 1}</h2>
+          <h2>Step {currentStep + 1} / 6</h2>
           {/* Render each line of the description separately */}
           {descriptionLines.map((line, index) => (
             <p key={index} dangerouslySetInnerHTML={{ __html: line }} />

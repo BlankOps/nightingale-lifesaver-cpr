@@ -1,177 +1,143 @@
-@import '../../style.css';
-
-
-.inst-card {
-  background-color: var(--white);
-  height: 90%;
-  width: 75%;
-  border-radius: 20px;
+/* === Main container === */
+.box {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  box-shadow: 0 2px 8px rgba(150, 150, 150, 0.63);
-}
-
-.title-div {
-  background-color: var(--background);
-  box-shadow: 0 2px 8px rgba(107, 107, 107, 0.137);
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
   justify-content: center;
-  color: var(--text-dark);
-  width: auto;
-  margin-left: 40px;
-  margin-right: 40px;
-  padding: 5px 32px;
+  align-items: center;
+  min-height: 90vh;
+  background: linear-gradient(135deg, #fee2e2, #ffffff);
+  padding: 30px;
 }
 
-.title-div p,
-h2 {
-  background-color: var(--red);
+/* === Instruction Card === */
+.inst-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  max-width: 900px;
+  width: 100%;
+  padding: 40px 30px;
   text-align: center;
-  font-size: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.inst-card:hover {
+  transform: translateY(-3px);
+}
+
+/* === Progress bar === */
+.inst-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: calc((var(--progress, 0) / 6) * 100%);
+  background: linear-gradient(90deg, #dc2626, #f87171);
+  border-radius: 6px 6px 0 0;
+  transition: width 0.3s ease;
+}
+
+/* === Title and Description === */
+.title-div h2 {
+  font-size: 1.6rem;
+  color: #000000;
+  margin-bottom: 16px;
 }
 
 .title-div p {
-  font-size: 25px;
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
+/* === Image section === */
+.gif-img {
+  width: 100%;
+  max-width: 450px;
+  margin: 20px auto;
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.gif-img:hover {
+  transform: scale(1.03);
+}
+
+/* === Buttons container === */
 .button-div {
-  background-color: var(--red);
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 25px;
 }
 
+/* === Buttons === */
 .button {
-  color: var(--red);
-  background: linear-gradient(135deg, #DC2626, #B91C1C);
-  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.63);
-  border: 1px solid var(--red);
-  color: var(--white);
-  border-radius: 20px;
-  padding: 10px 40px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 1.3rem;
-  position: relative;
-  top: -10px;
+  background: linear-gradient(90deg, #dc2626, #ef4444);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.4);
+  transition: all 0.3s ease;
 }
 
 .button:hover {
-  color: var(--dark);
-  background-color: var(--primary-red);
-  border: 1px solid var(--primary-red);
-  transition: all 0.3s;
+  background: linear-gradient(90deg, #b91c1c, #dc2626);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(220, 38, 38, 0.5);
+}
+
+.button:disabled {
+  background: #f3f4f6;
+  color: #9ca3af;
+  cursor: not-allowed;
+  box-shadow: none;
 }
 
 .replay-button {
-  background: linear-gradient(135deg, #2563EB, #1E40AF);
-  border: 1px solid #0234be;
-  box-shadow: 0 2px 8px rgba(38, 9, 206, 0.63);
-  color: var(--white);
-  padding: 10px 30px;
+  background: #23853f;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
 }
 
-* .replay-button:hover {
-  background-color: #1E40AF;
-  border: 1px solid #4d7cff;
-  transition: all 0.3s;
+.replay-button:hover {
+  background: #1e40af;
 }
 
-.gif-img {
-  width: auto;
-  border: none;
-  box-shadow: none;
-  max-height: 400px;
-  height: 50%;
-}
-
-.highlight {
-  font-weight: bold;
-  color: #8B0000;
-}
-
+/* === Responsive === */
 @media (max-width: 768px) {
   .inst-card {
-    width: 95%;
-    height: auto;
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(150, 150, 150, 0.3);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 16px;
-    box-sizing: border-box;
-  }
-
-  .title-div {
-    margin: 10px 0;
-    padding: 12px 16px;
-    border-radius: 16px;
-    width: 100%;
-    text-align: center;
-    background-color: var(--background);
-    box-shadow: 0 2px 12px rgba(107, 107, 107, 0.15);
+    padding: 30px 20px;
   }
 
   .title-div h2 {
-    font-size: 1.5rem;
-    margin-bottom: 8px;
+    font-size: 1.4rem;
   }
 
   .title-div p {
-    font-size: 1.2rem;
-    line-height: 1.4;
-    margin: 4px 0;
+    font-size: 1rem;
+  }
+
+  .gif-img {
+    max-width: 320px;
   }
 
   .button-div {
     flex-direction: column;
     gap: 12px;
-    width: 100%;
-    align-items: stretch;
   }
 
   .button {
     width: 100%;
-    padding: 12px 20px;
-    font-size: 1.1rem;
-    border-radius: 16px;
-    top: 0;
-  }
-
-  .gif-img {
-    max-height: 250px;
-    width: 100%;
-    object-fit: contain;
-    border-radius: 12px;
-  }
-
-  .highlight {
-    font-weight: bold;
-    color: #8B0000;
-  }
-
-  body,
-  .inst-card-container {
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    overflow-y: auto;
+    max-width: 280px;
+    margin: 0 auto;
   }
 }
