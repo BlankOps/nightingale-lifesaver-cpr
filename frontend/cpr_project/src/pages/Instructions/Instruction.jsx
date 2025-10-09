@@ -86,8 +86,8 @@ const Instruction = () => {
   const audioRef = useRef(null);
 
   useEffect(() => {
-    // Only enable audio for CPR path (avoid playing audio on AED pages)
-    if (!isCPR()) {
+    // Only enable audio for CPR or AED paths
+    if (!isCPR() && !isAED()) {
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current.src = '';
@@ -95,8 +95,12 @@ const Instruction = () => {
       return;
     }
 
-    // build audio src from public/voice_over/step{n}.mp3 (steps start at 1)
-    const src = `/voice_over/step${currentStep + 1}.mp3`;
+    // build audio src from public/voice_over/
+    // use AED files when on AED page (filename pattern: step{n}_AED.mp3)
+    const src = isAED()
+      ? `/voice_over/step${currentStep + 1}_AED.mp3`
+      : `/voice_over/step${currentStep + 1}.mp3`;
+
     if (audioRef.current) {
       audioRef.current.src = src;
       audioRef.current.pause();
@@ -109,11 +113,11 @@ const Instruction = () => {
   return (
     <div className='box'>
       <div
-          className="inst-card"
-          style={{ "--progress": currentStep + 1 }}
-        >
+        className="inst-card"
+        style={{ "--progress": currentStep + 1 }}
+      >
         <div className='title-div'>
-          <h2>Step {currentStep + 1} / 6</h2>
+          <h2>Step {currentStep + 1} / {InstructionData.length}</h2>
           {/* Render each line of the description separately */}
           {descriptionLines.map((line, index) => (
             <p key={index} dangerouslySetInnerHTML={{ __html: line }} />
@@ -122,8 +126,8 @@ const Instruction = () => {
         </div>
         <img className='gif-img' src={InstructionData[currentStep].url} alt="" /> {/* Current steps gif */}
 
-        {/* Hidden audio element for current step (only for CPR) */}
-        {isCPR() && (
+        {/* Hidden audio element for current step (for CPR and AED) */}
+        {(isCPR() || isAED()) && (
           <audio ref={audioRef} id={`voice-step-${currentStep}`} preload="auto" />
         )}
         {/* Previous button*/}
@@ -145,8 +149,8 @@ const Instruction = () => {
           </button>
 
 
-          {/* Replay audio button (only show for CPR) */}
-          {isCPR() && (
+          {/* Replay audio button (show for CPR and AED) */}
+          {(isCPR() || isAED()) && (
             <button
               className='button replay-button'
               onClick={() => {
@@ -164,7 +168,7 @@ const Instruction = () => {
               Replay Audio
             </button>
           )}
-          
+
           {/* Next button*/}
           <button className='button' onClick={handleNext} disabled={currentStep === InstructionData.length - 1}
             style={{

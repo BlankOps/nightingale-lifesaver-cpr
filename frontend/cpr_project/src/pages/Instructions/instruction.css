@@ -105,11 +105,12 @@
 
 .replay-button {
   background: #23853f;
-  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 4px 10px rgba(4, 170, 31, 0.4);
 }
 
 .replay-button:hover {
-  background: #1e40af;
+  background: #015f20;
+  box-shadow: 0 4px 10px rgba(4, 170, 31, 0.4);
 }
 
 /* === Responsive === */

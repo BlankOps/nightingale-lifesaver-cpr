@@ -1,7 +1,7 @@
 const AEDInstructionData = [
   {
     step: 1,
-    description: "<strong><span class='highlight'>Not breathing</span> → <span class='highlight'>Call 112</span> → <span class='highlight'>CPR started</span> → Use CPR button if needed</strong>",
+    description: "<strong><span class='highlight'>Not breathing</span> → <span class='highlight'>Call 112</span> → <span class='highlight'>Get AED </span> → Begin CPR</strong>",
     url: "../../../images/animations/gif7.gif"
   },
   {
