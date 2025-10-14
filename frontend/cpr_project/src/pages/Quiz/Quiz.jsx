@@ -81,7 +81,7 @@ const Quiz = () => {
         {!quizStarted ? (
           <div className="start-screen">
             <div className="start-icon">🧠</div>
-            <h1>CPR Knowledge Test</h1>
+            <h1>Knowledge Test</h1>
             <p>Test your understanding of CPR and first aid procedures with our interactive quiz.</p>
             <div className="quiz-info">
               <div className="info-item">
