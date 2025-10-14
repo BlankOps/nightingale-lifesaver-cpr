@@ -21,6 +21,17 @@
   transition: all 0.3s ease;
 }
 
+.audio-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.pause-button {
+  background-color: #ffffff; /* rouge clair */
+}
+
 .inst-card:hover {
   transform: translateY(-3px);
 }

@@ -149,25 +149,40 @@ const Instruction = () => {
           </button>
 
 
-          {/* Replay audio button (show for CPR and AED) */}
+          {/* Replay & Pause audio buttons (show for CPR and AED) */}
           {(isCPR() || isAED()) && (
-            <button
-              className='button replay-button'
-              onClick={() => {
-                if (audioRef.current) {
-                  try {
-                    audioRef.current.currentTime = 0;
-                    audioRef.current.play();
-                  } catch (e) {
-                    // ignore playback errors
+            <div className="audio-controls">
+              <button
+                className='button replay-button'
+                onClick={() => {
+                  if (audioRef.current) {
+                    try {
+                      audioRef.current.currentTime = 0;
+                      audioRef.current.play();
+                    } catch (e) {
+                      // ignore playback errors
+                    }
                   }
-                }
-              }}
-              title="Replay audio for this step"
-            >
-              Replay Audio
-            </button>
+                }}
+                title="Replay audio for this step"
+              >
+                Replay Audio
+              </button>
+
+              <button
+                className='button pause-button'
+                onClick={() => {
+                  if (audioRef.current && !audioRef.current.paused) {
+                    audioRef.current.pause();
+                  }
+                }}
+                title="Pause audio playback"
+              >
+                Pause Audio
+              </button>
+            </div>
           )}
+
 
           {/* Next button*/}
           <button className='button' onClick={handleNext} disabled={currentStep === InstructionData.length - 1}
