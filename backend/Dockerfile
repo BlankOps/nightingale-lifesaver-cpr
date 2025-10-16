@@ -27,12 +27,14 @@
 FROM node:18-bullseye
 
 # Install Python and build dependencies
-RUN apk add --no-cache \
+RUN apt-get update && apt-get install -y \
     python3 \
-    py3-pip \
+    python3-pip \
     python3-dev \
-    build-base \
-    linux-headers
+    build-essential \
+    linux-headers-amd64 \
+    && rm -rf /var/lib/apt/lists/*
+
 
 # Set work directory
 WORKDIR /app
