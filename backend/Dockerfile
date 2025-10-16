@@ -24,7 +24,7 @@
 # CMD ["sh", "-c", "cd cpr-chatbot && rasa run --enable-api --cors '*' --port 5005 & cd analytics && npm run dev"]
 
 
-FROM node:18-alpine
+FROM node:18-bullseye
 
 # Install Python and build dependencies
 RUN apk add --no-cache \
