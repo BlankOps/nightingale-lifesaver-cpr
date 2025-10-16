@@ -36,7 +36,7 @@ jobs:
         id: build-image
         run: |
           IMAGE_URI=654654611936.dkr.ecr.eu-central-1.amazonaws.com/lifesaver-backend:latest  
-          docker build -t $IMAGE_URI .
+          docker build -t $IMAGE_URI ./backend
           docker push $IMAGE_URI
           echo "image=$IMAGE_URI" >> $GITHUB_OUTPUT
 
