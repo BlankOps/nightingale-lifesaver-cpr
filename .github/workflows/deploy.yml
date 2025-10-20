@@ -46,6 +46,6 @@ jobs:
         run: |
           aws ecs update-service \
             --cluster nightingale-cluster
-            --service lifesaver-backend-service
+            --service lifesaver-task-service-radkto5y
             --force-new-deployment \
             --region eu-central-1
