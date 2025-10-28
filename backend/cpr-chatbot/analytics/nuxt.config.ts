@@ -1,14 +1,34 @@
+// // https://nuxt.com/docs/api/configuration/nuxt-config
+// export default defineNuxtConfig({
+// 	devtools: { enabled: false },
+// 	compatibilityDate: '2024-07-07',
+
+// 	modules: [
+// 		'@nuxtjs/eslint-module',
+// 		'@nuxt/fonts',
+// 		'@nuxtjs/tailwindcss',
+// 		'@nuxt/icon',
+// 	],
+
+// 	plugins: ['~/plugins/preline.client.ts'],
+// });
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	devtools: { enabled: false },
-	compatibilityDate: '2024-07-07',
+    devtools: { enabled: false },
+    compatibilityDate: '2024-07-07',
 
-	modules: [
-		'@nuxtjs/eslint-module',
-		'@nuxt/fonts',
-		'@nuxtjs/tailwindcss',
-		'@nuxt/icon',
-	],
+    modules: [
+        '@nuxtjs/eslint-module',
+        '@nuxt/fonts',
+        '@nuxtjs/tailwindcss',
+        '@nuxt/icon',
+    ],
 
-	plugins: ['~/plugins/preline.client.ts'],
+    plugins: ['~/plugins/preline.client.ts'],
+
+    devServer: {
+        host: '0.0.0.0',
+        port: 3000
+    }
 });
