@@ -13,7 +13,7 @@ const Chatbot = () => {
 	const [chatMessages, setChatMessages] = useState([]);
 	const chatroomRef = useRef(null);
 	const initialMessageSent = useRef(false);
-	const DOMAIN = "http://localhost:5006";
+	const DOMAIN = "http://localhost:5005";
 	const URL = "/webhooks/rest/webhook";
 
 	// Test connexion
