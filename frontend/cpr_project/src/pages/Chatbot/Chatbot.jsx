@@ -13,7 +13,7 @@ const Chatbot = () => {
 	const [chatMessages, setChatMessages] = useState([]);
 	const chatroomRef = useRef(null);
 	const initialMessageSent = useRef(false);
-	const DOMAIN = `http://${process.env.CHATBOT_IP}`;
+	const DOMAIN = process.env.REACT_APP_CHATBOT_URL;
 	const URL = "/webhooks/rest/webhook";
 
 	// Test connexion
