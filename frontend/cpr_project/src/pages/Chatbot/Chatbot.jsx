@@ -23,7 +23,7 @@ const Chatbot = () => {
 
 	const testConnection = async () => {
 		try {
-			const response = await axios.get(DOMAIN + '/');
+			const response = await axios.get(DOMAIN + '/version');
 			setIsConnected(true);
 			console.log('Connected to the chatbot server');
 		} catch (error) {
@@ -38,10 +38,8 @@ const Chatbot = () => {
 		setIsLoading(true);
 		setUserMessageCount(userMessageCount + 1);
 		const userMessage = { 
-			sender: "You", 
-			message, 
-			analytics: enableAnalytics, 
-			conv_position: userMessageCount 
+			sender: "user", 
+			message: message
 		};
 
 		try {
