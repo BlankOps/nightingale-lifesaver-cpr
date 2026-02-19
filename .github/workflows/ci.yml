@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: nightingale-lifesaver-cpr-frontend
+        working-directory: frontend/cpr_project
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -79,7 +79,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: cpr-chatbot-intent-generator
+        working-directory: backend/cpr-chatbot-intent-generator
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
