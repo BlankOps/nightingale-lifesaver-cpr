@@ -60,5 +60,10 @@ COPY cpr-chatbot ./cpr-chatbot
 # Expose ports
 EXPOSE 3000 5005
 
+# IMPORTANT: Train Rasa model during build
+RUN . /app/venv/bin/activate \
+    && cd cpr-chatbot \
+    && rasa train
+
 # Start both services
 CMD ["sh", "-c", ". /app/venv/bin/activate && cd cpr-chatbot && rasa run --enable-api --cors '*' --port 5005 & cd analytics && npm run dev"]
