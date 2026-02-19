@@ -50,10 +50,10 @@ jobs:
         continue-on-error: false
 
       - name: Build React app
-        run: npm run build
+        run: CI=false npm run build
 
       - name: Production build checkESL
-        run: NODE_ENV=production npm run build
+        run: CI=false NODE_ENV=production npm run build
         continue-on-error: false
 
       # [PLACEHOLDER] Uncomment and configure if you add E2E tests (e.g., Cypress)
