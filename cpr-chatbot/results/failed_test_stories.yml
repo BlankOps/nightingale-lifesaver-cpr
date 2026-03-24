@@ -1,0 +1,97 @@
+version: "3.1"
+stories:
+- story: sad path 2 (./rasa310_env/lib64/python3.10/site-packages/rasa/cli/initial_project/tests/test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye  # predicted: utter_cheer_up
+- story: sad path 3 (./rasa310_env/lib64/python3.10/site-packages/rasa/cli/initial_project/tests/test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye  # predicted: utter_cheer_up
+- story: test capabilities (./tests/test_stories.yml)
+  steps:
+  - intent: what_can_do  # predicted: bystander_help: what can you help me with
+  - action: utter_greet  # predicted: action_default_fallback
+- story: test thank you (./tests/test_stories.yml)
+  steps:
+  - intent: thank_you  # predicted: bot_challenge: thank you
+  - action: utter_thank_back
+- story: test cardiac arrest explanation (./tests/test_stories.yml)
+  steps:
+  - intent: what_is_cardiac_arrest
+  - action: utter_explanation_cardiac_arrest  # predicted: utter_cardiac_arrest_explanation
+- story: test cardiac arrest symptoms (./tests/test_stories.yml)
+  steps:
+  - intent: symptoms
+  - action: utter_symptoms_description_one
+  - action: utter_symptoms_description_two  # predicted: action_listen
+- story: test how to react (./tests/test_stories.yml)
+  steps:
+  - intent: how_to_react
+  - action: utter_analyse_situation  # predicted: action_default_fallback
+  - action: utter_emergency_call_recs  # predicted: action_listen
+- story: test emergency numbers (./tests/test_stories.yml)
+  steps:
+  - intent: what_are_emergency_numbers
+  - action: utter_emergency_numbers
+  - action: utter_emergency_numbers_examples  # predicted: action_listen
+- story: test foreign emergency numbers (./tests/test_stories.yml)
+  steps:
+  - intent: abroad_emergency_numbers
+  - action: utter_know_foreign_emergency_numbers  # predicted: utter_how_to_defibrillator
+- story: test what is cpr (./tests/test_stories.yml)
+  steps:
+  - intent: what_is_cpr
+  - action: utter_cpr_explanation  # predicted: action_default_fallback
+- story: test mouth to mouth (./tests/test_stories.yml)
+  steps:
+  - intent: how_to_mouth_to_mouth  # predicted: how_to_react: how to do mouth to mouth
+  - action: utter_how_to_mouth_to_mouth  # predicted: utter_stroke_recognition
+- story: test cpr benefits (./tests/test_stories.yml)
+  steps:
+  - intent: what_are_pros_cpr  # predicted: what_is_cpr: benefits of CPR
+  - action: utter_pros_cpr  # predicted: utter_choking_help
+- story: test heart attack (./tests/test_stories.yml)
+  steps:
+  - intent: what_is_heart_attack  # predicted: what_is_cardiac_arrest: what is a heart attack
+  - action: utter_what_is_heart_attack  # predicted: utter_heat_exhaustion
+- story: test panic management (./tests/test_stories.yml)
+  steps:
+  - intent: panic_management
+  - action: utter_panic_management  # predicted: utter_stroke_recognition
+- story: test emergency supplies (./tests/test_stories.yml)
+  steps:
+  - intent: emergency_supplies
+  - action: utter_emergency_supplies  # predicted: action_default_fallback
+- story: test scene safety (./tests/test_stories.yml)
+  steps:
+  - intent: scene_safety
+  - action: utter_scene_safety  # predicted: action_default_fallback
+- story: test calling emergency tips (./tests/test_stories.yml)
+  steps:
+  - intent: calling_emergency_tips
+  - action: utter_calling_tips  # predicted: utter_thank_back
+- story: complete cardiac arrest response (./tests/test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: symptoms
+  - action: utter_symptoms_description_one
+  - action: utter_symptoms_description_two  # predicted: action_listen
+  - intent: how_to_react
+  - action: utter_analyse_situation  # predicted: action_default_fallback
+  - action: utter_emergency_call_recs  # predicted: action_listen
+  - intent: how_to_cpr
+  - action: utter_cpr_steps
+  - intent: thank_you  # predicted: bot_challenge: thank you
+  - action: utter_thank_back

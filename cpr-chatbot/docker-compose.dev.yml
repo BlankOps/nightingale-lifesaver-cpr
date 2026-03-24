@@ -1,0 +1,55 @@
+services:
+  rasa:
+    container_name: crp_chatbot
+    image: rasa/rasa:3.6.20-full
+    volumes:
+      - ./models:/app/models
+      - ./data:/app/data
+      - ./config.yml:/app/config.yml
+      - ./domain.yml:/app/domain.yml
+      - ./credentials.yml:/app/credentials.yml
+      - ./endpoints.yml:/app/endpoints.yml
+    environment:
+      MODEL_FILE: "20250925-100634-olive-cleats.tar.gz"
+      CHATBOT_IP: "54.93.227.113:5005"
+    command: >
+      run --model /app/models/20250925-100634-olive-cleats.tar.gz --enable-api --cors '*' --port 5005 --debug
+    ports:
+      - "5006:5005"
+    depends_on:
+      - db
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://${CHATBOT_IP}/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  db:
+    image: postgres:13
+    restart: always
+    shm_size: 128mb
+    # point to example env if .env not present to avoid error
+    env_file:
+      - ./docker/postgres/.env.example
+    ports:
+      - "5055:5432"
+    volumes:
+      - ./docker/postgres:/docker-entrypoint-initdb.d
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+
+  analytics:
+    container_name: analytics
+    build: ./analytics
+    env_file:
+      - ./docker/analytics/.env
+      - ./docker/postgres/.env
+    ports:
+      - "5005:3000"
+    restart: always
+

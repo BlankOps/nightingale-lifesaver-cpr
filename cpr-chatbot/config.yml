@@ -1,0 +1,41 @@
+version: '3.1'
+
+recipe: default.v1
+
+language: en
+
+pipeline:
+- name: WhitespaceTokenizer
+- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  max_ngram: 4
+- name: DIETClassifier
+  epochs: 400  # Augmenté
+  learning_rate: 0.001
+  dropout_rate: 0.05  # Réduit pour moins de régularisation
+  entity_recognition: false
+- name: EntitySynonymMapper
+- name: ResponseSelector
+  epochs: 400  # Augmenté
+  constrain_similarities: true
+- name: FallbackClassifier
+  threshold: 0.7  # Plus strict
+  ambiguity_threshold: 0.05  # Plus strict
+
+policies:
+- name: MemoizationPolicy
+  max_history: 8  # Augmenté
+- name: RulePolicy
+  core_fallback_threshold: 0.3
+  enable_fallback_prediction: true
+- name: UnexpecTEDIntentPolicy
+  max_history: 6  # Augmenté
+  epochs: 300  # Augmenté
+- name: TEDPolicy
+  max_history: 6  # Augmenté
+  epochs: 300  # Augmenté
+  dropout_rate: 0.05  # Réduit
+assistant_id: 20250924-170133-finite-dataset

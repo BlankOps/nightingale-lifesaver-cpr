@@ -1,0 +1,797 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - hey
+    - good morning
+    - good evening
+    - hi there
+    - hello there
+    - greetings
+    - hey there
+    - good day
+    - howdy
+    - what's up
+    - yo
+    - hiya
+    - salutations
+
+- intent: what_is_cpr
+  examples: |
+    - what is cpr
+    - what does cpr mean
+    - can you explain cpr
+    - define cpr
+    - what is cardiopulmonary resuscitation
+    - tell me about cpr
+    - explain cpr to me
+    - what's cpr
+    - cpr definition
+    - describe cpr
+    - how does cpr work
+    - what is the purpose of cpr
+    - why do we do cpr
+    - what does cpr stand for
+    - cpr meaning
+    - what is CPR
+
+- intent: how_to_cpr
+  examples: |
+    - how to do cpr
+    - how to perform cpr
+    - cpr steps
+    - cpr procedure
+    - teach me cpr
+    - show me how to do cpr
+    - cpr instructions
+    - how do I perform cpr
+    - what are the steps for cpr
+    - guide me through cpr
+    - cpr technique
+    - how to give cpr
+    - cpr method
+    - proper cpr technique
+    - step by step cpr
+
+- intent: what_is_cardiac_arrest
+  examples: |
+    - what is cardiac arrest
+    - define cardiac arrest
+    - explain cardiac arrest
+    - what happens during cardiac arrest
+    - cardiac arrest meaning
+    - describe cardiac arrest
+    - what causes cardiac arrest
+    - cardiac arrest definition
+    - tell me about cardiac arrest
+    - how does cardiac arrest occur
+    - what is a cardiac arrest
+    - cardiac arrest explanation
+    - sudden cardiac arrest
+    - heart stopping
+    - heart failure emergency
+
+- intent: symptoms
+  examples: |
+    - what are the symptoms of cardiac arrest
+    - signs of cardiac arrest
+    - how to recognize cardiac arrest
+    - cardiac arrest symptoms
+    - what to look for in cardiac arrest
+    - how do I know if someone has cardiac arrest
+    - cardiac arrest warning signs
+    - signs someone needs cpr
+    - how to identify cardiac arrest
+    - what does cardiac arrest look like
+    - cardiac arrest indicators
+    - emergency signs
+    - unconscious person signs
+    - breathing problems signs
+    - no pulse signs
+
+- intent: what_are_emergency_numbers
+  examples: |
+    - what is the emergency number
+    - emergency phone number
+    - who do I call in emergency
+    - emergency services number
+    - ambulance number
+    - what number to call for help
+    - emergency contact
+    - help phone number
+    - medical emergency number
+    - call for help number
+    - emergency hotline
+    - first aid number
+    - rescue services number
+    - urgent help number
+    - emergency line
+
+- intent: choking_help
+  examples: |
+    - someone is choking
+    - help with choking
+    - choking emergency
+    - person can't breathe
+    - food stuck in throat
+    - choking first aid
+    - how to help choking person
+    - what to do when choking
+    - choking rescue
+    - heimlich maneuver
+    - abdominal thrusts
+    - back blows
+    - choking infant
+    - choking child
+    - choking adult
+
+- intent: bleeding_control
+  examples: |
+    - how to stop bleeding
+    - severe bleeding
+    - blood loss
+    - cut bleeding heavily
+    - wound bleeding
+    - hemorrhage control
+    - bleeding first aid
+    - how to control bleeding
+    - bleeding emergency
+    - deep cut bleeding
+    - arterial bleeding
+    - venous bleeding
+    - pressure points
+    - tourniquet use
+    - bandaging wounds
+
+- intent: burns_treatment
+  examples: |
+    - burn treatment
+    - how to treat burns
+    - burn first aid
+    - thermal burn
+    - chemical burn
+    - electrical burn
+    - severe burns
+    - burn emergency
+    - scalding injury
+    - fire burn
+    - hot liquid burn
+    - steam burn
+    - acid burn
+    - alkali burn
+    - burn wound care
+
+- intent: fracture_help
+  examples: |
+    - broken bone
+    - fracture first aid
+    - how to help with fracture
+    - bone break
+    - broken arm
+    - broken leg
+    - fractured bone
+    - bone injury
+    - limb fracture
+    - how to splint
+    - immobilize fracture
+    - broken bone emergency
+    - compound fracture
+    - simple fracture
+    - suspected fracture
+
+- intent: stroke_recognition
+  examples: |
+    - stroke symptoms
+    - signs of stroke
+    - how to recognize stroke
+    - stroke emergency
+    - brain attack
+    - stroke warning signs
+    - fast stroke test
+    - stroke first aid
+    - mini stroke
+    - ischemic stroke
+    - hemorrhagic stroke
+    - stroke indicators
+    - cerebrovascular accident
+    - stroke detection
+    - face drooping
+
+- intent: seizure_help
+  examples: |
+    - someone having seizure
+    - epileptic seizure
+    - convulsions
+    - seizure first aid
+    - how to help seizure
+    - seizure emergency
+    - person shaking
+    - epilepsy attack
+    - grand mal seizure
+    - petit mal seizure
+    - seizure response
+    - what to do during seizure
+    - seizure care
+    - unconscious seizure
+    - seizure safety
+
+- intent: allergic_reaction
+  examples: |
+    - allergic reaction
+    - anaphylaxis
+    - severe allergy
+    - allergic emergency
+    - food allergy reaction
+    - bee sting allergy
+    - drug allergy
+    - allergic shock
+    - hives emergency
+    - swelling allergy
+    - breathing difficulty allergy
+    - epipen use
+    - allergy first aid
+    - anaphylactic shock
+    - severe allergic reaction
+
+- intent: recovery_position
+  examples: |
+    - recovery position
+    - unconscious person position
+    - how to position unconscious
+    - lateral position
+    - stable side position
+    - unconscious breathing person
+    - safe recovery position
+    - how to turn unconscious person
+    - positioning unconscious victim
+    - unconscious first aid position
+    - side recovery position
+    - maintaining airway
+    - unconscious but breathing
+    - recovery posture
+    - lateral recovery
+
+- intent: child_cpr
+  examples: |
+    - child cpr
+    - cpr for children
+    - pediatric cpr
+    - infant cpr
+    - baby cpr
+    - toddler cpr
+    - child resuscitation
+    - cpr on kids
+    - how to do cpr on child
+    - child cardiac arrest
+    - infant cardiac arrest
+    - baby not breathing
+    - child emergency
+    - pediatric resuscitation
+    - newborn cpr
+
+- intent: what_is_defibrillator
+  examples: |
+    - what is a defibrillator
+    - what is an aed
+    - automated external defibrillator
+    - defibrillator explanation
+    - aed meaning
+    - what does aed do
+    - defibrillator purpose
+    - electric shock device
+    - heart shock machine
+    - aed definition
+    - portable defibrillator
+    - public defibrillator
+    - emergency defibrillator
+    - cardiac defibrillator
+    - life saving device
+
+- intent: how_to_defibrillator
+  examples: |
+    - how to use aed
+    - how to use defibrillator
+    - aed instructions
+    - defibrillator steps
+    - using aed device
+    - aed procedure
+    - defibrillator operation
+    - how to operate aed
+    - aed usage
+    - electric shock procedure
+    - aed training
+    - defibrillator technique
+    - aed application
+    - automated defibrillator use
+    - shock delivery
+
+- intent: shock_treatment
+  examples: |
+    - medical shock
+    - shock treatment
+    - circulatory shock
+    - hypovolemic shock
+    - cardiogenic shock
+    - septic shock
+    - shock first aid
+    - shock emergency
+    - shock symptoms
+    - treating shock
+    - shock management
+    - shock care
+    - blood pressure drop
+    - shock prevention
+    - shock response
+
+- intent: hypothermia_help
+  examples: |
+    - hypothermia
+    - cold exposure
+    - body temperature low
+    - freezing person
+    - cold emergency
+    - hypothermia treatment
+    - cold injury
+    - frostbite
+    - extreme cold exposure
+    - hypothermia first aid
+    - warming techniques
+    - cold water immersion
+    - winter emergency
+    - cold weather injury
+    - temperature emergency
+
+- intent: heat_exhaustion
+  examples: |
+    - heat exhaustion
+    - heat stroke
+    - overheating
+    - heat emergency
+    - hot weather illness
+    - heat cramps
+    - dehydration heat
+    - sun stroke
+    - hyperthermia
+    - heat illness
+    - excessive heat exposure
+    - heat related emergency
+    - hot environment injury
+    - heat fatigue
+    - temperature regulation
+
+- intent: poisoning_help
+  examples: |
+    - poisoning
+    - someone poisoned
+    - toxic ingestion
+    - poison emergency
+    - accidental poisoning
+    - chemical poisoning
+    - drug overdose
+    - poisoning first aid
+    - toxic exposure
+    - poison control
+    - ingested poison
+    - poisoning symptoms
+    - toxic substance
+    - poison treatment
+    - contamination emergency
+
+- intent: drowning_rescue
+  examples: |
+    - drowning
+    - water rescue
+    - near drowning
+    - water emergency
+    - submersion injury
+    - drowning first aid
+    - water accident
+    - rescue from water
+    - drowning victim
+    - water safety emergency
+    - aquatic emergency
+    - swimming accident
+    - water resuscitation
+    - drowning response
+    - water rescue techniques
+
+- intent: panic_management
+  examples: |
+    - I'm panicking
+    - Stay calm emergency
+    - How to not panic
+    - Keep calm crisis
+    - Panic attack emergency
+    - Anxiety emergency
+    - Stress emergency situation
+    - Overwhelmed emergency
+    - How to calm down in emergency?
+    - What to do if I panic?
+    - How to recognize panic attack
+    - How to call for help for panic
+    - How to help someone who is panicking
+    - What to avoid during panic
+    - How to monitor after panic attack
+    - How to help a child with panic
+    - How to help elderly with panic
+    - What are the signs of anxiety
+    - How to prevent panic attacks
+    - How to provide comfort during panic
+    - How to check for panic symptoms
+    - How to document panic event
+    - How to treat mild panic
+    - How to breathe during panic
+
+- intent: multiple_victims
+  examples: |
+    - Multiple victims
+    - Mass casualty event
+    - Many injured people
+    - Triage emergency
+    - Multiple emergencies
+    - Who to help first
+    - Priority in emergencies
+    - Multiple casualties
+    - How to triage victims?
+    - What to do with many injured?
+    - How to call for help for multiple victims
+    - How to organize help in mass casualty
+    - What to avoid during mass casualty
+    - How to monitor after mass casualty
+    - How to help children in mass casualty
+    - How to help elderly in mass casualty
+    - What are the signs of mass casualty
+    - How to prevent chaos in emergencies
+    - How to provide comfort to multiple victims
+    - How to check for injuries in mass casualty
+    - How to document mass casualty event
+    - How to treat mild injuries in mass casualty
+    - How to prioritize care in emergencies
+    - How to assign roles in mass casualty
+
+- intent: emergency_supplies
+  examples: |
+    - First aid kit contents
+    - Emergency supplies
+    - What to have emergency
+    - First aid kit items
+    - Emergency preparedness
+    - Medical supplies home
+    - Emergency kit essentials
+    - What to pack for emergencies?
+    - How to prepare emergency kit?
+    - What are essential emergency items?
+    - How to store emergency supplies
+    - What to avoid in emergency kit
+    - How to check expiration dates
+    - How to organize first aid kit
+    - How to help children with supplies
+    - How to help elderly with supplies
+    - What are the signs of missing supplies
+    - How to prevent running out of supplies
+    - How to provide comfort with supplies
+    - How to check for supply needs
+    - How to document supply use
+    - How to treat minor injuries with kit
+    - How to prioritize supplies
+    - How to assign supplies in emergency
+
+- intent: calling_emergency_tips
+  examples: |
+    - How to call emergency services?
+    - Tips for calling emergency
+    - What to say when calling emergency?
+    - How to contact emergency services?
+    - Best way to call emergency
+    - Guide to calling emergency services
+    - What information to give emergency services?
+    - How to make an emergency call?
+    - Emergency call procedure
+    - Steps to call emergency services
+    - What to do when calling emergency?
+    - How to communicate with emergency services?
+    - Emergency call guidelines
+    - Proper way to call emergency
+    - Emergency call instructions
+
+- intent: how_to_react
+  examples: |
+    - What to do
+    - What is the procedure
+    - Save someone from heart problem
+    - Save someone from cardiac arrest
+    - How to help someone from cardiac arrest
+    - How to help someone from heart problems
+    - What is the procedure to follow
+    - What should I do
+    - Cardiac arrest help
+    - Cardiac arrest steps
+    - Help for cardiac arrest
+    - Actions for cardiac arrest
+    - Respond to cardiac arrest
+    - Cardiac arrest first aid
+    - How to assist
+    - Cardiac arrest response
+    - Cardiac arrest procedures
+    - What should I do if someone has a cardiac arrest
+    - How do I help someone having a cardiac arrest
+    - What actions should I take during a cardiac arrest
+    - What steps are needed for cardiac arrest
+    - What is the first aid for cardiac arrest
+    - How can I assist someone in cardiac arrest
+    - What do I do during cardiac arrest
+    - What to do in case of cardiac arrest
+    - How to respond to cardiac arrest
+    - Actions to take for cardiac arrest
+    - What are the procedures for cardiac arrest
+    - How to act in a cardiac arrest situation
+    - What should be done during cardiac arrest
+    - How to handle cardiac arrest
+    - What measures to take for cardiac arrest
+
+- intent: abroad_emergency_numbers
+  examples: |
+    - Emergency numbers abroad
+    - Help numbers overseas
+    - Emergency contact numbers in foreign country
+    - Abroad emergency contact
+    - Emergency services numbers internationally
+    - Phone numbers for emergency abroad
+    - How to call emergency services abroad?
+    - International emergency numbers
+    - Contact emergency services overseas
+    - Emergency phone numbers in other countries
+    - What are the emergency numbers abroad?
+    - Emergency help overseas
+    - Phone numbers for emergencies in foreign countries
+    - International help numbers
+    - How to reach emergency services in another country?
+    - Need emergency numbers abroad
+    - How to find emergency contacts overseas?
+    - Emergency hotline in foreign country
+    - Emergency services contact numbers internationally
+    - Numbers to call for help abroad
+    - What is the emergency number in other countries?
+    - How to get emergency help overseas?
+    - Who to contact for emergencies abroad?
+    - Need help numbers for foreign country
+    - Emergency contact info abroad
+    - Phone numbers for emergency assistance abroad
+    - Urgent help numbers in other countries
+    - International emergency contacts
+    - How to dial emergency services in another country?
+    - Emergency numbers when traveling
+
+- intent: what_to_do_accident
+  examples: |
+    - What should I do in case of an accident?
+    - What are the first steps after an accident?
+    - How to react if I witness an accident?
+    - What are the best practices in an emergency accident situation?
+    - How can I help someone after an accident?
+    - Accident scene management
+    - What to do at accident scene
+    - How to assess accident situation
+    - Emergency accident response
+    - How to prioritize accident victims
+    - What not to do at accident scene
+    - How to secure accident scene
+    - When to move accident victim
+    - How to call for help at accident
+    - Accident first aid priorities
+    - How to check for injuries after accident
+    - What to do while waiting for emergency services
+    - How to prevent further injury at accident
+    - Accident scene safety measures
+    - How to document accident for emergency services
+
+- intent: bystander_help
+  examples: |
+    - How can bystanders help?
+    - What should people around do?
+    - How to get help from others
+    - How to direct bystanders in emergency
+    - What to ask people around for help
+    - How to organize bystanders
+    - Bystander assistance in emergency
+    - How to delegate tasks to bystanders
+    - What can witnesses do to help
+    - How to use bystanders effectively
+    - Crowd management in emergency
+    - How to ask for help from strangers
+    - Getting assistance from people nearby
+    - How to coordinate bystander help
+    - What tasks to give bystanders
+    - How to communicate with bystanders
+    - Bystander roles in emergency
+    - How to prevent bystander panic
+    - Using bystanders to call for help
+    - How to keep bystanders safe
+
+- intent: scene_safety
+  examples: |
+    - Is the scene safe?
+    - How to assess scene safety?
+    - What to check before helping?
+    - Scene safety evaluation
+    - How to ensure safety at emergency scene
+    - What dangers to look for
+    - Safety assessment steps
+    - How to approach emergency scene safely
+    - What hazards to watch for
+    - Scene security measures
+    - How to protect yourself while helping
+    - Safety first in emergencies
+    - Environmental hazards check
+    - How to make scene safe
+    - When not to approach victim
+    - Safety precautions in emergency
+    - How to identify dangerous situations
+    - Personal safety in emergencies
+    - Risk assessment at scene
+    - Emergency scene hazards
+
+- intent: medical_history
+  examples: |
+    - Medical history questions
+    - What medical information do I need?
+    - How to ask about medical conditions?
+    - Getting patient medical history
+    - What to ask about medications
+    - Medical background information
+    - How to gather health information
+    - Patient history questions
+    - What medical details are important
+    - How to ask about allergies
+    - Medical condition questions
+    - Health history assessment
+    - What to know about patient's health
+    - How to check for medical alerts
+    - Previous medical conditions
+    - Medication information needed
+    - How to find medical identification
+    - Patient medical background
+    - Health information gathering
+    - Medical details for emergency services
+
+- intent: comfort_victim
+  examples: |
+    - How to comfort the victim?
+    - How to reassure someone in emergency?
+    - What to say to calm victim?
+    - How to provide emotional support
+    - Comforting emergency victim
+    - How to keep victim calm
+    - What not to say to victim
+    - How to reassure injured person
+    - Emotional first aid
+    - How to reduce victim anxiety
+    - Calming techniques for victims
+    - How to communicate with victim
+    - Providing reassurance in emergency
+    - How to support scared victim
+    - What words to use with victim
+    - How to keep victim conscious
+    - Talking to emergency victim
+    - How to prevent victim panic
+    - Psychological first aid
+    - How to show care to victim
+
+- intent: post_emergency_care
+  examples: |
+    - What to do after emergency?
+    - Post-emergency care steps
+    - Follow-up after emergency
+    - What happens after emergency services arrive?
+    - Recovery after emergency
+    - Post-incident procedures
+    - What to do when emergency is over
+    - After emergency checklist
+    - Follow-up care needed
+    - Post-emergency monitoring
+    - What to expect after emergency
+    - Recovery phase guidance
+    - After first aid care
+    - Post-treatment steps
+    - What to do after helping victim
+    - Emergency aftermath procedures
+    - Follow-up medical care
+    - Post-emergency documentation
+    - What to tell victim's family
+    - Self-care after helping in emergency
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I feel amazing
+    - excellent
+    - fantastic
+    - superb
+    - brilliant
+
+- intent: mood_unhappy
+  examples: |
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - I am feeling sad
+    - not good
+    - not very good
+    - extremely sad
+    - very terrible
+    - so saad
+    - terrible
+    - awful
+    - horrible
+    - depressed
+    - upset
+    - frustrated
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - talk to you later
+    - catch you later
+    - until next time
+    - take care
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - are you real?
+    - what are you?
+    - who are you?
+    - are you artificial?
+    - are you an AI?
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - yes please
+    - absolutely
+    - sure
+    - definitely
+    - exactly
+    - right
+    - true
+    - agreed
+
+- intent: deny
+  examples: |
+    - no    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - nope
+    - not at all
+    - absolutely not not
+    - definitely not
+    - I disagree

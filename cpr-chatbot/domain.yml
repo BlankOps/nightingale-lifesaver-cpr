@@ -1,0 +1,544 @@
+version: "3.1"
+
+intents:
+  - greet
+  - thank_you
+  - nlu_fallback
+  - what_can_do
+  - what_is_cardiac_arrest
+  - symptoms
+  - how_to_react
+  - what_are_emergency_numbers
+  - abroad_emergency_numbers
+  - what_is_cpr
+  - how_to_cpr
+  - how_to_mouth_to_mouth
+  - what_is_defibrillator
+  - how_to_defibrillator
+  - what_are_pros_cpr
+  - how_to_treat_burn
+  - how_to_treat_bleeding
+  - how_to_treat_choking
+  - how_to_treat_fracture
+  - how_to_treat_unconscious
+  - how_to_treat_shock
+  - how_to_call_emergency
+  - what_to_do_accident
+  - mood_great
+  - mood_unhappy
+  - goodbye
+  - bot_challenge
+  - affirm
+  - deny
+  - what_is_heart_attack
+  - choking_help
+  - recovery_position
+  - example_questions
+  - bleeding_control
+  - shock_treatment
+  - burns_treatment
+  - fracture_help
+  - allergic_reaction
+  - seizure_help
+  - stroke_recognition
+  - hypothermia_help
+  - heat_exhaustion
+  - poisoning_help
+  - drowning_rescue
+  - spinal_injury
+  - pregnancy_emergency
+  - child_cpr
+  - panic_management
+  - multiple_victims
+  - emergency_supplies
+  - calling_emergency_tips
+  - bystander_help
+  - scene_safety
+  - medical_history
+  - comfort_victim
+  - post_emergency_care
+
+responses:
+  utter_greet:
+  - text: |
+      🚨 Emergency First Aid Assistant 🚨
+      
+      Hello! I'm here to help with first aid guidance and emergency procedures.
+      
+      ⚠️ **IMPORTANT**: For real emergencies, call:
+      • 112 (Europe) • 911 (USA) • 999 (UK)
+      
+      How can I assist you today?
+
+  utter_please_rephrase:
+  - text: |
+      I'm sorry, I didn't quite understand that. Please ask questions related to CPR and first aid procedures.
+      
+      You can ask about:
+      • CPR instructions
+      • Emergency numbers
+      • First aid for injuries
+      • Medical emergencies
+
+  utter_cardiac_arrest_explanation:
+  - text: |
+      **Cardiac Arrest** 💔
+      
+      Cardiac arrest occurs when the heart suddenly stops beating effectively, causing:
+      • Loss of consciousness
+      • No normal breathing
+      • No pulse
+      • Blood stops circulating
+      
+      ⚠️ **This is a LIFE-THREATENING emergency**
+      
+      Without immediate CPR, death can occur within minutes. Call emergency services immediately!
+
+  utter_cpr_steps:
+  - text: |
+      **CPR Steps** 🫀
+      
+      1. **Check scene safety** - Ensure area is safe
+      2. **Check responsiveness** - Tap shoulders, shout 'Are you okay?'
+      3. **Call for help** - Dial emergency number immediately
+      4. **Position hands** - Center of chest, between nipples
+      5. **Push hard & fast** - 30 chest compressions (2 inches deep)
+      6. **Give 2 breaths** - Tilt head back, lift chin
+      7. **Continue cycles** - 30:2 until help arrives
+      
+      💡 **Remember**: Push to the beat of 'Stayin Alive' (100-120 BPM)
+
+  utter_emergency_numbers:
+  - text: |
+      **Emergency Numbers** 📞
+      
+      🌍 **International**:
+      • Europe: **112**
+      • USA/Canada: **911**
+      • UK: **999**
+      • Australia: **000**
+      • New Zealand: **111**
+      
+      ⚠️ **Always call FIRST in life-threatening situations!**
+      
+      📋 When calling:
+      • State your location clearly
+      • Describe the emergency
+      • Follow dispatcher instructions
+      • Don't hang up until told
+
+  utter_emergency_numbers_examples:
+  - text: |
+      **When to Call Emergency Services** 🚨
+      
+      • Unconscious person
+      • No breathing/difficulty breathing
+      • Chest pain/heart attack
+      • Severe bleeding
+      • Choking (cannot speak/breathe)
+      • Suspected stroke
+      • Serious injuries
+      • Poisoning
+      • Severe allergic reactions
+      
+      ⏰ **Time is critical** - Don't hesitate to call!
+
+  utter_symptoms_description_one:
+  - text: |
+      **Cardiac Arrest Signs** ⚠️
+      
+      🔍 **Look for**:
+      • Sudden collapse
+      • No response to voice/touch
+      • No normal breathing (or gasping)
+      • No pulse
+      • Skin turns blue/pale
+      • Eyes may roll back
+      
+      🚨 **If you see these signs**:
+      1. Call emergency services immediately
+      2. Start CPR right away
+      3. Find an AED if available
+      
+      ⏰ **Every second counts!**
+
+  utter_choking_help:
+  - text: |
+      **Choking Emergency** 🫁
+      
+      **For Adults/Children over 1 year**:
+      1. **Encourage coughing** if they can
+      2. **5 back blows** - bend person forward, hit between shoulder blades
+      3. **5 abdominal thrusts** (Heimlich) - hands just above navel, thrust upward
+      4. **Alternate** back blows and abdominal thrusts
+      5. **Call emergency** if object doesn't clear
+      
+      **For Infants under 1 year**:
+      • Use back blows and chest thrusts only
+      • NO abdominal thrusts for babies
+
+  utter_bleeding_control:
+  - text: |
+      **Severe Bleeding Control** 💉
+      
+      1. **Apply direct pressure** - Use clean cloth/gauze, press firmly
+      2. **Elevate** injured area above heart if possible
+      3. **Don't remove** embedded objects
+      4. **Add more bandages** if blood soaks through (don't remove first layer)
+      5. **Apply pressure points** if bleeding continues
+      6. **Consider tourniquet** for life-threatening limb bleeding
+      
+      🚨 **Call emergency for**:
+      • Arterial bleeding (bright red, spurting)
+      • Severe blood loss
+      • Shock symptoms
+
+  utter_burns_treatment:
+  - text: |
+      **Burn Treatment** 🔥
+      
+      **Immediate steps**:
+      1. **Remove from heat source** safely
+      2. **Cool with water** - 10-20 minutes of cool (not ice-cold) running water
+      3. **Remove jewelry/clothing** before swelling (if not stuck)
+      4. **Cover loosely** with clean, non-stick bandage
+      5. **Pain relief** - over-the-counter pain medication
+      
+      🚨 **Seek emergency care for**:
+      • Burns larger than palm
+      • Deep burns (white/charred)
+      • Chemical/electrical burns
+      • Burns on face, hands, genitals
+      • Signs of infection
+
+  utter_fracture_help:
+  - text: |
+      **Fracture/Broken Bone** 🦴
+      
+      **Signs**:
+      • Severe pain
+      • Swelling/bruising
+      • Deformity
+      • Cannot use/move limb
+      • Bone visible (open fracture)
+      
+      **First Aid**:
+      1. **Don't move** the person unless in danger
+      2. **Immobilize** the injury (splint above and below fracture)
+      3. **Apply ice** wrapped in cloth (20 min on/off)
+      4. **Monitor** for shock
+      5. **Seek medical care** immediately
+      
+      ⚠️ **Never** try to realign bones!
+
+  utter_stroke_recognition:
+  - text: |
+      **Stroke Recognition - FAST Test** 🧠
+      
+      **F** - **FACE**: Does face droop? Smile uneven?
+      **A** - **ARMS**: Can they lift both arms? One drift down?
+      **S** - **SPEECH**: Slurred or strange speech?
+      **T** - **TIME**: Call emergency immediately!
+      
+      **Other signs**:
+      • Sudden confusion
+      • Severe headache
+      • Vision problems
+      • Loss of balance
+      • Numbness (especially one side)
+      
+      ⏰ **Time is brain** - Every minute matters!
+
+  utter_seizure_help:
+  - text: |
+      **Seizure First Aid** ⚡
+      
+      **During seizure**:
+      1. **Stay calm** and time the seizure
+      2. **Clear the area** - remove hard/sharp objects
+      3. **Protect head** - place something soft underneath
+      4. **Turn on side** if possible (recovery position)
+      5. **Don't put anything in mouth**
+      6. **Don't restrain** the person
+      
+      🚨 **Call emergency if**:
+      • Seizure lasts >5 minutes
+      • Person doesn't wake up
+      • Multiple seizures
+      • Injury occurs
+      • First-time seizure
+
+  utter_allergic_reaction:
+  - text: |
+      **Severe Allergic Reaction (Anaphylaxis)** 🚨
+      
+      **Signs**:
+      • Difficulty breathing/wheezing
+      • Swelling (face, lips, throat)
+      • Rapid weak pulse
+      • Nausea/vomiting
+      • Dizziness/fainting
+      • Skin rash/hives
+      
+      **Immediate action**:
+      1. **Call emergency** immediately
+      2. **Use EpiPen** if available (inject into thigh)
+      3. **Have person lie down** with legs elevated
+      4. **Loosen tight clothing**
+      5. **Be ready for CPR**
+      
+      ⚠️ **This can be fatal within minutes!**
+
+  utter_recovery_position:
+  - text: |
+      **Recovery Position** 😴
+      
+      **Use when person is**:
+      • Unconscious but breathing normally
+      • Responsive but drowsy
+      
+      **Steps**:
+      1. **Kneel beside** them
+      2. **Place nearest arm** at right angle to body
+      3. **Bring far arm** across chest to opposite cheek
+      4. **Bend far leg** at knee
+      5. **Roll toward you** onto their side
+      6. **Tilt head back** slightly to keep airway open
+      7. **Monitor breathing** continuously
+
+  utter_child_cpr:
+  - text: |
+      **Child/Infant CPR** 👶
+      
+      **Children (1-8 years)**:
+      • Use **heel of one hand** or both hands
+      • Compress **1/3 chest depth** (about 2 inches)
+      • **30 compressions : 2 breaths**
+      • Rate: **100-120 per minute**
+      
+      **Infants (under 1 year)**:
+      • Use **2 fingers** on breastbone
+      • Compress **1/3 chest depth** (1.5 inches)
+      • **30 compressions : 2 breaths**
+      • **Cover mouth AND nose** for breaths
+      
+      🚨 **Call emergency first**, then start CPR
+
+  utter_what_is_defibrillator:
+  - text: |
+      **AED (Automated External Defibrillator)** ⚡
+      
+      An AED is a portable device that:
+      • **Analyzes heart rhythm**
+      • **Delivers electric shock** to restart normal heart rhythm
+      • **Guides you** with voice prompts
+      • **Only shocks when needed**
+      
+      📍 **Found in**:
+      • Airports, malls, schools
+      • Gyms, offices
+      • Public buildings
+      
+      💡 **Anyone can use** - the device tells you exactly what to do!
+
+  utter_how_to_defibrillator:
+  - text: |
+      **How to Use AED** ⚡
+      
+      1. **Turn on** AED (follow voice prompts)
+      2. **Attach pads** as shown in pictures:
+         • One on upper right chest
+         • One on lower left side
+      3. **Ensure no one touches** patient
+      4. **Press analyze** button
+      5. **If shock advised**:
+         • Ensure everyone clear
+         • Press shock button
+      6. **Immediately resume CPR** for 2 minutes
+      7. **Follow AED prompts**
+      
+      🔊 **The AED will guide you through everything!**
+
+  utter_shock_treatment:
+  - text: |
+      **Medical Shock Treatment** 🩸
+      
+      **Signs of shock**:
+      • Pale, cool, clammy skin
+      • Rapid weak pulse
+      • Rapid shallow breathing
+      • Confusion/anxiety
+      • Weakness/fatigue
+      
+      **Treatment**:
+      1. **Call emergency** immediately
+      2. **Treat underlying cause** (bleeding, etc.)
+      3. **Lay person down** with legs elevated 12 inches
+      4. **Keep warm** but don't overheat
+      5. **Nothing by mouth**
+      6. **Monitor breathing/pulse**
+      
+      ⚠️ **Shock can be life-threatening!**
+
+  utter_hypothermia_help:
+  - text: |
+      **Hypothermia** 🥶
+      
+      **Signs**:
+      • Shivering (stops in severe cases)
+      • Confusion/slurred speech
+      • Drowsiness
+      • Weak pulse
+      • Shallow breathing
+      
+      **Treatment**:
+      1. **Move to warm area**
+      2. **Remove wet clothing**
+      3. **Warm gradually** - blankets, warm drinks (if conscious)
+      4. **Warm center first** (chest, neck, head)
+      5. **Handle gently** - avoid rough movement
+      6. **Seek medical care**
+      
+      ❌ **Don't use**: Direct heat, alcohol, massage
+
+  utter_heat_exhaustion:
+  - text: |
+      **Heat Exhaustion/Heat Stroke** 🌡️
+      
+      **Heat Exhaustion**:
+      • Heavy sweating or stopped sweating
+      • Nausea/vomiting
+      • Headache/dizziness
+      • Muscle cramps
+      
+      **Heat Stroke** (EMERGENCY):
+      • High body temperature (>104°F)
+      • Altered mental state
+      • Hot, dry skin OR profuse sweating
+      
+      **Treatment**:
+      1. **Move to cool area**
+      2. **Remove excess clothing**
+      3. **Cool with water** (wet cloths, spray)
+      4. **Fan the person**
+      5. **Give cool water** if conscious
+      
+      🚨 **Heat stroke = call emergency!**
+
+  utter_poisoning_help:
+  - text: |
+      **Poisoning Emergency** ☠️
+      
+      **Signs**:
+      • Nausea/vomiting
+      • Abdominal pain
+      • Difficulty breathing
+      • Confusion/drowsiness
+      • Burns around mouth
+      • Strange odor
+      
+      **Immediate steps**:
+      1. **Call Poison Control**: 1-800-222-1222 (US)
+      2. **Call emergency** if unconscious/not breathing
+      3. **Identify poison** if possible
+      4. **Follow poison control instructions**
+      5. **Save poison container/vomit** for medical team
+      
+      ❌ **Don't induce vomiting** unless told by expert!
+
+  utter_drowning_rescue:
+  - text: |
+      **Drowning/Near-Drowning** 🌊
+      
+      **Rescue (if trained)**:
+      1. **Throw, don't go** - use flotation device
+      2. **Reach with object** if from shore
+      3. **Row to victim** if boat available
+      4. **Swimming rescue** only if trained
+      
+      **After rescue**:
+      1. **Check breathing** immediately
+      2. **Start CPR** if not breathing
+      3. **Call emergency** services
+      4. **Keep warm**
+      5. **Monitor for secondary drowning**
+      
+      ⚠️ **Even rescued victims need medical evaluation!**
+
+  utter_thank_back:
+  - text: |
+      You're very welcome! 😊
+      
+      Remember: **In real emergencies, always call professional help first!**
+      
+      Stay safe and feel free to ask if you need more first aid guidance.
+
+  utter_goodbye:
+  - text: |
+      Stay safe! 🛡️
+      
+      Remember these emergency numbers:
+      • **112** (Europe)
+      • **911** (USA)
+      • **999** (UK)
+      
+      I'm here 24/7 if you need first aid guidance. Take care!
+
+  utter_did_that_help:
+  - text: |
+      Did this information help you? 🤔
+      
+      Do you have any other questions about first aid or emergency procedures?
+
+  utter_happy:
+  - text: |
+      Great! I'm glad I could help! 😊
+      
+      **Remember**: Practice makes perfect with first aid skills. Consider taking a certified first aid course for hands-on training.
+      
+      Anything else I can help with?
+
+  utter_cheer_up:
+  - text: |
+      Don't worry! 💪 Learning first aid can feel overwhelming, but you're doing great by seeking information.
+      
+      **Every bit of knowledge can save a life!**
+      
+      Let me try to explain it differently. What specific part would you like me to clarify?
+
+  utter_iamabot:
+  - text: |
+      I am a bot, powered by Rasa, specialized in CPR and first aid guidance. 🤖
+      
+      I'm here to help you with emergency procedures and first aid questions 24/7!
+
+actions:
+  - utter_greet
+  - utter_please_rephrase
+  - utter_cardiac_arrest_explanation
+  - utter_cpr_steps
+  - utter_emergency_numbers
+  - utter_emergency_numbers_examples
+  - utter_symptoms_description_one
+  - utter_choking_help
+  - utter_bleeding_control
+  - utter_burns_treatment
+  - utter_fracture_help
+  - utter_stroke_recognition
+  - utter_seizure_help
+  - utter_allergic_reaction
+  - utter_recovery_position
+  - utter_child_cpr
+  - utter_what_is_defibrillator
+  - utter_how_to_defibrillator
+  - utter_shock_treatment
+  - utter_hypothermia_help
+  - utter_heat_exhaustion
+  - utter_poisoning_help
+  - utter_drowning_rescue
+  - utter_thank_back
+  - utter_goodbye
+  - utter_did_that_help
+  - utter_happy
+  - utter_cheer_up
+  - utter_iamabot

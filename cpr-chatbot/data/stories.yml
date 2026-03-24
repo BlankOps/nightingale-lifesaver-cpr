@@ -1,0 +1,128 @@
+version: "3.1"
+
+stories:
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_cheer_up
+
+- story: cardiac arrest inquiry
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: what_is_cardiac_arrest
+  - action: utter_cardiac_arrest_explanation
+  - intent: symptoms
+  - action: utter_symptoms_description_one
+
+- story: cpr learning path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: how_to_cpr
+  - action: utter_cpr_steps
+
+- story: defibrillator questions
+  steps:
+  - intent: what_is_defibrillator
+  - action: utter_what_is_defibrillator
+  - intent: how_to_defibrillator
+  - action: utter_how_to_defibrillator
+
+- story: temperature emergencies
+  steps:
+  - intent: hypothermia_help
+  - action: utter_hypothermia_help
+  - intent: heat_exhaustion
+  - action: utter_heat_exhaustion
+
+- story: goodbye interaction
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: emergency sequence
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: what_are_emergency_numbers
+  - action: utter_emergency_numbers
+  - intent: what_is_cardiac_arrest
+  - action: utter_cardiac_arrest_explanation
+
+- story: cpr then defibrillator
+  steps:
+  - intent: how_to_cpr
+  - action: utter_cpr_steps
+  - intent: what_is_defibrillator
+  - action: utter_what_is_defibrillator
+  - intent: how_to_defibrillator
+  - action: utter_how_to_defibrillator
+
+- story: first aid sequence
+  steps:
+  - intent: choking_help
+  - action: utter_choking_help
+  - intent: what_are_emergency_numbers
+  - action: utter_emergency_numbers
+
+- story: bleeding then shock
+  steps:
+  - intent: bleeding_control
+  - action: utter_bleeding_control
+  - intent: shock_treatment
+  - action: utter_shock_treatment
+
+- story: child emergency
+  steps:
+  - intent: child_cpr
+  - action: utter_child_cpr
+  - intent: what_are_emergency_numbers
+  - action: utter_emergency_numbers
+
+- story: stroke then recovery
+  steps:
+  - intent: stroke_recognition
+  - action: utter_stroke_recognition
+  - intent: recovery_position
+  - action: utter_recovery_position
+
+- story: burn then emergency
+  steps:
+  - intent: burns_treatment
+  - action: utter_burns_treatment
+  - intent: what_are_emergency_numbers
+  - action: utter_emergency_numbers
+
+- story: multiple questions flow
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: symptoms
+  - action: utter_symptoms_description_one
+  - intent: how_to_cpr
+  - action: utter_cpr_steps
+  - intent: thank_you
+  - action: utter_thank_back
