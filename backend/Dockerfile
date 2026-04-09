@@ -42,11 +42,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
-COPY cpr-chatbot/requirements.txt .
+COPY ./cpr-chatbot/requirements.txt .
 RUN pip install --upgrade pip setuptools wheel \
     && pip install -r requirements.txt
 
-COPY cpr-chatbot ./src/rasa
+COPY ./cpr-chatbot ./src/rasa
 
 # Note: Model training happens separately in production pipeline
 # Pre-trained models should be committed to the repository or mounted at runtime
@@ -89,22 +89,38 @@ COPY --from=builder --chown=appuser:appuser /build/src/rasa ./src/rasa
 FROM runtime-base as production
 
 # Copy analytics application
-COPY --chown=appuser:appuser cpr-chatbot-intent-generator/package*.json ./src/analytics/
+COPY --chown=appuser:appuser ./cpr-chatbot-intent-generator/package*.json ./src/analytics/
 RUN cd src/analytics && npm ci --only=production
 
-COPY --chown=appuser:appuser cpr-chatbot-intent-generator ./src/analytics
+COPY --chown=appuser:appuser ./cpr-chatbot-intent-generator ./src/analytics
 
 # Copy entrypoint and healthcheck scripts
-COPY --chown=appuser:appuser entrypoint.sh /app/entrypoint.sh
-COPY --chown=appuser:appuser healthcheck.py /app/healthcheck.py
+COPY --chown=appuser:appuser ./entrypoint.sh /app/entrypoint.sh
+COPY --chown=appuser:appuser ./healthcheck.py /app/healthcheck.py
 
 RUN chmod +x /app/entrypoint.sh /app/healthcheck.py
 
 # Create application directories
 RUN mkdir -p /app/logs && chown -R appuser:appuser /app/logs
 
-# Copy environment configuration
-COPY --chown=appuser:appuser .env.production /app/.env
+# Create environment configuration from build args
+RUN echo "# Database Configuration" > /app/.env && \
+    echo "DB_HOST=${DB_HOST}" >> /app/.env && \
+    echo "DB_PORT=${DB_PORT}" >> /app/.env && \
+    echo "DB_DATABASE=${DB_DATABASE}" >> /app/.env && \
+    echo "DB_USERNAME=${DB_USERNAME}" >> /app/.env && \
+    echo "DB_PASSWORD=${DB_PASSWORD}" >> /app/.env && \
+    echo "DB_SSL=${DB_SSL}" >> /app/.env && \
+    echo "" >> /app/.env && \
+    echo "# Chatbot Configuration" >> /app/.env && \
+    echo "CHATBOT_IP=${CHATBOT_IP}" >> /app/.env && \
+    echo "CHATBOT_API_URL=${CHATBOT_API_URL}" >> /app/.env && \
+    echo "RASA_PORT=${RASA_PORT}" >> /app/.env && \
+    echo "" >> /app/.env && \
+    echo "# API Configuration" >> /app/.env && \
+    echo "API_PORT=${API_PORT}" >> /app/.env && \
+    echo "NODE_ENV=${NODE_ENV}" >> /app/.env && \
+    chown appuser:appuser /app/.env
 
 # Switch to non-root user
 USER appuser

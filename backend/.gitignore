@@ -1,0 +1,44 @@
+# Python environment
+cpr-chatbot/rasa310_env/
+
+# Environment files
+.env
+.env.production
+
+# Logs
+logs/
+*.log
+
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Temporary files
+*.swp
+*.tmp
+*.bak
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node modules and build artifacts
+node_modules/
+**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Coverage
+.coverage
+coverage.xml
+coverage/
+
+# Docker
+*.pid
+*.seed
+
+# Other local files
+.vscode/
+.idea/

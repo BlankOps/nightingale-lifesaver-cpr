@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 const currentAnswer = ref((await useFetch('/api/get_intent')).data.value);
 const examples = ref(new Array<string>());
 const saving = ref(false);

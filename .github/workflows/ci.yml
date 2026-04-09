@@ -19,7 +19,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: cache node modules
+      - name: Cache node modules
         uses: actions/cache@v4
         with:
           path: ~/.npm
@@ -31,39 +31,35 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-
-      - name: Install ESLint
-        run: npm install --save-dev eslint
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
         run: npm ci
 
-      # Commented until warnings are fixed 
-      #- name: Run lint
-      #  run: npx eslint src --max-warnings=0 || exit 1
+      - name: Run lint
+        run: npx eslint src --max-warnings=0
+        continue-on-error: false
 
       - name: Run tests
-        run: npm test -- --watchAll=false --passWithNoTests
+        run: npm test -- --watchAll=false --passWithNoTests --coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
-          files: ./coverage/*.json
-        continue-on-error: false
+          file: ./coverage/lcov.info
+          flags: frontend
+          name: codecov-umbrella
+        continue-on-error: true
 
       - name: Build React app
-        run: CI=false npm run build
+        run: npm run build
 
-      - name: Production build checkESL
-        run: CI=false NODE_ENV=production npm run build
-        continue-on-error: false
-
-      # [PLACEHOLDER] Uncomment and configure if you add E2E tests (e.g., Cypress)
-      #   name: Run E2E tests
-      #   run: npm run cy:run
+      - name: Production build check
+        run: NODE_ENV=production npm run build
 
   chatbot:
-    name: Basic analysis of the chatbot (cpr-chatbot)
+    name: Test and build chatbot (cpr-chatbot)
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -72,13 +68,42 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Files list
-        run: ls -la
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-      - name: Code analysis (placeholder)
-        run: echo "Tests placeholder"
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run lint (flake8)
+        run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        continue-on-error: false
+
+      - name: Run tests
+        run: python -m pytest --cov=. --cov-report=xml
+        continue-on-error: false
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          file: ./coverage.xml
+          flags: chatbot
+          name: codecov-umbrella
+        continue-on-error: true
+
   intent-generator:
-    name: Basic Analysis of the intent generator (cpr-chatbot-intent-generator)
+    name: Test and build intent generator (cpr-chatbot-intent-generator)
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -87,8 +112,97 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Files list
-        run: ls -la
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-      - name: Code analysis (placeholder)
-        run: echo "Tests placeholder"
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run lint (flake8)
+        run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        continue-on-error: false
+
+      - name: Run tests
+        run: python -m pytest --cov=. --cov-report=xml
+        continue-on-error: false
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          file: ./coverage.xml
+          flags: intent-generator
+          name: codecov-umbrella
+        continue-on-error: true
+
+  deploy-chatbot:
+    name: Deploy chatbot to production
+    runs-on: ubuntu-latest
+    needs: [frontend, chatbot, intent-generator]
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./backend
+          push: true
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/cpr-chatbot:latest
+            ${{ secrets.DOCKER_USERNAME }}/cpr-chatbot:${{ github.sha }}
+          build-args: |
+            BUILD_DATE=${{ env.BUILD_DATE }}
+            VCS_REF=${{ github.sha }}
+            VERSION=1.0.0
+            DB_HOST=${{ secrets.DB_HOST }}
+            DB_PORT=${{ secrets.DB_PORT }}
+            DB_DATABASE=${{ secrets.DB_DATABASE }}
+            DB_USERNAME=${{ secrets.DB_USERNAME }}
+            DB_PASSWORD=${{ secrets.DB_PASSWORD }}
+            DB_SSL=${{ secrets.DB_SSL }}
+            CHATBOT_IP=${{ secrets.CHATBOT_IP }}
+            CHATBOT_API_URL=${{ secrets.CHATBOT_API_URL }}
+            RASA_PORT=${{ secrets.RASA_PORT }}
+            API_PORT=${{ secrets.API_PORT }}
+            NODE_ENV=${{ secrets.NODE_ENV }}
+          labels: |
+            org.opencontainers.image.created=${{ env.BUILD_DATE }}
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.version=1.0.0
+
+      - name: Deploy to production server
+        run: |
+          echo "Deploying to production using Docker Compose..."
+          # Assuming you have SSH access to your server
+          # Replace with your actual deployment commands based on the guide
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << EOF
+            cd /path/to/your/app
+            docker-compose -f docker-compose.production.yml down
+            docker pull ${{ secrets.DOCKER_USERNAME }}/cpr-chatbot:latest
+            docker-compose -f docker-compose.production.yml up -d
+            docker system prune -f
+          EOF
+        env:
+          BUILD_DATE: $(date -u +'%Y-%m-%dT%H:%M:%SZ')

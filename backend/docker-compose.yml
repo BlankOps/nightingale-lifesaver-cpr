@@ -3,6 +3,7 @@ version: '3.8'
 services:
   backend:
     build: .
+    container_name: cpr-chatbot-dev
     ports:
       - "3000:3000"
       - "5005:5005"
@@ -16,8 +17,21 @@ services:
       - CHATBOT_API_URL=${CHATBOT_API_URL}
       - RASA_PORT=${RASA_PORT}
       - API_PORT=${API_PORT}
+      - RASA_HOST=0.0.0.0
+      - ANALYTICS_PORT=3000
+      - NODE_ENV=development
+      - DEBUG=true
+      - ENVIRONMENT=development
     env_file:
       - .env
     volumes:
-      - ./cpr-chatbot:/app/cpr-chatbot
+      - ./cpr-chatbot:/app/src/rasa
+      - ./cpr-chatbot-intent-generator:/app/src/analytics
+      - ./logs:/app/logs
     restart: unless-stopped
+    networks:
+      - cpr-network
+
+networks:
+  cpr-network:
+    driver: bridge
