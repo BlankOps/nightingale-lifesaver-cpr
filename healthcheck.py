@@ -8,10 +8,9 @@ import os
 import sys
 import logging
 import json
-from typing import Dict, Tuple
 import urllib.request
 import urllib.error
-import time
+from datetime import datetime
 
 # Setup structured logging
 logging.basicConfig(
@@ -25,85 +24,82 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Configuration
+RASA_URL = os.getenv("RASA_API_URL", "http://localhost:5005")
+ANALYTICS_URL = os.getenv("ANALYTICS_API_URL", "http://localhost:3000")
+TIMEOUT = int(os.getenv("HEALTHCHECK_TIMEOUT", "5"))
 
-def check_rasa_health() -> Tuple[bool, str]:
-    """Check Rasa API health."""
-    rasa_url = os.getenv("RASA_API_URL", "http://localhost:5005")
-    rasa_timeout = int(os.getenv("RASA_HEALTH_TIMEOUT", "5"))
-    
+def log_check(status, message, check_type):
+    """Log health check result in JSON format"""
+    log_entry = {
+        "timestamp": datetime.utcnow().isoformat(),
+        "check_type": check_type,
+        "status": status,
+        "message": message
+    }
+    print(json.dumps(log_entry))
+    return status == "healthy"
+
+
+def request_url(url: str) -> int:
+    request = urllib.request.Request(url, headers={"User-Agent": "healthcheck"})
+    with urllib.request.urlopen(request, timeout=TIMEOUT) as response:
+        return response.getcode()
+
+
+def check_startup():
+    """Startup check - only verify Rasa is responding"""
     try:
-        req = urllib.request.Request(
-            f"{rasa_url}/status",
-            headers={"Accept": "application/json"}
-        )
-        with urllib.request.urlopen(req, timeout=rasa_timeout) as response:
-            if response.status == 200:
-                data = json.loads(response.read().decode())
-                logger.info(f"Rasa health check passed: {data}")
-                return True, "Rasa API is healthy"
-            else:
-                return False, f"Rasa returned status {response.status}"
-    except urllib.error.URLError as e:
-        logger.warning(f"Rasa health check failed: {e}")
-        return False, f"Rasa connection error: {str(e)}"
+        status_code = request_url(f"{RASA_URL}/")
+        if status_code == 200:
+            return log_check("healthy", "Rasa startup check passed", "startup")
+        return log_check("unhealthy", f"Rasa returned {status_code}", "startup")
     except Exception as e:
-        logger.error(f"Rasa health check exception: {e}")
-        return False, f"Rasa error: {str(e)}"
+        return log_check("unhealthy", f"Rasa startup check failed: {str(e)}", "startup")
 
+def check_readiness():
+    """Readiness check - verify both Rasa and Analytics"""
+    rasa_ok = False
+    analytics_ok = False
 
-def check_analytics_health() -> Tuple[bool, str]:
-    """Check Analytics service health."""
-    analytics_url = os.getenv("ANALYTICS_API_URL", "http://localhost:3000")
-    analytics_timeout = int(os.getenv("ANALYTICS_HEALTH_TIMEOUT", "5"))
-    
     try:
-        req = urllib.request.Request(
-            f"{analytics_url}/health",
-            headers={"Accept": "application/json"}
-        )
-        with urllib.request.urlopen(req, timeout=analytics_timeout) as response:
-            if response.status == 200:
-                data = json.loads(response.read().decode())
-                logger.info(f"Analytics health check passed: {data}")
-                return True, "Analytics service is healthy"
-            else:
-                return False, f"Analytics returned status {response.status}"
-    except urllib.error.URLError as e:
-        logger.warning(f"Analytics health check failed: {e}")
-        return False, f"Analytics connection error: {str(e)}"
-    except Exception as e:
-        logger.error(f"Analytics health check exception: {e}")
-        return False, f"Analytics error: {str(e)}"
+        rasa_ok = request_url(f"{RASA_URL}/") == 200
+    except:
+        pass
 
+    try:
+        analytics_ok = request_url(f"{ANALYTICS_URL}/health") == 200
+    except:
+        pass
 
-def main() -> int:
-    """Run all health checks."""
+    if rasa_ok and analytics_ok:
+        return log_check("healthy", "All services ready", "readiness")
+
+    msg = f"Rasa: {rasa_ok}, Analytics: {analytics_ok}"
+    return log_check("unhealthy", msg, "readiness")
+
+def check_liveness():
+    """Liveness check - verify services are running"""
+    try:
+        r1_ok = request_url(f"{RASA_URL}/") == 200
+        r2_ok = request_url(f"{ANALYTICS_URL}/health") == 200
+        if r1_ok and r2_ok:
+            return log_check("healthy", "Services alive", "liveness")
+    except:
+        pass
+
+    return log_check("unhealthy", "Service connectivity failed", "liveness")
+
+if __name__ == "__main__":
     check_type = sys.argv[1] if len(sys.argv) > 1 else "startup"
     
     if check_type == "startup":
-        # Startup check: only check Rasa (analytics might still be starting)
-        rasa_ok, rasa_msg = check_rasa_health()
-        logger.info(f"Startup health check - Rasa: {rasa_msg}")
-        return 0 if rasa_ok else 1
-    
+        success = check_startup()
     elif check_type == "readiness":
-        # Readiness check: both services should be healthy
-        rasa_ok, rasa_msg = check_rasa_health()
-        analytics_ok, analytics_msg = check_analytics_health()
-        
-        logger.info(f"Readiness checks - Rasa: {rasa_msg}, Analytics: {analytics_msg}")
-        return 0 if (rasa_ok and analytics_ok) else 1
-    
+        success = check_readiness()
     elif check_type == "liveness":
-        # Liveness check: at least Rasa should be responding
-        rasa_ok, rasa_msg = check_rasa_health()
-        logger.info(f"Liveness check - Rasa: {rasa_msg}")
-        return 0 if rasa_ok else 1
-    
+        success = check_liveness()
     else:
-        logger.error(f"Unknown check type: {check_type}")
-        return 2
-
-
-if __name__ == "__main__":
-    sys.exit(main())
+        success = False
+    
+    sys.exit(0 if success else 1)

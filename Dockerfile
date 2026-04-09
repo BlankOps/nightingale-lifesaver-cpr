@@ -42,11 +42,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
-COPY cpr-chatbot/requirements.txt .
+COPY ./cpr-chatbot/requirements.txt .
 RUN pip install --upgrade pip setuptools wheel \
     && pip install -r requirements.txt
 
-COPY cpr-chatbot ./src/rasa
+COPY ./cpr-chatbot ./src/rasa
 
 # Note: Model training happens separately in production pipeline
 # Pre-trained models should be committed to the repository or mounted at runtime
@@ -89,14 +89,14 @@ COPY --from=builder --chown=appuser:appuser /build/src/rasa ./src/rasa
 FROM runtime-base as production
 
 # Copy analytics application
-COPY --chown=appuser:appuser cpr-chatbot-intent-generator/package*.json ./src/analytics/
+COPY --chown=appuser:appuser ./cpr-chatbot-intent-generator/package*.json ./src/analytics/
 RUN cd src/analytics && npm ci --only=production
 
-COPY --chown=appuser:appuser cpr-chatbot-intent-generator ./src/analytics
+COPY --chown=appuser:appuser ./cpr-chatbot-intent-generator ./src/analytics
 
 # Copy entrypoint and healthcheck scripts
-COPY --chown=appuser:appuser entrypoint.sh /app/entrypoint.sh
-COPY --chown=appuser:appuser healthcheck.py /app/healthcheck.py
+COPY --chown=appuser:appuser ./entrypoint.sh /app/entrypoint.sh
+COPY --chown=appuser:appuser ./healthcheck.py /app/healthcheck.py
 
 RUN chmod +x /app/entrypoint.sh /app/healthcheck.py
 
@@ -104,7 +104,7 @@ RUN chmod +x /app/entrypoint.sh /app/healthcheck.py
 RUN mkdir -p /app/logs && chown -R appuser:appuser /app/logs
 
 # Copy environment configuration
-COPY --chown=appuser:appuser .env.production /app/.env
+COPY --chown=appuser:appuser ./.env.production /app/.env
 
 # Switch to non-root user
 USER appuser
