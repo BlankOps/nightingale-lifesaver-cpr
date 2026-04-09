@@ -1,6 +1,5 @@
 import { addUserQuestion, updateBotAnswerCount } from '~/utils/database';
 
-
 export default defineEventHandler(async (event) => {
 	if (event.method === 'OPTIONS') {
 		setResponseStatus(event, 204, 'No content');

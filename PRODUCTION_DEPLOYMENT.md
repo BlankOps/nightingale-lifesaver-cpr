@@ -18,14 +18,14 @@ This application is now production-ready with comprehensive health checks, struc
 - Configured log levels per service
 - Docker JSON driver configured for log rotation
 
-### 3. **Environment Configuration** (`.env.production`)
-Key configuration sections:
-- **Rasa Configuration**: Ports, hosts, threading, log levels
-- **Analytics Configuration**: Node.js environment and logging
-- **Health Check Settings**: Timeouts, intervals, retries
-- **Security**: CORS origins, rate limiting (extensible)
-- **Monitoring**: Prometheus metrics, Jaeger tracing (optional)
-- **Database** secrets (if applicable)
+### 3. **Environment Configuration** (Build-time injection)
+Environment variables are now injected during Docker build process for security:
+- **Database Configuration**: DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD, DB_SSL
+- **Chatbot Configuration**: CHATBOT_IP, CHATBOT_API_URL, RASA_PORT
+- **API Configuration**: API_PORT, NODE_ENV
+- **Build Metadata**: BUILD_DATE, VCS_REF, VERSION
+
+Environment variables are securely passed as build arguments and written to `.env` file during container build.
 
 ### 4. **Process Management** (`entrypoint.sh`)
 - Proper signal handling (SIGTERM, SIGINT)
@@ -49,12 +49,23 @@ Key configuration sections:
 
 ## Usage
 
-### Build the image:
+### Build the image with environment variables:
 ```bash
 docker build \
   --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') \
   --build-arg VCS_REF=$(git rev-parse --short HEAD) \
   --build-arg VERSION=1.0.0 \
+  --build-arg DB_HOST=your-db-host \
+  --build-arg DB_PORT=5432 \
+  --build-arg DB_DATABASE=your-db \
+  --build-arg DB_USERNAME=your-user \
+  --build-arg DB_PASSWORD=your-password \
+  --build-arg DB_SSL=require \
+  --build-arg CHATBOT_IP=0.0.0.0 \
+  --build-arg CHATBOT_API_URL=http://localhost:5005 \
+  --build-arg RASA_PORT=5005 \
+  --build-arg API_PORT=3000 \
+  --build-arg NODE_ENV=production \
   -t cpr-chatbot:1.0.0 \
   .
 ```
@@ -64,10 +75,20 @@ docker build \
 docker-compose -f docker-compose.production.yml up -d
 ```
 
-### Run with custom environment:
+### Run with environment variables (alternative):
 ```bash
 docker run -d \
-  --env-file .env.production \
+  -e DB_HOST=your-db-host \
+  -e DB_PORT=5432 \
+  -e DB_DATABASE=your-db \
+  -e DB_USERNAME=your-user \
+  -e DB_PASSWORD=your-password \
+  -e DB_SSL=require \
+  -e CHATBOT_IP=0.0.0.0 \
+  -e CHATBOT_API_URL=http://localhost:5005 \
+  -e RASA_PORT=5005 \
+  -e API_PORT=3000 \
+  -e NODE_ENV=production \
   -p 5005:5005 \
   -p 3000:3000 \
   -v ./logs:/app/logs \
@@ -104,13 +125,13 @@ docker logs cpr-chatbot | jq 'select(.level == "ERROR")'
 ## Configuration
 
 ### Environment Variables
-Edit `.env.production` to customize:
-- Service ports and hosts
-- Log levels and formats
-- Health check parameters
-- CORS origins
-- Database connections (if applicable)
-- Monitoring endpoints
+Environment variables are passed as build arguments during Docker build:
+- **Database**: DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD, DB_SSL
+- **Chatbot**: CHATBOT_IP, CHATBOT_API_URL, RASA_PORT
+- **API**: API_PORT, NODE_ENV
+- **Build**: BUILD_DATE, VCS_REF, VERSION
+
+For local development, use the `.env.production.example` as a reference for required variables.
 
 ### Health Check Customization
 Modify in Dockerfile:

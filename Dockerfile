@@ -103,8 +103,24 @@ RUN chmod +x /app/entrypoint.sh /app/healthcheck.py
 # Create application directories
 RUN mkdir -p /app/logs && chown -R appuser:appuser /app/logs
 
-# Copy environment configuration
-COPY --chown=appuser:appuser ./.env.production /app/.env
+# Create environment configuration from build args
+RUN echo "# Database Configuration" > /app/.env && \
+    echo "DB_HOST=${DB_HOST}" >> /app/.env && \
+    echo "DB_PORT=${DB_PORT}" >> /app/.env && \
+    echo "DB_DATABASE=${DB_DATABASE}" >> /app/.env && \
+    echo "DB_USERNAME=${DB_USERNAME}" >> /app/.env && \
+    echo "DB_PASSWORD=${DB_PASSWORD}" >> /app/.env && \
+    echo "DB_SSL=${DB_SSL}" >> /app/.env && \
+    echo "" >> /app/.env && \
+    echo "# Chatbot Configuration" >> /app/.env && \
+    echo "CHATBOT_IP=${CHATBOT_IP}" >> /app/.env && \
+    echo "CHATBOT_API_URL=${CHATBOT_API_URL}" >> /app/.env && \
+    echo "RASA_PORT=${RASA_PORT}" >> /app/.env && \
+    echo "" >> /app/.env && \
+    echo "# API Configuration" >> /app/.env && \
+    echo "API_PORT=${API_PORT}" >> /app/.env && \
+    echo "NODE_ENV=${NODE_ENV}" >> /app/.env && \
+    chown appuser:appuser /app/.env
 
 # Switch to non-root user
 USER appuser

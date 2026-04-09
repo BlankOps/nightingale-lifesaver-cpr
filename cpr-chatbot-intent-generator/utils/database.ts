@@ -6,13 +6,11 @@ const { Client } = pg;
 
 const DOCKER_ENV_CONF = dotenv.config({ path: path.resolve('docker/postgres/.env') })?.parsed;
 
-
 export type IntentType = {
 	id: number,
 	intent: string,
-	answer: string
-}
-
+	answer: string,
+};
 
 function getDbClient() {
 	return new Client({
@@ -23,7 +21,6 @@ function getDbClient() {
 		database: DOCKER_ENV_CONF?.POSTGRES_USER,
 	});
 }
-
 
 export async function getIntent(intent: string): Promise<IntentType | undefined> {
 	const client = getDbClient();
@@ -39,7 +36,6 @@ export async function getIntent(intent: string): Promise<IntentType | undefined>
 	await client.end();
 	return res?.rows[0];
 }
-
 
 export async function addQuestion(intent_id: number, question: string): Promise<boolean> {
 	const client = getDbClient();

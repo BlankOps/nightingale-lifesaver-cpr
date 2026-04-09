@@ -3,8 +3,7 @@ import { addQuestion } from '~/utils/database';
 type IntentDataBody = {
 	intent_id: number,
 	question: string,
-}
-
+};
 
 export default defineEventHandler(async (event) => {
 	const body: IntentDataBody = await readBody(event);
