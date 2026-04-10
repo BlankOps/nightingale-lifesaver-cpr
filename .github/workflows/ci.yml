@@ -2,6 +2,9 @@
 
 name: CI - CPR Monorepo
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
   push:
     branches: [master, feature/dockerfile-updates]
@@ -73,11 +76,17 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run lint (flake8)
-        run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        run: flake8 . --exclude=rasa310_env,.pytest_cache,.config,.keras --count --select=E9,F63,F7,F82 --show-source --statistics
         continue-on-error: false
 
       - name: Run tests
-        run: python -m pytest --cov=. --cov-report=xml
+        run: |
+          TEST_ARGS="--ignore=rasa310_env --ignore=.pytest_cache --ignore=.config --ignore=.keras"
+          if python -m pytest --collect-only --quiet $TEST_ARGS | grep -q "collected 0 items"; then
+            echo "No Python tests found; skipping pytest"
+          else
+            python -m pytest --cov=. --cov-report=xml $TEST_ARGS
+          fi
         continue-on-error: false
 
       - name: Upload coverage to Codecov
