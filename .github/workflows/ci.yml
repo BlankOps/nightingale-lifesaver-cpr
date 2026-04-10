@@ -9,12 +9,12 @@ on:
     branches: [master]
 
 jobs:
-  frontend:
-    name: Test and build React (cpr_project)
+  analytics:
+    name: Test and build analytics frontend
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: frontend/cpr_project
+        working-directory: backend/cpr-chatbot/analytics
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -23,7 +23,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('backend/cpr-chatbot/analytics/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
 
@@ -32,27 +32,12 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
-          cache-dependency-path: package-lock.json
+          cache-dependency-path: backend/cpr-chatbot/analytics/package-lock.json
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Run lint
-        run: npx eslint src --max-warnings=0
-        continue-on-error: false
-
-      - name: Run tests
-        run: npm test -- --watchAll=false --passWithNoTests --coverage
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          file: ./coverage/lcov.info
-          flags: frontend
-          name: codecov-umbrella
-        continue-on-error: true
-
-      - name: Build React app
+      - name: Build analytics app
         run: npm run build
 
       - name: Production build check
@@ -103,7 +88,7 @@ jobs:
         continue-on-error: true
 
   intent-generator:
-    name: Test and build intent generator (cpr-chatbot-intent-generator)
+    name: Test and build intent generator frontend
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -112,57 +97,51 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Cache pip dependencies
+      - name: Cache node modules
         uses: actions/cache@v4
         with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('backend/cpr-chatbot-intent-generator/package.json') }}
           restore-keys: |
-            ${{ runner.os }}-pip-
+            ${{ runner.os }}-node-
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+          cache-dependency-path: backend/cpr-chatbot-intent-generator/package.json
 
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+        run: npm install
 
-      - name: Run lint (flake8)
-        run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        continue-on-error: false
-
-      - name: Run tests
-        run: python -m pytest --cov=. --cov-report=xml
-        continue-on-error: false
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          file: ./coverage.xml
-          flags: intent-generator
-          name: codecov-umbrella
-        continue-on-error: true
+      - name: Build intent generator app
+        run: npm run build
 
   deploy-chatbot:
-    name: Deploy chatbot to production
+    name: Deploy chatbot to AWS ECS
     runs-on: ubuntu-latest
-    needs: [frontend, chatbot, intent-generator]
+    needs: [analytics, chatbot, intent-generator]
     if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    env:
+      ECR_REGISTRY: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
+      ECR_REPOSITORY: cpr-chatbot
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Log in to Docker Hub
-        uses: docker/login-action@v3
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Set build metadata
+        run: echo "BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_ENV
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
@@ -170,39 +149,47 @@ jobs:
           context: ./backend
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/cpr-chatbot:latest
-            ${{ secrets.DOCKER_USERNAME }}/cpr-chatbot:${{ github.sha }}
+            ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:latest
+            ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ github.sha }}
           build-args: |
             BUILD_DATE=${{ env.BUILD_DATE }}
             VCS_REF=${{ github.sha }}
             VERSION=1.0.0
-            DB_HOST=${{ secrets.DB_HOST }}
-            DB_PORT=${{ secrets.DB_PORT }}
-            DB_DATABASE=${{ secrets.DB_DATABASE }}
-            DB_USERNAME=${{ secrets.DB_USERNAME }}
-            DB_PASSWORD=${{ secrets.DB_PASSWORD }}
-            DB_SSL=${{ secrets.DB_SSL }}
-            CHATBOT_IP=${{ secrets.CHATBOT_IP }}
-            CHATBOT_API_URL=${{ secrets.CHATBOT_API_URL }}
-            RASA_PORT=${{ secrets.RASA_PORT }}
-            API_PORT=${{ secrets.API_PORT }}
-            NODE_ENV=${{ secrets.NODE_ENV }}
-          labels: |
-            org.opencontainers.image.created=${{ env.BUILD_DATE }}
-            org.opencontainers.image.revision=${{ github.sha }}
-            org.opencontainers.image.version=1.0.0
 
-      - name: Deploy to production server
+      - name: Render ECS task definition
         run: |
-          echo "Deploying to production using Docker Compose..."
-          # Assuming you have SSH access to your server
-          # Replace with your actual deployment commands based on the guide
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << EOF
-            cd /path/to/your/app
-            docker-compose -f docker-compose.production.yml down
-            docker pull ${{ secrets.DOCKER_USERNAME }}/cpr-chatbot:latest
-            docker-compose -f docker-compose.production.yml up -d
-            docker system prune -f
-          EOF
-        env:
-          BUILD_DATE: $(date -u +'%Y-%m-%dT%H:%M:%SZ')
+          python - <<'PY'
+          import os
+          with open('backend/ecs-task-definition.template.json') as f:
+              template = f.read()
+          replacements = {
+              '{{IMAGE_URI}}': f"{os.environ['ECR_REGISTRY']}/{os.environ['ECR_REPOSITORY']}:latest",
+              '{{TASK_ROLE_ARN}}': os.environ['AWS_ECS_TASK_ROLE_ARN'],
+              '{{EXECUTION_ROLE_ARN}}': os.environ['AWS_ECS_EXECUTION_ROLE_ARN'],
+              '{{DB_HOST_SECRET_ARN}}': os.environ['DB_HOST_SECRET_ARN'],
+              '{{DB_USER_SECRET_ARN}}': os.environ['DB_USER_SECRET_ARN'],
+              '{{DB_PASSWORD_SECRET_ARN}}': os.environ['DB_PASSWORD_SECRET_ARN'],
+              '{{DB_NAME_SECRET_ARN}}': os.environ['DB_NAME_SECRET_ARN'],
+              '{{AWS_REGION}}': os.environ['AWS_REGION'],
+          }
+          for key, value in replacements.items():
+              template = template.replace(key, value)
+          with open('backend/ecs-task-definition.json', 'w') as out:
+              out.write(template)
+          PY
+
+      - name: Register ECS task definition
+        run: aws ecs register-task-definition --cli-input-json file://backend/ecs-task-definition.json
+
+      - name: Deploy to ECS service
+        run: |
+          aws ecs update-service --cluster "${{ secrets.AWS_ECS_CLUSTER }}" --service "${{ secrets.AWS_ECS_SERVICE }}" --force-new-deployment
+
+      - name: Verify ECS deployment
+        run: |
+          TASK_COUNT=$(aws ecs describe-services --cluster "${{ secrets.AWS_ECS_CLUSTER }}" --services "${{ secrets.AWS_ECS_SERVICE }}" --query 'services[0].runningCount' --output text)
+          if [ "$TASK_COUNT" = "0" ]; then
+            echo "ECS service has no running tasks"
+            exit 1
+          fi
+          echo "ECS service is running with $TASK_COUNT task(s)"
