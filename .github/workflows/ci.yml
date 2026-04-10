@@ -4,9 +4,10 @@ name: CI - CPR Monorepo
 
 on:
   push:
-    branches: [master]
+    branches: [master, feature/dockerfile-updates]
   pull_request:
     branches: [master]
+  workflow_dispatch:
 
 jobs:
   analytics:
