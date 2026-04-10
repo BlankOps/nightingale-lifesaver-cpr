@@ -1,0 +1,97 @@
+{
+  "family": "cpr-chatbot",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "512",
+  "memory": "1024",
+  "executionRoleArn": "arn:aws:iam::123456789012:role/ecsExecutionRole",
+  "taskRoleArn": "arn:aws:iam::123456789012:role/ecsTaskRole",
+  "containerDefinitions": [
+    {
+      "name": "cpr-chatbot",
+      "image": "123456789012.dkr.ecr.us-east-1.amazonaws.com/cpr-chatbot:latest",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "RASA_PORT",
+          "value": "5005"
+        },
+        {
+          "name": "RASA_HOST",
+          "value": "0.0.0.0"
+        },
+        {
+          "name": "RASA_CWD",
+          "value": "/app/src/rasa"
+        },
+        {
+          "name": "RASA_CORS",
+          "value": "*"
+        },
+        {
+          "name": "RASA_LOG_LEVEL",
+          "value": "INFO"
+        },
+        {
+          "name": "ANALYTICS_PORT",
+          "value": "3000"
+        },
+        {
+          "name": "ANALYTICS_HOST",
+          "value": "0.0.0.0"
+        },
+        {
+          "name": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "name": "RASA_API_URL",
+          "value": "http://localhost:5005"
+        },
+        {
+          "name": "ANALYTICS_API_URL",
+          "value": "http://localhost:3000"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "DB_HOST",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:123456789012:secret:db-host"
+        },
+        {
+          "name": "DB_USER",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:123456789012:secret:db-user"
+        },
+        {
+          "name": "DB_PASSWORD",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:123456789012:secret:db-password"
+        },
+        {
+          "name": "DB_NAME",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:123456789012:secret:db-name"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/cpr-chatbot",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "healthCheck": {
+        "command": ["CMD-SHELL", "curl -f http://localhost:3000/health || exit 1"],
+        "interval": 30,
+        "timeout": 10,
+        "retries": 3,
+        "startPeriod": 40
+      }
+    }
+  ]
+}
