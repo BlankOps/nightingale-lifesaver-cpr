@@ -83,8 +83,15 @@ jobs:
       - name: Run tests
         run: |
           TEST_ARGS="--ignore=rasa310_env --ignore=.pytest_cache --ignore=.config --ignore=.keras"
-          if python -m pytest --collect-only --quiet $TEST_ARGS | grep -q "collected 0 items"; then
+          set +e
+          python -m pytest --collect-only --quiet $TEST_ARGS
+          COLLECT_STATUS=$?
+          set -e
+
+          if [ "$COLLECT_STATUS" -eq 5 ]; then
             echo "No Python tests found; skipping pytest"
+          elif [ "$COLLECT_STATUS" -ne 0 ]; then
+            exit "$COLLECT_STATUS"
           else
             python -m pytest --cov=. --cov-report=xml $TEST_ARGS
           fi
